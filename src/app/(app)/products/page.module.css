@@ -1,0 +1,45 @@
+.products {
+    display: grid;
+    padding: 20px 0;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.list {
+    width: 100%;
+    grid-column: span 3;
+}
+
+
+@media screen and (max-width: 1020px) {
+
+    .products {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+    .list {
+        width: 100%;
+        grid-column: span 1;
+    }
+  
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+  
+}
+
+@media screen and (max-width: 668px) {
+
+
+    
+}
+
+
+@media screen and (max-width: 511px) {
+
+  
+  
+}

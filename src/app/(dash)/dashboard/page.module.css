@@ -1,0 +1,79 @@
+.main {
+    background-image: url('https://www.pixelstalk.net/wp-content/uploads/images6/Dedsec-Wallpaper-Desktop.png');
+    background-position: center;
+    background-size: cover;
+}
+
+
+.overlay {
+    background-color: #2929295b;
+}
+
+
+.dashboard {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.imageBack {
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/331/895/710/dedsec-hacking-watch-dogs-watch-dogs-2-wallpaper-preview.jpg');
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.formWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px 20px 20px;
+    height: calc(100vh - 70px);
+}
+
+
+.formInner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+    align-items: center;
+    background-color: #292929;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 1px #111;
+}
+
+.formInner .wrapperImage {
+    background-color: #111111c4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    padding: 0 30px 0 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+    color: #cccccc;
+}
+
+.form h1 {
+    letter-spacing: 2px;
+    font-size: 40px;
+    font-weight: 500;
+}

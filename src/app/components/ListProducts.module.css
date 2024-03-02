@@ -1,0 +1,261 @@
+.ListProducts {
+    width: 100%;
+}
+
+.products {
+    width: 100%;
+    display: grid;
+    padding: initial;
+    grid-template-columns:repeat(5, 1fr);
+    gap: 10px;
+}
+
+
+.singleProduct{
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 5px;
+  gap: 7px;
+  justify-content: space-between;
+  color: #111;
+  background-color: #F2F2F2;  
+  border-radius: 5px;
+}
+
+.singleProduct img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover; 
+    -o-object-fit: cover; 
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+}
+
+.productsTitle {
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productsPrice {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.likeButton {
+    background-color: transparent;
+    padding: 0 5px;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.notfound {
+    width: 100%;
+    grid-column: span 5; 
+    padding: 50px 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #3f3f3f;
+}
+
+.notfound h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.notfound svg {
+    font-size: 50px;
+}
+
+.pages {
+    padding: 10px 0;
+    display: flex;
+    grid-column: span 5; 
+    justify-content: center;
+    align-items: center;
+}
+
+.pages button {
+    padding: 10px 15px;
+    background-color: #111;
+    color: white;
+    outline: 0;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+}
+
+
+.skeletons {
+    display: grid;
+    padding: initial;
+    grid-column: span 5; 
+    grid-template-columns:repeat(5, 1fr);
+    gap: 10px;
+}
+
+
+.skeletons .singleProduct {
+    background: linear-gradient(310deg, #ffffff, #c6c6c6);
+    background-size: 400% 400%;
+    width: 100%;
+    height: 300px;
+    -webkit-animation: AnimationName 2s infinite;
+    -moz-animation: AnimationName 2s  infinite;
+    -o-animation: AnimationName 2s  infinite;
+    animation: AnimationName 2s  infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@media screen and (max-width: 1250px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+    }
+
+    .notfound {
+        grid-column: span 4;
+    }
+
+    .skeletons {
+        grid-template-columns:repeat(4, 1fr);
+        grid-column: span 4; 
+    }
+    
+
+    .pages {
+        grid-column: span 4; 
+    }
+    
+
+}
+
+@media screen and (max-width: 890px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr; 
+        padding: 20px 28px;
+    }
+
+
+    .skeletons {
+        grid-template-columns:repeat(3, 1fr);
+        grid-column: span 3; 
+    }
+    
+
+    .notfound {
+        grid-column: span 4;
+    }
+
+    .pages {
+        grid-column: span 4; 
+    }
+    
+    
+}
+
+@media screen and (max-width: 800px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+    }
+
+
+    .skeletons {
+        grid-template-columns:repeat(4, 1fr);
+        grid-column: span 4; 
+    }
+    
+
+    .notfound {
+        grid-column: span 4;
+    }
+
+    .pages {
+        grid-column: span 4; 
+    }
+    
+    
+}
+
+@media screen and (max-width: 668px) {
+    .products {
+        grid-template-columns: 1fr 1fr 1fr; 
+        padding: 20px 28px;
+    }
+
+
+    .skeletons {
+        grid-template-columns:repeat(3, 1fr);
+    }
+    
+
+    .notfound {
+        grid-column: span 3;
+    }
+
+    .singleProduct img {
+        height: 200px;
+    }
+
+
+    .pages {
+        grid-column: span 3; 
+    }
+    
+    
+    
+}
+
+
+@media screen and (max-width: 511px) {
+
+    .products {
+        grid-template-columns: 1fr 1fr; 
+        padding: 20px 28px;
+    }
+
+    .notfound {
+        grid-column: span 2;
+    }
+
+    .skeletons {
+        grid-template-columns:repeat(2, 1fr);
+    }
+    
+
+    .pages {
+        grid-column: span 2; 
+    }
+    
+    
+    .singleProduct img {
+        height: 200px;
+    }
+    
+}

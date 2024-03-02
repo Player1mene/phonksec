@@ -1,0 +1,13 @@
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}

@@ -1,0 +1,617 @@
+.main {
+  margin: 0;
+  padding: 0;
+}
+
+.presentation {
+  background-image: url('https://cdn.discordapp.com/attachments/1091340777197670460/1212427957218574438/image.png?ex=65f1cc86&is=65df5786&hm=c46cc0fc4adfd80efe61b66462bd74d783cb0ad00d6acb22036f6b4c67cfc48b&');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 560px;
+}
+
+.logoImage {
+  display: block !important;
+  max-width: 300px;
+}
+
+.abs {
+  position: relative;
+  width: 500px;
+  height: 100%;
+  background: #181818;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 20px;
+}
+
+.absHeader {
+  width: 100%;
+  height: 55px;
+  background: #0018ED;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  color: white;
+}
+
+.absHeader h1 {
+  font-weight: medium;
+  font-size: 20px;
+}
+
+.closeButton {
+  padding: 5px 8px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  color: white;
+  outline: 0;
+  border:0;
+  background-color: #FF3030;
+  justify-content: center;
+}
+
+.welcomeInfo {
+  padding: 0 12px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.welcomeInfo p {
+  font-size: 20px;
+  font-weight: normal;
+  max-width: 400px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 40px;
+}
+
+.welcomeButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcomeInfo a {
+  font-size: 20px;
+  padding: 10px 25px;
+  display: inline-block;
+  font-weight: normal;
+  text-transform: uppercase;
+  background-color: #1E1E1E;
+  box-shadow: 0px 0px 0px 2px #999999;
+  border-radius: 2px;
+}
+
+
+.welcomeInfo img {
+  display: none;
+}
+
+.loading {
+  z-index: 1002;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1A1A1A;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.loadingLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  animation: logo 1s infinite;
+} 
+
+.categories {
+  padding: 50px 0;
+  background-color: #FFFFFF;
+}
+
+.categories h1 {
+  font-weight: normal;
+  color: #111;
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+.products {
+  position: relative;
+  padding-top: 30px;
+  background-color: #FFFFFF;
+}
+
+.products h1 {
+  font-weight: normal;
+  font-size: 30px;
+  padding: 20px 0;
+}
+
+.more {
+  z-index: 102;
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 40%);
+}
+
+
+.more a {
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 25px;
+  font-size: 20px;
+  border-radius: 2px;
+  background-color: white;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.664);
+}
+
+.infos {
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #FFFFFF;
+  color: #111;
+}
+
+.infos img {
+  width: 100%;
+}
+
+
+.imgMobile {
+  display: none;
+}
+
+
+.infoWrapper {
+  position: relative;
+  padding: 20px 0;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.infoWrapper h1 {
+  padding: 0 2%;
+  font-weight:500;
+  font-size: 24px;
+}
+
+.infoWrapper p {
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+.w1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense;
+  direction: rtl;
+}
+
+.w2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.artist {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #181818;
+}
+
+.artistDesc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 28px;
+  gap: 20px;
+  text-align: center;
+  color: white;
+}
+
+.artistDesc h1 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.artistDesc p {
+  font-size: 20px;
+  font-weight: 300;
+  max-width: 800px;
+}
+
+.artistSlide {
+  padding: 50px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.artistSlide::-webkit-scrollbar {
+  display: none;
+}
+
+.artistSliderWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.artistSingle {
+  display: flex;
+  gap: 10px;
+  width: 364px;
+  height: 111px;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(44,43,43,1) 0%, rgba(0,0,0,1) 100%);
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px 0px #ccc;
+}
+
+.artistSingle img {
+  border-radius: 5px;
+}
+
+.artistSingle .artDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+}
+
+
+
+
+@keyframes logo {
+  from {
+    opacity: 0.5;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1175px) {
+
+  .artistSlide {
+    padding: 50px 0;
+    width: 100%;
+  }
+  
+  .artistSliderWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+}
+@media screen and (max-width: 800px) {
+
+  .infos {
+    padding: initial;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #181818;
+  }
+
+
+  .categories {
+    padding: 50px 0;
+    background-color: #181818;
+  }
+
+
+  .categories h1 {
+    color: white;
+  }
+
+
+
+
+  .infoWrapper {
+    padding: 20px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .imgPC {
+    display: none;
+  }
+
+  .imgMobile {
+    display: block;
+  }
+  
+
+  .w1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: row-reverse;
+  }
+
+  .w2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: row-reverse;
+  }
+
+  .categories h1 {
+    font-weight: normal;
+    color: white;
+    font-size: 30px;
+    padding: 20px 32px;
+  }
+
+
+  .artistSlide {
+    padding: 50px 0;
+    width: 100%;
+  }
+  
+  .artistSliderWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+
+  
+}
+
+@media screen and (max-width: 668px) {
+
+  .more {
+    z-index: 102;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 40%);
+  }
+
+
+  .artistSlide {
+    padding: 5px 0;
+    width: 100%;
+    display: block;
+    justify-content: flex-start;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+  
+  .artistSliderWrapper {
+    display: flex;
+    width: calc((364px * 4) + 100px);
+    padding: 0 20px;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+
+  .artist {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #FFFFFF;
+  }
+  
+  .artistDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 28px;
+    gap: 20px;
+    text-align: center;
+    color: #111;
+  }
+  
+
+ 
+}
+
+
+@media screen and (max-width: 513px) {
+
+  .categories {
+    
+    padding: 0;
+  }
+
+  .products h1 {
+    font-weight: normal;
+    font-size: 30px;
+    padding: 5px 32px;
+  }
+
+  .imgMobile {
+    display: block;
+  }
+
+  .infos {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #181818;
+  }
+  
+  .infos img {
+    width: 100%;
+  }
+  
+  .infoWrapper {
+    padding: 20px 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .w1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: row-reverse;
+  }
+
+  .w2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: row-reverse;
+  }
+
+  .abs {
+    position: initial;
+    width: 100%;
+    height: 400px;
+    background: #E3E3E3;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    border: 1px solid black;
+    gap: 20px;
+  }
+
+  .absHeader {
+    width: 100%;
+    height: 55px;
+    background: #0018ED;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    color: white;
+  }
+
+  
+.presentation {
+  background-image: url('https://cdn.discordapp.com/attachments/1091340777197670460/1212427957218574438/image.png?ex=65f1cc86&is=65df5786&hm=c46cc0fc4adfd80efe61b66462bd74d783cb0ad00d6acb22036f6b4c67cfc48b&');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  padding: 0 15px;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.welcomeInfo a {
+  font-size: 20px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-weight: normal;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
+}
+
+
+
+.welcomeInfo {
+  padding: 0 12px;
+  display: flex;
+  gap: initial;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: normal;
+  height: 100%;
+}
+
+.welcomeInfo p {
+  font-size: 20px;
+  font-weight: normal;
+  max-width: initial;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 40px;
+}
+
+.welcomeButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcomeInfo a {
+  font-size: 20px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-weight: normal;
+  background-color: #E3E3E3;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
+}
+
+.welcomeInfo img {
+  display: block;
+}
+
+
+.logoImage {
+  display: none !important;
+}
+
+
+.products h1 {
+  font-weight: normal;
+  font-size: 30px;
+  padding: 5px 32px;
+}
+
+  
+}
+
+
+
