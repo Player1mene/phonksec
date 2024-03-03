@@ -51,6 +51,11 @@
 .navigationPc ul li a{
     text-decoration: none;
     color: white;
+    transition: 0.2s;
+}
+
+.navigationPc ul li a:hover {
+    color: #7ACF48ff;
 }
 
 .navigation {
@@ -86,6 +91,10 @@
 @media screen and (max-width: 800px) {
     .navigation {
         display: flex;
+    }
+
+    .headerW {
+        padding: 0 28px;
     }
 
     .navigationPc {

@@ -55,7 +55,7 @@ export default function Login() {
 
               <div className={styles.imageBack}>  
                 <div className={styles.wrapperImage}>
-                  <Image width="500" src={Logo} alt=""/>
+                  <Image width="100" src={Logo} alt=""/>
                 </div>
               </div>
 

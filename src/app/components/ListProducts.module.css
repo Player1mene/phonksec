@@ -1,5 +1,6 @@
 .ListProducts {
     width: 100%;
+    min-height: 110vh;
 }
 
 .products {

@@ -32,6 +32,7 @@ export default function ListProducts(){
         
      
         function pagination(doc:any){
+                setProducts([])
                 setLoading(false)    
                 const result:any = []
                 const total = Math.ceil(doc.docs.length / 8);

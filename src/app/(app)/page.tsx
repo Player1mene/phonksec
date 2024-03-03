@@ -36,7 +36,7 @@ export default function Home() {
               </button>
             </div>
             <div className={styles.welcomeInfo}>
-              <img className={styles.logoImage} src="https://media.discordapp.net/attachments/1091340777197670460/1212433901721747538/image.png?ex=65f1d210&is=65df5d10&hm=2f3d08c849b29db105464e001ce5f5b89248e61531e1c23ac658d235e1d3eae9&=&format=webp&quality=lossless"/>
+              <img className={styles.logoImage} src="https://cdn.discordapp.com/attachments/1124075504446738512/1213889958591340564/phonksec_logo.png?ex=65f71e1f&is=65e4a91f&hm=fc32524d959e1e67458372587b8fce4ec3dbcaf70ff904ef0e3c18fe22d6095d&"/>
               <p>Bem-vindo(a) ao Phonksec - Sua Destinação de Moda Alternativa!
                 Explore a autenticidade em cada costura. Seja único(a).
                 Descubra mais sobre nossa coleção exclusiva.

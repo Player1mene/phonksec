@@ -5,7 +5,7 @@ export default function Loading(){
     return (
         <div className={styles.loading}>
             <div className={styles.loadingLogo}>
-                <Image src={Logo} width="100" alt=''/>
+                <div className={styles.ldsRing}><div></div><div></div><div></div><div></div></div>
             </div>
         </div>
     )
