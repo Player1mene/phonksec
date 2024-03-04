@@ -56,6 +56,7 @@ export default function ListProducts(){
                 setProducts(result)
         }
 
+        setProducts([])
         setLoading(true);    
         getDocs(CollectionProduct).then((doc)=>{
             pagination(doc)
@@ -124,16 +125,9 @@ export default function ListProducts(){
         <div className={styles.ListProducts}>
             <div className={styles.products}>
 
-            {loading && products.length > 0 ? <div className={styles.skeletons}>
-                    <div className={styles.singleProduct} ></div>
-                    <div className={styles.singleProduct} ></div>
-                    <div className={styles.singleProduct} ></div>
-                    <div className={styles.singleProduct} ></div>
-                    <div className={styles.singleProduct} ></div>
-                    <div className={styles.singleProduct} ></div>
-                    <div className={styles.singleProduct} ></div>
-            </div> : ''
-            }
+            <div className={styles.skeletons}>
+                {loading && products.length <= 0 ? [...Array.from(Array(10).keys())].map((num, i) => <div className={styles.singleProduct} key={i}></div>) : ""}
+            </div>
 
 
             {products.length > 0 && products.map((val:any, index:number)=>(
