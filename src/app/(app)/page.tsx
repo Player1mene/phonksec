@@ -8,7 +8,7 @@ import Phonk from '../../../public/image.png'
 import Image from 'next/image';
 import Categories from '../components/Categories';
 import ListProducts from '../components/ListProducts';
-import { Metadata } from 'next';
+
 
 
 const handjet = Handjet({ 
@@ -19,11 +19,6 @@ const handjet = Handjet({
 const inter = Inter({
   subsets: ["latin"],
 })
-
-export const metadata: Metadata = {
-  title: "Home - PhonkSec",
-  description: "Seja bem-vindo(a) ao PhonkSec, sua destinação de moda alternativa! Explore a autenticidade em cada costura. Seja único(a) e descubra mais sobre nossa coleção exclusiva.",
-};
 
 
 export default function Home() {
