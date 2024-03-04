@@ -125,10 +125,7 @@ export default function ListProducts(){
         <div className={styles.ListProducts}>
             <div className={styles.products}>
 
-            <div className={styles.skeletons}>
                 {loading && products.length <= 0 ? [...Array.from(Array(10).keys())].map((num, i) => <div className={styles.singleProduct} key={i}></div>) : ""}
-            </div>
-
 
             {products.length > 0 && products.map((val:any, index:number)=>(
                     <div className={styles.singleProduct} key={index}>
