@@ -20,9 +20,9 @@ export default function PainelLayout({
   if(user.admin === false) return redirect("/dashboard");
   else
   return (
-    <section className={`${leagueSpartan.className} painel`}>
-            <Nav/>
-            {children}
-    </section>
+  <section className={`${leagueSpartan.className} painel`}>
+        <Nav/>
+        {children}
+  </section>
   );
 }
