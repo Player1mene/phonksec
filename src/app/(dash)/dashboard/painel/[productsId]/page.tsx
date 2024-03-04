@@ -1,7 +1,7 @@
-export default function(){
+export default function page(){
     return (
     <div className="app">
-        <h2>aaa</h2>
+        <h2>bruh</h2>
     </div>
     )
 }
