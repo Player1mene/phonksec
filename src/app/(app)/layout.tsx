@@ -11,10 +11,10 @@ import Footer from "../components/Footer";
 const leagueSpartan = League_Spartan({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Home - PhonkSec",
+  title: "PhonkSec",
   description: "Seja bem-vindo(a) ao PhonkSec, sua destinação de moda alternativa! Explore a autenticidade em cada costura. Seja único(a) e descubra mais sobre nossa coleção exclusiva.",
   openGraph: {
-    images: 'https://cdn.discordapp.com/attachments/1091340777197670460/1214233466867294209/ms-icon-144x144.png?ex=65f85e09&is=65e5e909&hm=ce3eb4709934cb8e88f62d360c3f2c809c7b06f46233c409ff56b01a308e3fc4&',
+    images: 'https://media.discordapp.net/attachments/1091340777197670460/1213468962902511636/image.png?ex=65f59609&is=65e32109&hm=b3d841f9415239d76c01fc19aff4e72f3682fef731cb6dd069ad674528ae2ef3&=&format=webp&quality=lossless&width=473&height=473',
   },
 };
 
