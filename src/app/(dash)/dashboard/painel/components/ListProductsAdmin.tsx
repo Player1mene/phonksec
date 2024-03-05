@@ -1,12 +1,13 @@
 'use client'
 import { db } from "@/app/db/firebase"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from '../page.module.css'
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { deleteObject, getStorage, ref } from "firebase/storage"
 
 export default function ListProductsAdmin(){
     const router = useRouter()
@@ -16,6 +17,7 @@ export default function ListProductsAdmin(){
   const [pageInt, setPageInt] = useState<any>(1)
   const [total, setTotal] = useState<any>(0)
   const [loading, setLoading] = useState<boolean>(true);
+  const storage = getStorage()
 
   useEffect(()=> {
       const CollectionProduct = collection(db, "products");
@@ -64,6 +66,21 @@ export default function ListProductsAdmin(){
 }
 
 
+function deleteDocument(id: string, images:[]){
+    images.map((item:any)=>{
+        let itemSplit:any = item.split("%2F");
+        let itemUrl:any = itemSplit[1].split("?");
+        const desertRef = ref(storage, 'products/'+itemUrl[0]);
+        deleteObject(desertRef).then(() => {
+            console.log('Sucess')
+        })
+        console.log(itemUrl)
+    })
+
+    deleteDoc(doc(db, "products", id));
+}
+
+
 return (
         <>
         {products.length > 0 && products.map((val:any, index:number)=>(
@@ -78,7 +95,7 @@ return (
 
             <div className={styles.buttonWrapper}>
             <Link href={`/dashboard/painel/${val.id}`}><FontAwesomeIcon icon={faPen}/></Link>
-            <Link href="/dashboard/painel"><FontAwesomeIcon icon={faTrash}/></Link>
+            <button onClick={()=>{deleteDocument(val.id, val.data().images)}} className={styles.delete}><FontAwesomeIcon icon={faTrash}/></button>
             </div>
         </div>
         </div>

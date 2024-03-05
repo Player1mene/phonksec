@@ -18,8 +18,7 @@ export default function FileInpunt(props: SetImages){
       }: React.ChangeEvent<HTMLInputElement>){
           if (files && files.length) {
               props.setImage(existing => existing.concat(Array.from(files)));
-          }
-          // ...
+            }
         }
 
     function delFiles(name: string){

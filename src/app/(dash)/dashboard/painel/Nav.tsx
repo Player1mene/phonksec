@@ -10,8 +10,7 @@ export default function Nav() {
         <ul>
             <li><Link href="/dashboard/painel"><FontAwesomeIcon icon={faHouse}/></Link></li>
             <li><Link href="/dashboard/painel/products"><FontAwesomeIcon icon={faShirt}/></Link></li>
-            <li><Link href="/dashboard/painel"><FontAwesomeIcon icon={faPercent}/></Link></li>
-            <li><Link href="/dashboard/painel"><FontAwesomeIcon icon={faCalendar}/></Link></li>
+            <li><Link href="/dashboard/painel/descont"><FontAwesomeIcon icon={faPercent}/></Link></li>
         </ul>
         <button className={styles.userButton}>
             <FontAwesomeIcon icon={faUser}/>
