@@ -129,9 +129,12 @@ export default function ListProducts(){
 
             {products.length > 0 && products.map((val:any, index:number)=>(
                     <div className={styles.singleProduct} key={index}>
-                        <Link href={`/products/${val.id}`}><img src={val.data().images[0]}/></Link>
+                        <Link className={styles.imageSingle} href={`/products/${val.id}`}>
+                            <img src={val.data().images[0]}/>
+                            {val.data().descontPercent && <h4 className={styles.percent}>{val.data().descontPercent} OFF</h4>}
+                        </Link>
                         <p className={styles.productsTitle}><Link href={`/products/${val.id}`}>{val.data().name.length > 15 ? val.data().name.substring(0,15)+'...' : val.data().name}</Link></p>
-                        <p className={styles.productsPrice}><Link href={`/products/${val.id}`}>R${val.data().price}</Link></p>
+                        <p className={styles.productsPrice}>{val.data().lastPrice && <Link href={`/products/${val.id}`}>De <h5 style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</h5> Por </Link>}<Link href={`/products/${val.id}`}>R${val.data().price}</Link></p>
                         <div className={styles.productsTitle}><p>Unisex</p> <button className={styles.likeButton}><FontAwesomeIcon icon={faHeart}/></button></div>
                     </div>
             ))}

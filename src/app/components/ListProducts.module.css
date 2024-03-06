@@ -44,6 +44,20 @@
 .productsPrice {
     font-size: 20px;
     font-weight: 500;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.productsPrice a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.productsPrice a h5 {
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .likeButton {
@@ -105,6 +119,21 @@
     -moz-animation: AnimationName 2s  infinite;
     -o-animation: AnimationName 2s  infinite;
     animation: AnimationName 2s  infinite;
+}
+
+.imageSingle {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.percent {
+    position: absolute;
+    right: 0;
+    bottom: 9px;
+    padding: 10px 10px;
+    color: white;
+    background-color: rgb(81, 161, 0);
 }
 
 @-webkit-keyframes AnimationName {
