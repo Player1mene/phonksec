@@ -23,6 +23,7 @@ export default function StoreNav(){
     const searchParams = useSearchParams()
     const [menu, setMenu] = React.useState<boolean>(false)
     const [search, setSearch] = React.useState<boolean>(false)  
+    const [categ, setCateg] = React.useState<boolean>(false)
     useEffect(() => {
         setMenu(false)
     }, [pathname, searchParams])
@@ -47,11 +48,31 @@ export default function StoreNav(){
 
                             <li><Link href="/products">Produtos</Link></li>
                             
-                            <li>Categorias</li>
+                            <li className={styles.drop} onClick={()=>{setCateg(!categ)}}>
+                                Categorias
+                            </li>
+
+                            {categ && <ul className={styles.categ}>
+                                    <li><Link href="/products?category=camisa">Camisas</Link></li>
+                                    
+                                    <li><Link href="/products?category=moletom">Moletons</Link></li>
+                                    
+                                    <li><Link href="/products?category=shorts">Shorts</Link></li>
+                                    
+                                    <li><Link href="/products?category=calcas">Calças</Link></li>
+                                    
+                                    <li><Link href="/products?category=tenis">Tênis</Link></li>
+
+                                    <li><Link href="/products?category=botas">Botas</Link></li>
+
+                                    <li><Link href="/products?category=ternos">Ternos</Link></li>
+
+                                    <li><Link href="/products?category=sobretudo">Sobretudos</Link></li>
+                                    
+                                    <li><Link href="/products?category=acessorios">Acessorios</Link></li>
+                                </ul>}
 
                             <li><Link href="/products">Sobre nós</Link></li>
-
-                            <li><Link href="/products">Promoções</Link></li>
 
                         </ul>
                         <UseSearch setSearch={setSearch}/>

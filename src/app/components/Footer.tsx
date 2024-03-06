@@ -23,8 +23,6 @@ export default function Footer(){
                     <div className={styles.footerNav}>
                         <ul>
                             <li><Link href="/">Home</Link></li>
-                            
-                            <li><Link href="/">Promoções</Link></li>
 
                             <li><Link href="/products">Produtos</Link></li>
 
