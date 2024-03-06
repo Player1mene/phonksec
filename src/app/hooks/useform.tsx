@@ -13,6 +13,7 @@ interface Types {
     password: TypeVal,
     number: TypeVal,
     price: TypeVal,
+    percent: TypeVal,
 }
 
 const types: Types = {
@@ -31,7 +32,11 @@ const types: Types = {
     price: {
         regex: /\d{1,3}\.?,\d{2}/,
         message: "Coloque um valor valido"
-    }
+    },
+    percent: {
+        regex: /(100|\d{1,2}(\.\d\d)?)%/,
+        message: 'Coloque um valor valido!'
+    },
 
 }
 

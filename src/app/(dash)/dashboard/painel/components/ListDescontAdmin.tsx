@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { deleteObject, getStorage, ref } from "firebase/storage"
 
-export default function ListProductsAdmin(){
+export default function ListDescontAdmin(){
     const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -89,14 +89,12 @@ return (
         <div className={styles.info}>
             <div className={styles.infoWrapper}>
             <h4>{val.data().name.length > 15 ? val.data().name.substring(0,15)+'...' : val.data().name}</h4>
-            {val.data().descontPercent && <h4>Desconto: {val.data().descontPercent}</h4>}
-            {val.data().lastPrice && <h4>Antigo Preço: <p style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</p></h4>}
             <h4>R${val.data().price}</h4>
             <h4>{val.data().category}</h4>
             </div>
 
             <div className={styles.buttonWrapper}>
-            <Link href={`/dashboard/painel/${val.id}`}><FontAwesomeIcon icon={faPen}/></Link>
+            <Link href={`/dashboard/painel/descont/${val.id}`}><FontAwesomeIcon icon={faPen}/></Link>
             <button onClick={()=>{deleteDocument(val.id, val.data().images)}} className={styles.delete}><FontAwesomeIcon icon={faTrash}/></button>
             </div>
         </div>
