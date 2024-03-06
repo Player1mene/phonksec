@@ -7,8 +7,6 @@ import styles from '../products/productsComponents/PageForm.module.css'
 import FormInput from "@/app/components/inputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import Button from "@/app/components/inputs/Button";
-import FileInpunt from "@/app/components/inputs/FileInput";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 
 interface Category {
@@ -108,7 +106,7 @@ export default function page({ params }: { params: { productsId: string } }){
         getDoc(doc(db, 'products', params.productsId)).then((doc)=>{
             setProduct(doc.data());
         })
-    },[])
+    },[params.productsId])
 
     const name = useForm({type: null})
     const price = useForm({type: 'price'})

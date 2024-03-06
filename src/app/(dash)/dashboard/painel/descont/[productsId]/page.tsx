@@ -106,7 +106,7 @@ export default function page({ params }: { params: { productsId: string } }){
         getDoc(doc(db, 'products', params.productsId)).then((doc)=>{
             setProduct(doc.data());
         })
-    },[])
+    },[params.productsId])
 
     const lastPrice = useForm({type: 'price'})
     const price = useForm({type: 'price'})
