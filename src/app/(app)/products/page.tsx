@@ -1,5 +1,5 @@
-import ListProducts from '../..//components/ListProducts/ListProducts'
-import FilterProducts from '../../components/ListProducts/filterProducts/FilterProducts'
+import ListProducts from '../../components/ListProducts/ListProducts'
+import FilterProducts from '../../components/filterProducts/FilterProducts'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import { Metadata } from 'next'
