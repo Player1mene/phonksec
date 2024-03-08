@@ -1,9 +1,8 @@
-import ListProducts from '@/app/components/ListProducts'
-import FilterProducts from '../../components/FilterProducts'
+import ListProducts from '@/app/components/ListProducts/ListProducts'
+import FilterProducts from '../../components/ListProducts/FilterProducts/FilterProducts'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import { Metadata } from 'next'
-import Head from 'next/head'
 
 const inter = Inter({ subsets: ["latin"] })
 

@@ -2,8 +2,8 @@
 import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './StoreNav.module.css'
-import { faBars, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
-import Logo from '../../../public/logo.png'
+import { faBars, faCaretDown, faCaretRight, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
+import Logo from '../../../../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import NavMenu from './NavMenu'
@@ -25,7 +25,8 @@ export default function StoreNav(){
     const [search, setSearch] = React.useState<boolean>(false)  
     const [categ, setCateg] = React.useState<boolean>(false)
     useEffect(() => {
-        setMenu(false)
+        setMenu(false);
+        setCateg(false)
     }, [pathname, searchParams])
 
     return (
@@ -49,7 +50,8 @@ export default function StoreNav(){
                             <li><Link href="/products">Produtos</Link></li>
                             
                             <li className={styles.drop} onClick={()=>{setCateg(!categ)}}>
-                                Categorias
+                                Categorias 
+                                {categ ? <FontAwesomeIcon icon={faCaretDown}/> : <FontAwesomeIcon icon={faCaretRight}/>}
                             </li>
 
                             {categ && <ul className={styles.categ}>

@@ -26,11 +26,11 @@ export default function ListProductsAdmin(){
               setProducts([])
               setLoading(false)    
               const result:any = []
-              const total = Math.ceil(doc.docs.length / 8);
+              const total = Math.ceil(doc.docs.length / 5);
               const page = pageInt;
               setTotal(total);
-              const count = (page * 8) - 8;
-              let delimiter = count + 8;
+              const count = (page * 5) - 5;
+              let delimiter = count + 5;
               if(searchParams.has('page')){
                   setPageInt(Number(searchParams.get('page')))
               }else{

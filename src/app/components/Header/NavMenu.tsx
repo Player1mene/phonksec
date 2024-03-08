@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 import styles from './NavMenu.module.css'
-import logoMenu from '../../../public/logoMenu.png'
+import logoMenu from '../../../../public/logoMenu.png'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleRight, faHeart, faHouse, faList, faShoppingCart, faUser, faXmark } from '@fortawesome/free-solid-svg-icons'

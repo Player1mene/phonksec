@@ -3,6 +3,10 @@ body {
     scroll-behavior: smooth;
 }
 
+img {
+    height: auto;
+}
+
 .container {
     width: 100%;
     max-width: 1250px;

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import "../globals.css";
 import "./app.css"
-import StoreNav from "../components/StoreNav";
+import StoreNav from "../components/Header/StoreNav";
 import { UserStorage } from "../adminContext";
 import { Suspense } from "react";
 import Loading from "./loading";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 
 const leagueSpartan = League_Spartan({ subsets: ["latin"] });
 

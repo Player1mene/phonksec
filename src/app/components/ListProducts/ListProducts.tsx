@@ -3,12 +3,13 @@ import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import styles from './ListProducts.module.css'
 import { useCallback, useEffect, useState } from 'react'
 import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../db/firebase'
+import { db } from '../../db/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceFrown } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import Link from 'next/link'
 import { truncate } from 'fs'
+import Image from 'next/image'
 
 export default function ListProducts(){
     const router = useRouter()
@@ -130,7 +131,7 @@ export default function ListProducts(){
             {products.length > 0 && products.map((val:any, index:number)=>(
                     <div className={styles.singleProduct} key={index}>
                         <Link className={styles.imageSingle} href={`/products/${val.id}`}>
-                            <img src={val.data().images[0]}/>
+                            <Image alt="" width='1000' height="1000" src={val.data().images[0]}/>
                             {val.data().descontPercent && <h4 className={styles.percent}>{val.data().descontPercent} OFF</h4>}
                         </Link>
                         <p className={styles.productsTitle}><Link href={`/products/${val.id}`}>{val.data().name.length > 15 ? val.data().name.substring(0,15)+'...' : val.data().name}</Link></p>

@@ -6,8 +6,8 @@ import { Handjet, Inter } from 'next/font/google';
 import Link from 'next/link';
 import Phonk from '../../../public/image.png'
 import Image from 'next/image';
-import Categories from '../components/Categories';
-import ListProducts from '../components/ListProducts';
+import Categories from '../components/ListProducts/ListCategories/Categories';
+import ListProducts from '../components/ListProducts/ListProducts';
 
 
 
@@ -27,7 +27,7 @@ export default function Home() {
     <main className={styles.main}>
       <section className={styles.presentation}>
           <div className={`${handjet.className} ${styles.abs} `}>
-          <img className="torn-paper-right" src="https://media.discordapp.net/attachments/1091340777197670460/1210552528278655007/black-torn-paper-left.png?ex=65eaf9e5&is=65d884e5&hm=ecbcab3bede2fd2470f2f1b4fe2979deaaef7d36df8d48c15e82d813c4d41eb4&=&format=webp&quality=lossless&width=72&height=473"/>
+          <Image alt="" width="1025" height="150" className="torn-paper-right" src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-left.png?alt=media&token=e36e47c6-5130-455e-bc11-ae4f75ef2566"/>
            
             <div className={styles.absHeader}>
               <h1>PHONKSEC DIZ:</h1>
@@ -36,7 +36,7 @@ export default function Home() {
               </button>
             </div>
             <div className={styles.welcomeInfo}>
-              <img className={styles.logoImage} src="https://cdn.discordapp.com/attachments/1124075504446738512/1213889958591340564/phonksec_logo.png?ex=65f71e1f&is=65e4a91f&hm=fc32524d959e1e67458372587b8fce4ec3dbcaf70ff904ef0e3c18fe22d6095d&"/>
+              <Image alt='' width='1000' height="0" className={styles.logoImage} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/logo-and-wallpapers%2Fphonksec_logo.png?alt=media&token=8b2a0c5c-8d85-41d7-954b-560b7d9d7e93"/>
               <p>Bem-vindo(a) ao Phonksec - Sua Destinação de Moda Alternativa!
                 Explore a autenticidade em cada costura. Seja único(a).
                 Descubra mais sobre nossa coleção exclusiva.
@@ -46,16 +46,16 @@ export default function Home() {
                 <Image width="120" src={Phonk} alt=''/>
               </div> 
             </div>
-            <img className='torn-paper-left' src='https://media.discordapp.net/attachments/1091340777197670460/1210552528538968094/black-torn-paper-right.png?ex=65eaf9e5&is=65d884e5&hm=3f56150bac83d2d91e2eabe50c2575cc2931ab22e52b81dce8b4b06a6d03660c&=&format=webp&quality=lossless&width=72&height=473'/>
+            <Image alt="" width="1025" height="150" className='torn-paper-left' src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-right.png?alt=media&token=30939c55-4444-47f2-b5e6-b45381adb594'/>
           </div>
       </section>
 
       <div className='container'>
           <section className={styles.categories}>
-            <img className="torn-paper torn-paper-top" src='https://media.discordapp.net/attachments/1091340777197670460/1210552528891027456/black-torn-paper-top.png?ex=65eaf9e5&is=65d884e5&hm=c9d3c77e8256fc0d9f2a977976295bbb375c99d2c7d1b06570ee0f841e4ac67c&=&format=webp&quality=lossless&width=960&height=141'/>
+            <Image alt="" width="1025" height="150" className="torn-paper torn-paper-top" src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-top.png?alt=media&token=8ad84f11-b352-490e-a64b-faed37220a49'/>
             <h1>Categorias</h1>
             <Categories/>
-            <img className='torn-paper torn-paper-bottom' src='https://media.discordapp.net/attachments/1091340777197670460/1210552528022933545/black-torn-paper-bottom.png?ex=65eaf9e5&is=65d884e5&hm=475f325961a8bf861ee3c534a123b375ed79bd178e5cb764554f235676818c4d&=&format=webp&quality=lossless&width=960&height=147'/>
+            <Image alt="" width="1025" height="150" className='torn-paper torn-paper-bottom' src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-bottom.png?alt=media&token=588716c1-1bfe-4b6a-881e-3698591b0c43'/>
           </section>
       </div>
       
@@ -68,35 +68,35 @@ export default function Home() {
             <Link href="/products">Mostrar mais</Link>
           </div>          
         </div>
-        <img className='torn-paper torn-paper-bottom' src='https://media.discordapp.net/attachments/1091340777197670460/1210552529386086450/white-torn-paper-bottom.png?ex=65eaf9e5&is=65d884e5&hm=98e98cf1201060019115774af2566079e1457a589d3ed63409733a7ef3051c80&=&format=webp&quality=lossless&width=1025&height=150'/>
+        <Image alt="" width="1025" height="150" className='torn-paper torn-paper-bottom' src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fwhite-torn-paper-bottom.png?alt=media&token=8f94fb87-8577-43a7-960c-ca2556380433'/>
       </section>
 
       <section className={`${inter.className} ${styles.infos}`}>
           <div className='container'>
           <div className={styles.w1}>
-            <img className={styles.imgMobile}src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FCamisa1.webp?alt=media&token=bf689ab9-1170-4479-aac6-a5b75bc66b38"/>
-            <img className={styles.imgPC} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FphonksecTorn.webp?alt=media&token=ece883a0-bd1a-44b7-97ed-86f4a09f38a2" alt=''/>
-            <img className="torn-paper torn-paper-top" src='https://media.discordapp.net/attachments/1091340777197670460/1210552528891027456/black-torn-paper-top.png?ex=65eaf9e5&is=65d884e5&hm=c9d3c77e8256fc0d9f2a977976295bbb375c99d2c7d1b06570ee0f841e4ac67c&=&format=webp&quality=lossless&width=960&height=141'/>
+            <Image width="774" height="886" alt='' loading='lazy' className={styles.imgMobile}src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FCamisa1.webp?alt=media&token=bf689ab9-1170-4479-aac6-a5b75bc66b38"/>
+            <Image width="1000" height="700" alt='' loading='lazy' className={styles.imgPC} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FphonksecTorn.webp?alt=media&token=ece883a0-bd1a-44b7-97ed-86f4a09f38a2"/>
+            <Image width='1000' height='100' alt='' className="torn-paper torn-paper-top" src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-top.png?alt=media&token=8ad84f11-b352-490e-a64b-faed37220a49'/>
               
             <div className={styles.infoWrapper}>
                 <h1>Explorando a Essência Visual</h1>
                 <p>Descubra a intensidade das nossas camisas, onde demônios e caveiras se encontram na expressão única da sua individualidade. Vista-se com ousadia, destacando-se na multidão com estampas que transcendem o convencional. Sinta o poder da moda que desafia limites.</p>    
             </div>
-            <img className='torn-paper torn-paper-bottom' src='https://media.discordapp.net/attachments/1091340777197670460/1210552528022933545/black-torn-paper-bottom.png?ex=65eaf9e5&is=65d884e5&hm=475f325961a8bf861ee3c534a123b375ed79bd178e5cb764554f235676818c4d&=&format=webp&quality=lossless&width=960&height=147'/>
+            <Image width='1000' height='100' alt="" className='torn-paper torn-paper-bottom' src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-bottom.png?alt=media&token=588716c1-1bfe-4b6a-881e-3698591b0c43'/>
             
           </div>
            
           <div className={styles.w2}>
-          <img className={styles.imgMobile} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FCamisa2.webp?alt=media&token=d6f758a1-5dc6-4590-975b-e54327cb813f"/>
-          <img className={styles.imgPC} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FphonksecTorn3.webp?alt=media&token=53e78880-cd6d-482b-aaa4-9c7608816957" alt=''/>
+          <Image width="774" height="832" alt='' loading='lazy' className={styles.imgMobile} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FCamisa2.webp?alt=media&token=d6f758a1-5dc6-4590-975b-e54327cb813f"/>
+          <Image width="1246" height="0" alt='' loading='lazy'className={styles.imgPC} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/products%2FphonksecTorn3.webp?alt=media&token=53e78880-cd6d-482b-aaa4-9c7608816957"/>
            
-          <img className="torn-paper torn-paper-top" src='https://media.discordapp.net/attachments/1091340777197670460/1210552528891027456/black-torn-paper-top.png?ex=65eaf9e5&is=65d884e5&hm=c9d3c77e8256fc0d9f2a977976295bbb375c99d2c7d1b06570ee0f841e4ac67c&=&format=webp&quality=lossless&width=960&height=141'/>
+          <Image width='1000' height='100' alt='' className="torn-paper torn-paper-top" src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-top.png?alt=media&token=8ad84f11-b352-490e-a64b-faed37220a49'/>
           <div className={styles.infoWrapper}>
             <h1>Ofertas da Semana: Economize com Nossos Descontos Exclusivos</h1>
             <p>Descubra oportunidades imperdíveis a cada semana! Navegue pela nossa seleção especial de produtos com descontos incríveis. Renove seu estilo, economizando. Seja rápido, pois estas ofertas exclusivas são válidas apenas por tempo limitado. Aproveite os melhores preços e atualize seu guarda-roupa agora!</p>
           </div>
           </div>
-          <img className='torn-paper torn-paper-bottom' src='https://media.discordapp.net/attachments/1091340777197670460/1210552528022933545/black-torn-paper-bottom.png?ex=65eaf9e5&is=65d884e5&hm=475f325961a8bf861ee3c534a123b375ed79bd178e5cb764554f235676818c4d&=&format=webp&quality=lossless&width=960&height=147'/>
+          <Image width='1000' height='100' alt='' className='torn-paper torn-paper-bottom' src='https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/torn-paper-image%2Fblack-torn-paper-bottom.png?alt=media&token=588716c1-1bfe-4b6a-881e-3698591b0c43'/>
           </div>
         </section>
 
