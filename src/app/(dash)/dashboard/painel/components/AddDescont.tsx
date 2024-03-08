@@ -4,9 +4,9 @@ import { doc, getDoc, updateDoc} from "firebase/firestore";
 import { useEffect, useState } from "react"
 import stylesP from '../page.module.css';
 import styles from '../products/productsComponents/PageForm.module.css'
-import FormInput from "@/app/components/Inputs/FormInput";
+import FormInput from "../../../../components/Inputs/FormInput";
 import useForm from "@/app/hooks/useform";
-import Button from "@/app/components/Inputs/Button";
+import Button from "../../../../components/Inputs/Button";
 
 
 interface Category {

@@ -1,6 +1,6 @@
 'use client'
-import FileInpunt from "@/app/components/Inputs/FileInput";
-import FormInput from "@/app/components/Inputs/FormInput";
+import FileInpunt from "../../../../../components/Inputs/FileInput";
+import FormInput from "../../../../../components/Inputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import styles from './PageForm.module.css'
 import { ReactPropTypes, useState } from "react";

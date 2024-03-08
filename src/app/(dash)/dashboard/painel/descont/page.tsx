@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import ListProductsAdmin from '../components/ListProductsAdmin'
 import styles from '../page.module.css'
 import ListDescontAdmin from '../components/ListDescontAdmin'
 
