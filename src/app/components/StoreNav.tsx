@@ -1,14 +1,14 @@
 'use client'
 import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './StoreNav.module.css'
+import styles from './header/StoreNav.module.css'
 import { faBars, faCaretDown, faCaretRight, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
-import Logo from '../../../../public/logo.png'
+import Logo from '../../../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
-import NavMenu from './NavMenu'
+import NavMenu from './header/NavMenu'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import UseSearch from './UseSearch'
+import UseSearch from './header/UseSearch'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets:['latin'] });

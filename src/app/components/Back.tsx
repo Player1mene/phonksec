@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import styles from  "./Back.module.css"
+import styles from  "./buttonBack/Back.module.css"
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
