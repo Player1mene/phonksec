@@ -1,10 +1,10 @@
 'use client'
-import FileInpunt from "@/app/components/inputs/FileInput";
-import FormInput from "@/app/components/inputs/FormInput";
+import FileInpunt from "@/app/components/Inputs/FileInput";
+import FormInput from "@/app/components/Inputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import styles from './PageForm.module.css'
 import { ReactPropTypes, useState } from "react";
-import Button from "@/app/components/inputs/Button";
+import Button from "@/app/components/Inputs/Button";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "@/app/db/firebase";
