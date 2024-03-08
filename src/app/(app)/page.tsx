@@ -6,8 +6,8 @@ import { Handjet, Inter } from 'next/font/google';
 import Link from 'next/link';
 import Phonk from '../../../public/image.png'
 import Image from 'next/image';
-import Categories from '../components/ListProducts/listCategories/Categories';
-import ListProducts from '../components/ListProducts/ListProducts';
+import Categories from '@/app/components/ListProducts/listCategories/Categories';
+import ListProducts from '@/app/components/ListProducts/ListProducts';
 
 
 
