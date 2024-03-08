@@ -6,9 +6,9 @@ import { faBars, faCaretDown, faCaretRight, faCartShopping, faMagnifyingGlass, f
 import Logo from '../../../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
-import NavMenu from './header/NavMenu'
+import NavMenu from './Header/NavMenu'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import UseSearch from './header/UseSearch'
+import UseSearch from './Header/UseSearch'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets:['latin'] });
