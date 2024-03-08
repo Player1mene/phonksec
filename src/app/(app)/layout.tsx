@@ -3,7 +3,6 @@ import { League_Spartan } from "next/font/google";
 import "../globals.css";
 import "./app.css"
 import StoreNav from "../components/StoreNav";
-import { UserStorage } from "../adminContext";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Footer from "../components/Footer";
@@ -34,13 +33,11 @@ export default function RootLayout({
   return (
     <html>
       <body className={leagueSpartan.className}>
-          <UserStorage>
             <Suspense fallback={<Loading/>}>  
                 <StoreNav/>
                 {children}    
                 <Footer/>
             </Suspense>
-          </UserStorage>
       </body>
     </html>
   );
