@@ -3,10 +3,10 @@ import styles from  "./page.module.css"
 import React from 'react'
 import { singIn } from '../../db/firebase';
 import useForm from '../../hooks/useform'
-import Back from "../../components/ButtonBack/Back";
+import Back from "../../components/buttonBack/Back";
 import { Handjet } from 'next/font/google'
-import FormInput from '../../components/Inputs/FormInput'
-import Button from "../../components/Inputs/Button";
+import FormInput from '../../components/inputs/FormInput'
+import Button from "../../components/inputs/Button";
 import Logo from '../../../../public/logo.png'
 import Image from "next/image";
 import { AdminContext } from "../../adminContext";
