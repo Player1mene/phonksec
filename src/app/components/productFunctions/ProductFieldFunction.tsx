@@ -8,12 +8,12 @@ import { collection, doc, deleteDoc, getDocs, onSnapshot, query, where, addDoc} 
 import { db } from '@/app/db/firebase'
 import FasHeart from '../../../../public/fasHeart.svg';
 import FarHeart from '../../../../public/farHeart.svg';
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export default function ProductFieldFunction(props : {product: any}) {
     const user = React.useContext(AdminContext)
     const [favorite, setFavorite] = useState<boolean>(false);
-
+    const router = useRouter();
     useEffect(()=>{
         if(user.login){
             const favorites = collection(db, "usersFavorite");
@@ -28,6 +28,8 @@ export default function ProductFieldFunction(props : {product: any}) {
                 console.log('effect error')
                 setFavorite(false);
             })
+        }else{
+            setFavorite(false)
         }
     },[user.login, favorite])
 
@@ -70,7 +72,7 @@ export default function ProductFieldFunction(props : {product: any}) {
                 setFavorite(false);
             })
         }else{
-            redirect('/login')
+            router.push('/login');
         }
     }
 

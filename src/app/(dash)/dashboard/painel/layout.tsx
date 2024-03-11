@@ -17,7 +17,7 @@ export default function PainelLayout({
 
   const user = React.useContext(AdminContext);
 
-  if(user.admin === false) return redirect("/dashboard");
+  if(user.admin === false) redirect("/dashboard");
   else
   return (
   <section className={`${leagueSpartan.className} painel`}>
