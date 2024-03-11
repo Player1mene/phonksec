@@ -10,6 +10,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import Link from 'next/link'
 import { truncate } from 'fs'
 import Image from 'next/image'
+import ProductFieldFunction from '../productFunctions/ProductFieldFunction'
 
 export default function ListProducts(){
     const router = useRouter()
@@ -129,15 +130,7 @@ export default function ListProducts(){
                 {loading && products.length <= 0 ? [...Array.from(Array(10).keys())].map((num, i) => <div className={styles.skeleton} key={i}></div>) : ""}
 
             {products.length > 0 && products.map((val:any, index:number)=>(
-                    <div className={styles.singleProduct} key={index}>
-                        <Link className={styles.imageSingle} href={`/products/${val.id}`}>
-                            <Image alt="" width='1000' height="1000" src={val.data().images[0]}/>
-                            {val.data().descontPercent && <h4 className={styles.percent}>{val.data().descontPercent} OFF</h4>}
-                        </Link>
-                        <p className={styles.productsTitle}><Link href={`/products/${val.id}`}>{val.data().name.length > 15 ? val.data().name.substring(0,15)+'...' : val.data().name}</Link></p>
-                        <p className={styles.productsPrice}>{val.data().lastPrice && <Link href={`/products/${val.id}`}>De <h5 style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</h5> Por </Link>}<Link href={`/products/${val.id}`}>R${val.data().price}</Link></p>
-                        <div className={styles.productsTitle}><p>Unisex</p> <button className={styles.likeButton}><FontAwesomeIcon icon={faHeart}/></button></div>
-                    </div>
+                <ProductFieldFunction product={val} key={index}/>
             ))}
 
             

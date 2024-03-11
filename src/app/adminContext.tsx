@@ -6,7 +6,7 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 
 interface UserContextType {
     login: boolean,
-    user: object | null,
+    user: any,
     admin: boolean,
 }
 

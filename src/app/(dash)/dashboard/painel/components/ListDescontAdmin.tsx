@@ -89,6 +89,8 @@ return (
         <div className={styles.info}>
             <div className={styles.infoWrapper}>
             <h4>{val.data().name.length > 15 ? val.data().name.substring(0,15)+'...' : val.data().name}</h4>
+            {val.data().descontPercent && <h4>Desconto: {val.data().descontPercent}</h4>}
+            {val.data().lastPrice && <h4>Antigo Preço: <p style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</p></h4>}
             <h4>R${val.data().price}</h4>
             <h4>{val.data().category}</h4>
             </div>
