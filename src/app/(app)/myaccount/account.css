@@ -1,0 +1,19 @@
+.accountGrid{
+    padding: 27px 0;
+    display: grid;
+    gap: 27px;
+    grid-template-columns: repeat(4, 1fr);
+    height: calc(100vh - 70px);
+}
+
+.myaccount {
+    height: 100%;
+}
+
+.grid1 {
+    grid-column: span 1;
+}
+
+.grid2 {
+    grid-column: span 3;
+}

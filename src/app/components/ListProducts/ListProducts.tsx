@@ -35,9 +35,16 @@ export default function ListProducts(){
      
         function pagination(doc:any){
                 setProducts([])
-                setLoading(false)    
+                setLoading(false)
+                const orderResult:any = doc.docs.sort((a:any,b:any)=>{
+                    if(a.data().docDate < b.data().docDate){
+                        return +1
+                    }else{
+                        return -1
+                    }
+                })    
                 const result:any = []
-                const total = Math.ceil(doc.docs.length / 8);
+                const total = Math.ceil(orderResult.length / 8);
                 const page = pageInt;
                 setTotal(total);
                 const count = (page * 8) - 8;
@@ -51,7 +58,7 @@ export default function ListProducts(){
                 if(page <= total){
                     for(let i=count; i<delimiter; i++){
                         if(doc.docs[i] != null){
-                            result.push(doc.docs[i]);
+                            result.push(orderResult[i]);
                         }
                     }
                 }

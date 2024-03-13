@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import '../../globals.css'
+import Loading from "@/app/(app)/loading";
+import { Suspense } from "react";
 
 const leagueSpartan = League_Spartan({ subsets: ["latin"] });
 
@@ -24,10 +26,13 @@ export default function LoginLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html>
           <body className={leagueSpartan.className}>
+              <Suspense fallback={<Loading/>}>  
               {children}
+              </Suspense>
           </body>
     </html>
   );

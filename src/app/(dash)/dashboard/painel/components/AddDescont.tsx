@@ -146,6 +146,8 @@ export default function AddDescont(params: { productsId: string }){
                     descontPercent: percent.value,
                     lastPrice: lastPrice.value,
                     price: price.value,
+                    docDate: new Date().getTime(), 
+                    date: new Date().toLocaleDateString(),
                   }).then(()=>{
                     setConfirm(true)
                   })

@@ -81,6 +81,11 @@
     transition: 0.2s;
 }
 
+.navigationPc a {
+    display: flex;
+    justify-content: center;
+}
+
 .navigationPc ul li a:hover {
     color: #7ACF48ff;
 }
@@ -91,15 +96,34 @@
     gap: 40px;
 }
 
-.navigation button {
+.navigation a {
     background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     border: 0;
     outline: 0;
     padding: 8px;
 }
 
-.navigationPc button {
+.navigation button {
     background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 0;
+    outline: 0;
+    padding: 8px;
+}
+
+.navigationPc a {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     border: 0;
     outline: 0;
     padding: 8px;

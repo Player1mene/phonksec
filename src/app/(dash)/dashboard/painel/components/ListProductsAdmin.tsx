@@ -8,6 +8,7 @@ import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons"
 import { deleteObject, getStorage, ref } from "firebase/storage"
+import Image from "next/image"
 
 export default function ListProductsAdmin(){
     const router = useRouter()
@@ -24,13 +25,20 @@ export default function ListProductsAdmin(){
   
       function pagination(doc:any){
               setProducts([])
-              setLoading(false)    
+              setLoading(false)
+              const orderResult:any = doc.docs.sort((a:any,b:any)=>{
+				if(a.data().docDate < b.data().docDate){
+					return +1
+				}else{
+					return -1
+				}
+			})
               const result:any = []
-              const total = Math.ceil(doc.docs.length / 5);
+              const total = Math.ceil(orderResult.length / 5);
               const page = pageInt;
               setTotal(total);
-              const count = (page * 5) - 5;
-              let delimiter = count + 5;
+              const count = (page * 7) - 7;
+              let delimiter = count + 7;
               if(searchParams.has('page')){
                   setPageInt(Number(searchParams.get('page')))
               }else{
@@ -40,7 +48,7 @@ export default function ListProductsAdmin(){
               if(page <= total){
                   for(let i=count; i<delimiter; i++){
                       if(doc.docs[i] != null){
-                          result.push(doc.docs[i]);
+                          result.push(orderResult [i]);
                       }
                   }
               }
@@ -85,12 +93,11 @@ return (
         <>
         {products.length > 0 && products.map((val:any, index:number)=>(
             <div className={styles.productsSingle} key={index}>
-            <img src={val.data().images[0]}/>
+            <Image width="1000" height="1000" alt={val.data().name} src={val.data().images[0]}/>
         <div className={styles.info}>
             <div className={styles.infoWrapper}>
-            <h4>{val.data().name.length > 15 ? val.data().name.substring(0,15)+'...' : val.data().name}</h4>
-            {val.data().descontPercent && <h4>Desconto: {val.data().descontPercent}</h4>}
-            {val.data().lastPrice && <h4>Antigo Preço: <p style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</p></h4>}
+            {val.data().descontPercent && <h4>{val.data().descontPercent}</h4>}
+            {val.data().lastPrice && <h4><p style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</p></h4>}
             <h4>R${val.data().price}</h4>
             <h4>{val.data().category}</h4>
             </div>

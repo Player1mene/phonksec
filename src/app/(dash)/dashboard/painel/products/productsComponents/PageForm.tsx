@@ -151,6 +151,8 @@ export default function PageForm(){
             category: category,
             color: color,
             images: imagesUrlArray,
+            docDate: new Date().getTime(), 
+            date: new Date().toLocaleDateString(),
           }).then(()=>{
               setConfirm(true);
           })

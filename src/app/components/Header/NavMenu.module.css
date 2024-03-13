@@ -20,6 +20,10 @@
     align-items: center;
 }
 
+.headerNav img {
+    width: 80px;
+}
+
 .close {
     font-size: 25px;
     color:white;

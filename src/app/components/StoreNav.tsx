@@ -40,7 +40,7 @@ export default function StoreNav(){
                     </div>
                     <div className={styles.logo}>
                         <Link href="/">
-                            <Image width="35" src={Logo} alt=''/>
+                            <Image width="30" src={Logo} alt=''/>
                         </Link>
                     </div>
                     <div className={styles.navigationPc}>
@@ -78,12 +78,12 @@ export default function StoreNav(){
 
                         </ul>
                         <UseSearch setSearch={setSearch}/>
-                        <button><FontAwesomeIcon icon={faUser} /></button>
-                        <button><FontAwesomeIcon icon={faCartShopping} /></button>
+                        <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>
+                        <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>
                     </div>
                     <div className={styles.navigation}>    
-                        <button><FontAwesomeIcon icon={faUser} /></button>
-                        <button><FontAwesomeIcon icon={faCartShopping} /></button>
+                        <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>
+                        <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>
                     </div>
             </div>
         </header>

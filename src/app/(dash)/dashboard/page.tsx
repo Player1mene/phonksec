@@ -32,7 +32,7 @@ export default function Login() {
       singIn(email.value, password.value)
     }
   }
-   if(user.admin === true) redirect('/dashboard/painel/')
+   if(user.login && user.admin) redirect('/dashboard/painel/')
    else
    return (
     <main className={styles.main}>

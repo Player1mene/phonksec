@@ -157,14 +157,14 @@ export default function ExampleClientComponent() {
     return (
       <>
           <div className={styles.filter} style={{padding: '20px 28px'}}>  
-            <h3>Cores:</h3>
+            <h4>Cores:</h4>
           <select value={color === null ? 'Todas' : color} onChange={(e)=>{onCheck(e, 'color'),setColor(e.target.value)}}>
               <option value="Todas">Todas</option>
               {Object.values(Color).map((item, index)=>(
                 <option key={index} value={item.value}>{item.name}</option>
              ))} 
           </select>
-            <h3>Categorias:</h3>
+            <h4>Categorias:</h4>
           <select value={category === null ? 'Todas' : category} onChange={(e)=>{onCheck(e, 'category'), setCategory(e.target.value)}}>
               <option value="Todas">Todas</option>
               {Object.values(Category).map((item, index)=>(

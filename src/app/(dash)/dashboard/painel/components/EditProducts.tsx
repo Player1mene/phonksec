@@ -150,6 +150,8 @@ export default function EditProducts(params: { productsId: string }){
                     category: category,
                     keywords: result,
                     color: color,
+                    docDate: new Date().getTime(), 
+                    date: new Date().toLocaleDateString(),
                   }).then(()=>{
                     setConfirm(true)
                   })

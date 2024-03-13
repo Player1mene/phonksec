@@ -20,7 +20,7 @@ export default function NavMenu(props: {setMenu: Dispatch<SetStateAction<boolean
         <div className={styles.navMenu}>
             <div className={inter.className}>
                 <div className={styles.headerNav}>
-                    <Image width="100" src={logoMenu} alt=""/>
+                    <Image width="200" src={logoMenu} alt=""/>
                     <button className={styles.close} onClick={()=>{props.setMenu(false)}}><FontAwesomeIcon icon={faXmark}/></button>
                 </div>
                 <ul className={styles.linkList}>
