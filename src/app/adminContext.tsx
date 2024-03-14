@@ -1,8 +1,8 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { auth, db } from './db/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
 
 interface UserContextType {
     login: boolean,
@@ -16,41 +16,43 @@ export const AdminContext = React.createContext<UserContextType>({login: false, 
 
 export const UserStorage: React.FC<{children: React.ReactNode}>  = ({children}) =>{ 
 
-const [user , setUser] = React.useState<UserContextType>({login:false, user: null, admin: false, wishes: null, cart: null})
+const [login, setLogin] = useState<boolean>(false);
+const [user, setUser] = useState<any>(null)
+const [admin, setAdmin] = useState<boolean>(false);
+const [wishes, setWishes] = useState<any>(null);
+const [cart, setCart] = useState<any>(null);
 
 function getWishes(id:string){
-    const wishes:any = [];
-    getDocs(query(collection(db, "usersFavorite"), where("userId", "==", id))).then((favorite)=>{ 
-        wishes.push(favorite)
+    const wishe = query(collection(db, "usersFavorite"), where("userId", "==", id));
+    const unsubscribe = onSnapshot(wishe, (querySnapshot) => {
+        setWishes(querySnapshot.docs);
     }); 
-
-    return wishes;
 }
 
 function getCart(id:string){
-    const cart:any = [];
-    getDocs(query(collection(db, "usersCart"), where("userId", "==", id))).then((favorite)=>{ 
-        cart.push(favorite)
+    const cart = query(collection(db, "usersCart"), where("userId", "==", id));
+    const unsubscribe = onSnapshot(cart, (querySnapshot) => {
+        setCart(querySnapshot.docs);
     }); 
-
-    return cart;
 }
 
 React.useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
             getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
-                if(dbUser.docs[0].data().admin){
-                    setUser({login: true, user: dbUser.docs[0].data(), admin: true, wishes: ()=> getWishes(dbUser.docs[0].data().userId), cart: ()=> getCart(dbUser.docs[0].data().userId)});
-                    ;
-                }else{
-                    setUser({login: true, user: dbUser.docs[0].data(), admin: false, wishes: ()=> getWishes(dbUser.docs[0].data().userId), cart: ()=> getCart(dbUser.docs[0].data().userId)});
-                    ;
-                }
+                setUser(dbUser.docs[0].data())
+                setAdmin(dbUser.docs[0].data().admin)
+                setLogin(true);
+                getWishes(user.uid);
+                getCart(user.uid);
             });
             
         } else {
-            setUser({login: false, user: null, admin: false, wishes: null, cart: null})
+            setUser(null);
+            setAdmin(false);
+            setLogin(false);
+            setCart(null);
+            setWishes(null);
         }
     });
 },[])
@@ -58,7 +60,7 @@ React.useEffect(()=>{
 
 
   return (
-       <AdminContext.Provider  value={user}>
+       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart}}>
             {children}    
         </AdminContext.Provider>
   )
