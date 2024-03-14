@@ -16,7 +16,19 @@ export default function page(){
         </div>
 
         <div className={styles.listAll}>
+            <div className={styles.listWishes}>
+                
+            </div>
 
+            
+            <div className={styles.listRequests}>
+
+            </div>
+
+            
+            <div className={styles.listCart}>
+
+            </div>
         </div>
 
     </div>
