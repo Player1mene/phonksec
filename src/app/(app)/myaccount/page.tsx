@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import styles from './page.module.css'
-import LastProducts from "./components/AccountHome/LastProducts";
+import LastProducts from "./components/AccountHome/LastProducts/LastProducts";
+import ListAll from "./components/AccountHome/ListAll/ListAll";
 
 export const metadata: Metadata = {
     title: "Minha Conta - PhonkSec",
@@ -16,19 +17,7 @@ export default function page(){
         </div>
 
         <div className={styles.listAll}>
-            <div className={styles.listWishes}>
-                
-            </div>
-
-            
-            <div className={styles.listRequests}>
-
-            </div>
-
-            
-            <div className={styles.listCart}>
-
-            </div>
+            <ListAll/>
         </div>
 
     </div>
