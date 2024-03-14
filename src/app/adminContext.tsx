@@ -36,7 +36,7 @@ React.useEffect(()=>{
 
 
   return (
-       <AdminContext.Provider  value={ user }>
+       <AdminContext.Provider  value={user}>
             {children}    
         </AdminContext.Provider>
   )
