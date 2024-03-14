@@ -1,8 +1,8 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './Header/StoreNav.module.css'
-import { faBars, faCaretDown, faCaretRight, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCaretDown, faCaretRight, faCartShopping, faMagnifyingGlass, faRightToBracket, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import Logo from '../../../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,6 +10,7 @@ import NavMenu from './Header/NavMenu'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import UseSearch from './Header/UseSearch'
 import { Inter } from 'next/font/google'
+import { AdminContext } from '../adminContext'
 
 const inter = Inter({ subsets:['latin'] });
 
@@ -18,7 +19,7 @@ export default function StoreNav(){
 
     
 
-        
+    const user = useContext(AdminContext);
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const [menu, setMenu] = React.useState<boolean>(false)
@@ -78,13 +79,16 @@ export default function StoreNav(){
 
                         </ul>
                         <UseSearch setSearch={setSearch}/>
-                        <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>
-                        <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>
+                        {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
+                        {user.login && <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>}
+                        {!user.login && <Link href="/login">Fazer Login / Cadastrar-se</Link>}
                     </div>
                     <div className={styles.navigation}>    
-                        <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>
-                        <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>
-                    </div>
+                        {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
+                        {user.login && <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>}
+                        {!user.login && <Link href="/login"><FontAwesomeIcon icon={faRightToBracket}/></Link>}
+                        {!user.login && <Link href="/register"><FontAwesomeIcon icon={faUserPlus}/></Link>}
+                      </div>
             </div>
         </header>
     )
