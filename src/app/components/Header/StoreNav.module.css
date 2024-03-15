@@ -4,6 +4,7 @@
     height: 70px;
     background-color: #1A1A1A;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
 }
@@ -11,24 +12,27 @@
 .drop {
     cursor: pointer;
     user-select: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 0;
+    left: 0;
     gap: 5px;
 }
 
 .categ {
-    z-index: -1;
-    position: fixed;
+    position: absolute;
+    width: 50%;
     top: 70px;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    width: 100%;
-    background-color: #1A1A1A;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
     transition: 0.5s;
+    list-style-type: none;
+}
+
+.categ li a {
+    padding: 40px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .categList li a {
@@ -55,7 +59,7 @@
     justify-content: space-between;
 }
 
-.navigationPc ul {
+.navigationPc .pcCateg {
     width: 100%;
     padding: 0 30px;
     list-style-type: none;
