@@ -30,6 +30,29 @@ export default function StoreNav(){
         setCateg(false)
     }, [pathname, searchParams])
 
+    useEffect(()=>{
+        function menuMobile(){
+            setCateg(false)
+            setMenu(false)
+        }
+        window.addEventListener('resize',menuMobile);
+
+
+        return ()=> window.removeEventListener('resize', menuMobile)
+    },[pathname,searchParams])
+
+    React.useEffect(() => {
+        function hideCateg(){
+            setCateg(false)
+        }
+
+        window.addEventListener('scroll', hideCateg);
+
+        return () => {
+           window.removeEventListener('scroll', hideCateg);
+        };
+    }, [pathname, searchParams]);
+
     return (
         <header className={styles.headerW}>
             <div className={`container ${styles.header}`}>    
@@ -58,6 +81,7 @@ export default function StoreNav(){
                             <li><Link href="/products">Sobre nós</Link></li>
 
                         </ul>
+
                         {categ && <ul className={styles.categ}>
                                     <li><Link href="/products?category=camisa"  style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fcamisa.png?alt=media&token=a0d341dd-2924-48ad-b73f-bbc1f50f4fdd')`}}>Camisas</Link></li>
                                     
@@ -77,6 +101,8 @@ export default function StoreNav(){
                                     
                                     <li><Link href="/products?category=acessorios" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Facessorio.png?alt=media&token=40f0aae2-a8de-4a35-a79c-78af8a5cf6c2')`}}>Acessorios</Link></li>
                                 </ul>}
+
+
                         <UseSearch setSearch={setSearch}/>
                         {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
                         {user.login && <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>}

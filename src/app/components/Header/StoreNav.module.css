@@ -22,10 +22,16 @@
     width: 50%;
     top: 70px;
     left: 0;
+    padding: 10px;
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 3fr);
+    background-color: #141414;
     transition: 0.5s;
+    gap: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     list-style-type: none;
+    overflow: hidden;
 }
 
 .categ li a {
@@ -33,6 +39,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-radius: 10px;
 }
 
 .categList li a {
