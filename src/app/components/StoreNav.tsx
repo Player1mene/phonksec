@@ -69,11 +69,11 @@ export default function StoreNav(){
                                     
                                     <li><Link href="/products?category=tenis"  style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Ftenis.png?alt=media&token=faace332-dd52-4c09-99bf-c80dd13560ce')`}}>Tênis</Link></li>
 
-                                    <li><Link href="/products?category=botas"  style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fsobretudo.png?alt=media&token=2058a869-4619-44b7-894e-aaf26198a5a4')`}}>Botas</Link></li>
+                                    <li><Link href="/products?category=botas" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fbota.png?alt=media&token=8c3929f4-52b1-47cf-9e23-9fb6b0b5c40e')`}}>Botas</Link></li>
 
                                     <li><Link href="/products?category=ternos" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fterno.png?alt=media&token=835668da-b7b7-4faf-8224-ddfbe9dd8b44')`}}>Ternos</Link></li>
 
-                                    <li><Link href="/products?category=sobretudo" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fbota.png?alt=media&token=8c3929f4-52b1-47cf-9e23-9fb6b0b5c40e')`}}>Sobretudos</Link></li>
+                                    <li><Link href="/products?category=sobretudo" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fsobretudo.png?alt=media&token=2058a869-4619-44b7-894e-aaf26198a5a4')`}} >Sobretudos</Link></li>
                                     
                                     <li><Link href="/products?category=acessorios" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Facessorio.png?alt=media&token=40f0aae2-a8de-4a35-a79c-78af8a5cf6c2')`}}>Acessorios</Link></li>
                                 </ul>}
