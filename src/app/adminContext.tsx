@@ -25,14 +25,28 @@ const [cart, setCart] = useState<any>(null);
 function getWishes(id:string){
     const wishe = query(collection(db, "usersFavorite"), where("userId", "==", id));
     const unsubscribe = onSnapshot(wishe, (querySnapshot) => {
-        setWishes(querySnapshot.docs);
+        const orderResult:any = querySnapshot.docs.sort((a:any,b:any)=>{
+            if(a.data().docDate < b.data().docDate){
+                return +1
+            }else{
+                return -1
+            }
+        })
+        setWishes(orderResult);
     }); 
 }
 
 function getCart(id:string){
     const cart = query(collection(db, "usersCart"), where("userId", "==", id));
     const unsubscribe = onSnapshot(cart, (querySnapshot) => {
-        setCart(querySnapshot.docs);
+        const orderResult:any = querySnapshot.docs.sort((a:any,b:any)=>{
+            if(a.data().docDate < b.data().docDate){
+                return +1
+            }else{
+                return -1
+            }
+        })
+        setCart(orderResult);
     }); 
 }
 
