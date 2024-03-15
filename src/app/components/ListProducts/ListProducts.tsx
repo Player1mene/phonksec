@@ -44,11 +44,11 @@ export default function ListProducts(){
                     }
                 })    
                 const result:any = []
-                const total = Math.ceil(orderResult.length / 8);
+                const total = Math.ceil(orderResult.length / 10);
                 const page = pageInt;
                 setTotal(total);
-                const count = (page * 8) - 8;
-                let delimiter = count + 8;
+                const count = (page * 10) - 10;
+                let delimiter = count + 10;
                 if(searchParams.has('page')){
                     setPageInt(Number(searchParams.get('page')))
                 }else{
