@@ -137,6 +137,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    border-radius: 5px;
     height: 100%;
     background-color: white;
     display: flex;
@@ -176,7 +177,7 @@
     bottom: 0;
     padding: 10px 10px;
     color: white;
-    border-bottom-left-radius: 7px;
+    border-bottom-left-radius: 5px;
     background-color: rgb(81, 161, 0);
 }
 
