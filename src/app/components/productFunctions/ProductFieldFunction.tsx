@@ -16,7 +16,7 @@ export default function ProductFieldFunction(props : {product: any}) {
     const user = React.useContext(AdminContext)
     const [favorite, setFavorite] = useState<boolean>(false);
     const router = useRouter();
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     useEffect(()=>{
         if(user.login){
             const favorites = collection(db, "usersFavorite");
@@ -82,12 +82,6 @@ export default function ProductFieldFunction(props : {product: any}) {
             router.push('/login');
         }
     }
-
-    useEffect(()=>{
-        setLoading(true)
-    },[])
-
-
 
 
     return (
