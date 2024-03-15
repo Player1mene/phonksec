@@ -1,12 +1,17 @@
 'use client'
 import { AdminContext } from '@/app/adminContext';
 import styles from './LastProducts.module.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import Image from 'next/image';
 
 
 export default function LastProducts(){
 
     const user = useContext(AdminContext);
+
+    useEffect(()=>{
+        console.log(user)
+    },[user])
 
     return (
         <div className={styles.LastProducts}>
@@ -16,6 +21,8 @@ export default function LastProducts(){
                     <h4>Último na lista de Desejos</h4>
                     <div className={styles.innerLast}>
                         
+                        {user.wishes && <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image>}
+                        {user.wishes && <div>{user.wishes[0].data().name}</div>}
                     </div>
                 </div>
 
