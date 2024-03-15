@@ -52,6 +52,8 @@ export default function ProductFieldFunction(props : {product: any}) {
                             descontPercent: props.product.data().descontPercent && props.product.data().descontPercent,
                             price: props.product.data().price,
                             image: props.product.data().images[0],
+                            docDate: new Date().getTime(), 
+                            date: new Date().toLocaleDateString(),
                         }).then(()=>{
                             setFavorite(true);
                         })
@@ -62,6 +64,8 @@ export default function ProductFieldFunction(props : {product: any}) {
                             name: props.product.data().name,
                             price: props.product.data().price,
                             image: props.product.data().images[0],
+                            docDate: new Date().getTime(), 
+                            date: new Date().toLocaleDateString(),
                         }).then(()=>{
                             setFavorite(true);
                         })
