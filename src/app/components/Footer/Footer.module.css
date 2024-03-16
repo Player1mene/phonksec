@@ -12,11 +12,11 @@
 .footerLogo {
     padding: 20px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.footerLogo img {
+.footerNav img {
     width: 181px;
 }
 
@@ -49,9 +49,9 @@
 }
 
 .footerNav {
-    padding: 20px;
+    padding: 80px 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .footerNav ul {
