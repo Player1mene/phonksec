@@ -1,7 +1,6 @@
 
 .button {
     padding: 10px 0;
-    box-shadow: 0px 0px 3px 0.5px #2b2b2b;
     border-radius: 5px;
     display: flex;
     width: auto;
@@ -10,17 +9,19 @@
     color: #cccccc;
     background-color: #4d4d4d;
     align-items: center;
-    font-size: 16px;
-    font-weight: 400;
-    max-width: 140px;
-    border: 3px solid #292929;
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 120px;
     transition: 5ms;
+    border: 0;
     cursor: pointer;
 }
 
 
-.button:hover,
+.button:hover {
+    background-color: #616161;
+}
 .button:focus {
-    box-shadow: 0px 0px 5px 0.5px #2b2b2b;
-    border: 3px solid #363636;
+    color: #233b14;
+    background-color: #7cce48;
 }

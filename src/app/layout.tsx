@@ -1,10 +1,10 @@
 'use client'
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { Inter } from "next/font/google";
 import './globals.css'
 import { UserStorage } from "./adminContext";
 
-const leagueSpartan = League_Spartan({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400","500", "600", "700"], display: 'swap' });
 
 
 
@@ -15,7 +15,7 @@ export default function InnerLayout({
 }>) {
   return (
     <html>
-          <body className={`${leagueSpartan.className} app`}>
+          <body className={`${inter.className} app`}>
             <UserStorage>  
               {children}
             </UserStorage>

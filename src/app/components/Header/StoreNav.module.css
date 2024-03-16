@@ -17,6 +17,10 @@
     gap: 5px;
 }
 
+.drop svg {
+    font-size: 16px;
+}
+
 .categ {
     position: absolute;
     width: 50%;

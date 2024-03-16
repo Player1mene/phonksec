@@ -1,6 +1,7 @@
 'use client'
 import { usePathname, useSearchParams, useRouter } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
+import "../../globals.css"
 import styles from './FilterProducts.module.css'
 
 
@@ -156,21 +157,29 @@ export default function ExampleClientComponent() {
     }
     return (
       <>
-          <div className={styles.filter} style={{padding: '20px 28px'}}>  
-            <h4>Cores:</h4>
-          <select value={color === null ? 'Todas' : color} onChange={(e)=>{onCheck(e, 'color'),setColor(e.target.value)}}>
-              <option value="Todas">Todas</option>
-              {Object.values(Color).map((item, index)=>(
-                <option key={index} value={item.value}>{item.name}</option>
-             ))} 
-          </select>
-            <h4>Categorias:</h4>
-          <select value={category === null ? 'Todas' : category} onChange={(e)=>{onCheck(e, 'category'), setCategory(e.target.value)}}>
+          <div className={styles.filter} style={{padding: '20px 28px'}}> 
+            <div>
+
+            <label className={styles.label} htmlFor="cor">Cores:</label>
+            <select id="cor" value={color === null ? 'Todas' : color} onChange={(e)=>{onCheck(e, 'color'),setColor(e.target.value)}}>
+                <option value="Todas">Todas</option>
+                {Object.values(Color).map((item, index)=>(
+                  <option key={index} value={item.value}>{item.name}</option>
+              ))} 
+            </select>
+
+            </div>
+            <div> 
+
+            <label className={styles.label} htmlFor="categoria">Categorias:</label>
+          <select id="categoria" value={category === null ? 'Todas' : category} onChange={(e)=>{onCheck(e, 'category'), setCategory(e.target.value)}}>
               <option value="Todas">Todas</option>
               {Object.values(Category).map((item, index)=>(
                 <option key={index} value={item.value}>{item.name}</option>
              ))} 
           </select>
+
+          </div>
           <div className={styles.search}>
             {searchParams.has('search') && <h2>Busca: {searchParams.get('search')}</h2>}
             

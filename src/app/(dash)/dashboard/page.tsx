@@ -50,7 +50,7 @@ export default function Login() {
                     <h1 className={handjet.className}>Faça login</h1>
                     <FormInput label="E-mail" type="email" name="email" placeholder="Digite seu email..." {...email}/>
                     <FormInput label="Senha" type="password" name="password" placeholder="Digite sua senha..." {...password}/>
-                    <Button inputName="Fazer login"/>
+                    <Button inputName="Login"/>
               </form>
 
               <div className={styles.imageBack}>  

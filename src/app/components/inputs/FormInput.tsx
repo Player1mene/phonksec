@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import styles from './FormInput.module.css';
+import { Inter } from 'next/font/google';
 
 
 interface InputParams {
@@ -14,10 +15,12 @@ interface InputParams {
   onBlur: React.FocusEventHandler<HTMLInputElement>,
 }
 
+const inter = Inter({ subsets: ["latin"], weight: ["400","500", "600", "700"], });
+
 
 const FormInput = (props: InputParams) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${inter.className} ${styles.wrapper}`}>
         <label htmlFor={props.name} className={styles.label}>
             {props.label}
         </label>

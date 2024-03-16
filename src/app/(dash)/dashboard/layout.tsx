@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { Inter } from "next/font/google";
 import '../../globals.css'
 import Loading from "@/app/(app)/loading";
 import { Suspense } from "react";
 
-const leagueSpartan = League_Spartan({ subsets: ["latin"] });
+
+const inter = Inter({ subsets: ["latin"], weight: ["400","500", "600", "700"], });
 
 export const metadata: Metadata = {
   title: "Login - Painel",
@@ -29,7 +30,7 @@ export default function LoginLayout({
   
   return (
     <html>
-          <body className={leagueSpartan.className}>
+          <body className={inter.className}>
               <Suspense fallback={<Loading/>}>  
               {children}
               </Suspense>

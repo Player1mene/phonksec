@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { Inter, League_Spartan } from "next/font/google";
 import "../globals.css";
 import "./app.css"
 import StoreNav from "../components/StoreNav";
@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Footer from "../components/Footer";
 
-const leagueSpartan = League_Spartan({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400","500", "600", "700"], display: 'swap' });
 
 export const metadata: Metadata = {
   title: "Home - PhonkSec",
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={leagueSpartan.className}>
+      <body className={inter.className}>
             <Suspense fallback={<Loading/>}>  
                 <StoreNav/>
                 {children}    
