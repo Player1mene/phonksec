@@ -5,24 +5,32 @@
 }
 
 .label {
-	padding: 5px 0;
-	font-size: 20px;
+	padding: 10px 0;
+	font-weight: 600;
+	font-size: 17px;
 	color: white;
 }
 
 .input {
 	width: 100%;
-	padding: 15px 20px;
+	padding: 14px 20px;
 	color: #000000;
 	background: #DDD;
-	border-radius: 5px;
-	border: 0;
-	font-size: 20px;
+	border-radius: 4px;
+	border: 2px solid #ddd;
+	font-size: 16px;
+	font-weight: 500;
 	outline:0;
+}
+
+.input:focus {
+	border: 2px solid #525252;
 }
 
 .inputError {
 	background: #f7afaf;
+	
+	border: 2px solid #f7afaf;
 	box-shadow: 0px 0px 1px 1px rgba(126, 0, 0, 0.25);
 }
 
