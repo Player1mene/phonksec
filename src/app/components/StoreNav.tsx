@@ -106,7 +106,7 @@ export default function StoreNav(){
                         <UseSearch setSearch={setSearch}/>
                         {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
                         {user.login && <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>}
-                        {!user.login && <Link href="/login">Fazer Login / Cadastrar-se</Link>}
+                        {!user.login && <Link href="/login" className={styles.login}>Fazer Login / Cadastrar-se</Link>}
                     </div>
                     <div className={styles.navigation}>    
                         {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
