@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, League_Spartan } from "next/font/google";
+import { Inter } from "next/font/google";
 import "../globals.css";
 import "./app.css"
 import StoreNav from "../components/StoreNav";

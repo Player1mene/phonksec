@@ -1,0 +1,77 @@
+.loginPage {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.loginForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #292929;
+    justify-content: center;
+    height: 100vh;
+}
+
+.layer img {
+    width: 400px;
+    height: auto;
+}
+
+.loginImage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/logo-and-wallpapers%2Fomg-its-phonksec.webp?alt=media&token=809d4eda-a688-49fd-83e4-a0c38147e923');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.layer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2929299f;
+}
+
+
+@media screen  and (max-width: 770px){
+	.loginPage {
+        display: grid;
+        grid-template-columns: 1fr;
+    
+    }
+    
+    .loginForm {
+        z-index: 1001;
+        grid-column: span 2;
+        grid-row: span 2;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: #292929bb;
+        justify-content: center;
+        height: 100vh;
+    }
+    
+    .layer img {
+        width: 400px;
+        height: auto;
+    }
+    
+    .loginImage {
+        grid-column: span 2;
+        grid-row: span 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/logo-and-wallpapers%2Fomg-its-phonksec.webp?alt=media&token=809d4eda-a688-49fd-83e4-a0c38147e923');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

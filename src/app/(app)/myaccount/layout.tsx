@@ -1,7 +1,4 @@
 'use client'
-import "../../globals.css";
-import "../app.css"
-import "./account.css"
 import { redirect } from "next/navigation";
 import React, { useContext } from "react";
 import { AdminContext } from "@/app/adminContext";

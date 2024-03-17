@@ -13,7 +13,8 @@
 
 .input {
 	width: 100%;
-	padding: 1.7%;
+	padding: 0 2%;
+	line-height: 35px;
 	color: #000000;
 	background: #DDD;
 	border-radius: 6px;

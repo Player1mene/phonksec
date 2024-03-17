@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "../../globals.css";
+import "../app.css"
+import "./account.css"
 import styles from './page.module.css'
 import LastProducts from "./components/AccountHome/LastProducts/LastProducts";
 import ListAll from "./components/AccountHome/ListAll/ListAll";

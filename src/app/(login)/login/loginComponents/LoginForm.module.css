@@ -1,0 +1,11 @@
+.loginForm {
+    width: 84%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.loginForm h2 {
+    color: white;
+    font-weight: 600;
+}

@@ -4,6 +4,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Handjet, Inter } from 'next/font/google';
 import Link from 'next/link';
+import "./app.css"
 import Phonk from '../../../public/image.png'
 import Image from 'next/image';
 import Categories from '../components/listCategories/Categories';
