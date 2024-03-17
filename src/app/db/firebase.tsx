@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore } from "firebase/firestore";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, AuthCredential, OAuthCredential, IdTokenResult } from 'firebase/auth'
+import { addDoc, collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
   
 const firebaseConfig = {
@@ -17,7 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app)
-
+const provider = new GoogleAuthProvider();
 
 export async function singIn(email: string,password: string){
   let result: any[] = [null]
@@ -30,7 +30,39 @@ export async function singIn(email: string,password: string){
     console.log('error')
   }
 
+
+
 return { result, error };
+}
+
+
+export function loginGoogle(){
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+      getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
+          if(dbUser.docs.length < 1){
+            addDoc(collection(db, "users"), {
+              name: user.displayName,
+              userId: user.uid,
+              admin: false,
+            })
+          }
+      });
+
+      console.log(user)
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+
 }
 
 export { auth , db};

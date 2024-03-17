@@ -7,5 +7,37 @@
 
 .loginForm h2 {
     color: white;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.loginGoogle {
+    max-width: 240px;
+    padding: 2% 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: white;
+    border-radius: 7px;
+    outline: 0;
+    color: rgb(56, 56, 56);
+    cursor: pointer;
+    border: 0;
+    font-weight: 500;
+}
+
+
+.loginGoogle:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.loginGoogle:focus {
+    background-color: #7ED14A;
+    color: #223814;
+}
+
+.loginGoogle svg {
+    font-size: 20px;
 }

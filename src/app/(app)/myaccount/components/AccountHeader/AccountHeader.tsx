@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
 import styles from './AccountHeader.module.css'
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faHeart, faShoppingCart, faUser, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
+import { auth } from "@/app/db/firebase";
+import { signOut } from "firebase/auth";
 
 export default function AccountHeader(){
 
@@ -20,7 +21,7 @@ export default function AccountHeader(){
         
             <li><Link href="/myaccount"><FontAwesomeIcon icon={faShoppingCart}/> Carrinho</Link></li>
 
-            <li><Link href="/myaccount"><FontAwesomeIcon icon={faXmarkCircle}/> Fazer logout</Link></li>
+            <li><Link href="#" onClick={()=>{signOut(auth)}}><FontAwesomeIcon icon={faXmarkCircle}/> Fazer logout</Link></li>
         </ul>
 
     </div>

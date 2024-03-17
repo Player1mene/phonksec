@@ -1,5 +1,5 @@
 'use client'
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import React, { useContext } from "react";
 import { AdminContext } from "@/app/adminContext";
 import AccountHeader from "./components/AccountHeader/AccountHeader";
@@ -11,13 +11,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  const router = useRouter()
+
     
   const user = useContext(AdminContext);
 
-  if(user.login === false) redirect('/login');
+  if(user.login === false) router.push('/login');
   else
   return (
-      <section className="myaccount">
+      <section className="myaccount" style={{marginTop: '70px'}}>
         <div className="container accountGrid">
             <div className="grid1">
                 <AccountHeader/>

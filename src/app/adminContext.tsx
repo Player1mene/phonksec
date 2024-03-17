@@ -53,14 +53,15 @@ function getCart(id:string){
 React.useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
+            const u = query(collection(db, "users"), where("userId", "==", user.uid));
+            console.log(user);
+            const unsubscribe = onSnapshot(u,(dbUser)=>{
                 setUser(dbUser.docs[0].data())
                 setAdmin(dbUser.docs[0].data().admin)
                 setLogin(true);
                 getWishes(user.uid);
                 getCart(user.uid);
             });
-            
         } else {
             setUser(null);
             setAdmin(false);

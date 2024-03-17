@@ -13,19 +13,20 @@
 
 .input {
 	width: 100%;
-	padding: 0 2%;
-	line-height: 35px;
+	padding: 0 1%;
+	height: 40px;
 	color: #000000;
 	background: #DDD;
 	border-radius: 6px;
 	border: 2px solid #ddd;
-	font-size: 14px;
-	font-weight: 400;
+	font-size: 16px;
+	font-weight: 545;
 	outline:0;
 }
 
 .input:focus {
-	border: 2px solid #525252;
+	border: 2px solid #5bc917;
+	box-shadow: 0px 0px 2px 0px #7ED14A;
 }
 
 .inputError {

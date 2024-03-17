@@ -48,17 +48,25 @@ const useForm = ({type}: {type:keyof Types | null}) => {
     const [error, setError] = React.useState<string | null>(null)
 
     function validate(value:string) : boolean {
-        if (!type) return true;
-            if (value.length === 0) {
-                setError("Preencha um valor");
-                return false;
-            } else if (types[type] && !types[type].regex.test(value)){
+            if (type === null){
+                if (value.length === 0) {
+                    setError("Preencha um valor");
+                    return false;
+                } else {
+                    return true
+                }
+            } else { 
+                if (types[type] && !types[type].regex.test(value)){
                 setError(types[type].message)
+                return false;
+            }else  if (value.length === 0) {
+                setError("Preencha um valor");
                 return false;
             } else {
                 setError(null)
                 return true;
             }
+        }
    }
 
     function onChange({target}: React.ChangeEvent<HTMLInputElement>){
