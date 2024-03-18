@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, AuthCredential, OAuthCredential, IdTokenResult } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, getRedirectResult, signInWithRedirect, AuthCredential, OAuthCredential, IdTokenResult } from 'firebase/auth'
 import { addDoc, collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
   
@@ -37,9 +37,10 @@ return { result, error };
 
 
 export function loginGoogle(){
-    signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
+    signInWithRedirect(auth, provider);
+    getRedirectResult(auth)
+    .then((result:any) => {
+      const user:any | null = result.user;
       getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
           if(dbUser.docs.length < 1){
             addDoc(collection(db, "users"), {
