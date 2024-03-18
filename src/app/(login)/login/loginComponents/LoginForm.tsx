@@ -7,13 +7,14 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faG } from '@fortawesome/free-solid-svg-icons';
 import { AdminContext } from '@/app/adminContext';
+import Loading from '@/app/(app)/loading';
 
 
 export default function LoginForm(){
 
     const email = useForm({type: 'email'});
     const password = useForm({type: null});
-    const { signIn, loginGoogle} = useContext(AdminContext)
+    const { signIn, loginGoogle, loading} = useContext(AdminContext)
 
     function handlerSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
@@ -25,6 +26,7 @@ export default function LoginForm(){
 
     return(
         <form onSubmit={(event)=>{handlerSubmit(event)}}className={styles.loginForm}>
+            {loading && <Loading/>}
             <h2>Fazer login</h2>
             <FormInput name='email' type='text' label='Seu e-mail:' placeholder='Digite seu e-mail aqui...' {...email}/>
             <FormInput name='password' type='password' label='Sua senha:' placeholder='Digite sua senha aqui...' {...password}/>

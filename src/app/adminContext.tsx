@@ -12,9 +12,10 @@ interface UserContextType {
     cart: any,
     loginGoogle: any,
     signIn: any,
+    loading: boolean,
 }
 
-export const AdminContext = React.createContext<UserContextType>({login: false, user: null, admin: false, wishes: null, cart: null, loginGoogle: null, signIn: null});
+export const AdminContext = React.createContext<UserContextType>({login: false, user: null, admin: false, wishes: null, cart: null, loginGoogle: null, signIn: null, loading: false});
 
 export const UserStorage: React.FC<{children: React.ReactNode}>  = ({children}) => { 
 
@@ -23,7 +24,7 @@ const [user, setUser] = useState<any>(null)
 const [admin, setAdmin] = useState<boolean>(false);
 const [wishes, setWishes] = useState<any>(null);
 const [cart, setCart] = useState<any>(null);
-
+const [loading, setLoading] = useState<boolean>(false);
 
 
 function getWishes(id:string){
@@ -60,6 +61,7 @@ function getCart(id:string){
 
 
 function getUser(user: any) {
+    setLoading(true);
     const u = query(collection(db, "users"), where("userId", "==", user.uid));
     const unsubscribe = onSnapshot(u,(dbUser)=>{
             setUser(dbUser.docs[0].data())
@@ -67,6 +69,7 @@ function getUser(user: any) {
             setLogin(true);
             getWishes(user.uid);
             getCart(user.uid);
+            setLoading(false);
     });
 }
 
@@ -80,25 +83,31 @@ React.useEffect(()=>{
             setLogin(false);
             setCart(null);
             setWishes(null);
+            setLoading(false);
         }
     });
 },[])
 
 
+function createUserGoogle(user:any){
+    addDoc(collection(db, "users"), {
+        name: user.displayName,
+        userId: user.uid,
+        admin: false,
+    }).then(()=>{
+        getUser(user.uid);
+    })
+}
+
+
 function loginGoogle(){
     signInWithRedirect(auth, provider);
     getRedirectResult(auth)
-    .then((result:any) => {
+    .then((result:any) => {  
       const user:any | null = result.user;
       getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
           if(dbUser.docs.length < 1){
-            addDoc(collection(db, "users"), {
-              name: user.displayName,
-              userId: user.uid,
-              admin: false,
-            }).then(()=>{
-                getUser(user.uid);
-            })
+            createUserGoogle(user)
           }else{
             getUser(user.uid);
           }
@@ -136,7 +145,7 @@ function signIn(email: string,password: string){
 
 
   return (
-       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart, loginGoogle: ()=>{ loginGoogle() }, signIn: (email: string, password: string) => {signIn(email,password)}}}>
+       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart, loginGoogle: ()=>{ loginGoogle() }, signIn: (email: string, password: string) => {signIn(email,password)}, loading: loading}}>
             {children}    
         </AdminContext.Provider>
   )
