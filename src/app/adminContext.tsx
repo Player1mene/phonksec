@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react';
-import { auth, db } from './db/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
-import { collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
+import { auth, db, provider } from './db/firebase';
+import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect } from 'firebase/auth';
+import { addDoc, collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
 
 interface UserContextType {
     login: boolean,
@@ -10,17 +10,21 @@ interface UserContextType {
     admin: boolean,
     wishes: any,
     cart: any,
+    loginGoogle: any,
+    signIn: any,
 }
 
-export const AdminContext = React.createContext<UserContextType>({login: false, user: null, admin: false, wishes: null, cart: null});
+export const AdminContext = React.createContext<UserContextType>({login: false, user: null, admin: false, wishes: null, cart: null, loginGoogle: null, signIn: null});
 
-export const UserStorage: React.FC<{children: React.ReactNode}>  = ({children}) =>{ 
+export const UserStorage: React.FC<{children: React.ReactNode}>  = ({children}) => { 
 
 const [login, setLogin] = useState<boolean>(false);
 const [user, setUser] = useState<any>(null)
 const [admin, setAdmin] = useState<boolean>(false);
 const [wishes, setWishes] = useState<any>(null);
 const [cart, setCart] = useState<any>(null);
+
+
 
 function getWishes(id:string){
     const wishe = query(collection(db, "usersFavorite"), where("userId", "==", id));
@@ -50,18 +54,26 @@ function getCart(id:string){
     }); 
 }
 
+
+
+
+
+
+function getUser(user: any) {
+    const u = query(collection(db, "users"), where("userId", "==", user.uid));
+    const unsubscribe = onSnapshot(u,(dbUser)=>{
+            setUser(dbUser.docs[0].data())
+            setAdmin(dbUser.docs[0].data().admin)
+            setLogin(true);
+            getWishes(user.uid);
+            getCart(user.uid);
+    });
+}
+
 React.useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            const u = query(collection(db, "users"), where("userId", "==", user.uid));
-            console.log(user);
-            const unsubscribe = onSnapshot(u,(dbUser)=>{
-                setUser(dbUser.docs[0].data())
-                setAdmin(dbUser.docs[0].data().admin)
-                setLogin(true);
-                getWishes(user.uid);
-                getCart(user.uid);
-            });
+            getUser(user);
         } else {
             setUser(null);
             setAdmin(false);
@@ -73,10 +85,59 @@ React.useEffect(()=>{
 },[])
 
 
+function loginGoogle(){
+    signInWithRedirect(auth, provider);
+    getRedirectResult(auth)
+    .then((result:any) => {
+      const user:any | null = result.user;
+      getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
+          if(dbUser.docs.length < 1){
+            addDoc(collection(db, "users"), {
+              name: user.displayName,
+              userId: user.uid,
+              admin: false,
+            }).then(()=>{
+                getUser(user.uid);
+            })
+          }else{
+            getUser(user.uid);
+          }
+      });
+
+      console.log(user)
+      // ...
+    }).catch((error:any) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      console.log(errorMessage)
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+
+}
+
+function signIn(email: string,password: string){
+    signInWithEmailAndPassword(auth, email, password).then((userCredential)=>{
+        const user = userCredential.user;
+        getUser(user);
+    }).catch(()=>{
+        setUser(null);
+        setAdmin(false);
+        setLogin(false);
+        setCart(null);
+        setWishes(null);
+    }) 
+}
+
+
 
   return (
-       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart}}>
+       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart, loginGoogle: ()=>{ loginGoogle() }, signIn: (email: string, password: string) => {signIn(email,password)}}}>
             {children}    
         </AdminContext.Provider>
   )
-}
+  }

@@ -3,21 +3,22 @@ import useForm from '@/app/hooks/useform'
 import styles from './LoginForm.module.css'
 import FormInput from '@/app/components/inputs/FormInput';
 import Button from '@/app/components/inputs/Button';
-import { loginGoogle, singIn } from '@/app/db/firebase';
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faG } from '@fortawesome/free-solid-svg-icons';
+import { AdminContext } from '@/app/adminContext';
 
 
 export default function LoginForm(){
 
     const email = useForm({type: 'email'});
     const password = useForm({type: null});
+    const { signIn, loginGoogle} = useContext(AdminContext)
 
     function handlerSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
         if(email.validate() && password.validate()){
-            singIn(email.value, password.value)
+            signIn(email.value, password.value)
         }
     }
 

@@ -1,7 +1,6 @@
 'use client'
 import styles from  "./page.module.css"
 import React from 'react'
-import { singIn } from '../../db/firebase';
 import useForm from '../../hooks/useform'
 import Back from "../../components/Back";
 import { Handjet } from 'next/font/google'
@@ -22,17 +21,17 @@ export default function Login() {
   const email = useForm({type:'email'});
   const password = useForm({type: null});
 
-  const user = React.useContext(AdminContext)
+  const {login, admin, signIn} = React.useContext(AdminContext)
 
 
 
-  function login(event: React.FormEvent<HTMLFormElement>){
+  function loginAdmin(event: React.FormEvent<HTMLFormElement>){
     event.preventDefault();
     if(email.validate() && password.validate()){
-      singIn(email.value, password.value)
+      signIn(email.value, password.value)
     }
   }
-   if(user.login && user.admin) redirect('/dashboard/painel/')
+   if(login && admin) redirect('/dashboard/painel/')
    else
    return (
     <main className={styles.main}>
@@ -46,7 +45,7 @@ export default function Login() {
           <div className={styles.formWrapper}>
             <div className={styles.formInner}>
 
-              <form className={styles.form}  onSubmit={(e)=>{login(e)}}>
+              <form className={styles.form}  onSubmit={(e)=>{loginAdmin(e)}}>
                     <h1 className={handjet.className}>Faça login</h1>
                     <FormInput label="E-mail" type="email" name="email" placeholder="Digite seu email..." {...email}/>
                     <FormInput label="Senha" type="password" name="password" placeholder="Digite sua senha..." {...password}/>
