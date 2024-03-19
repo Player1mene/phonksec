@@ -9,20 +9,17 @@ export default function LastProducts(){
 
     const user = useContext(AdminContext);
 
-    useEffect(()=>{
-        console.log(user)
-    },[user])
 
     return (
         <div className={styles.LastProducts}>
-            <h3>Olá 👋, {user.user.name}</h3>
+            <h3>Olá 👋, {user.user && user.user.name}</h3>
             <div className={styles.lastGrid}>
                 <div className={styles.lastWishe}>
                     <h4>Último na lista de Desejos</h4>
                     <div className={styles.innerLast}>
                         
-                        {user.wishes.length > 0 && <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image>}
-                        {user.wishes.length > 0 && <p>{user.wishes[0].data().name}</p>}
+                        {user.wishes && <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image>}
+                        {user.wishes && <p>{user.wishes[0].data().name}</p>}
                     
                     </div>
                 </div>
