@@ -87,7 +87,7 @@ export default function ProductFieldFunction(props : {product: any}) {
     return (
         <div className={styles.singleProduct}> 
             <Link className={styles.imageSingle} href={`/products/${props.product.id}`}>
-            <Image onLoadingComplete={() => setLoading(false)} alt="" width='1000' height="1000" src={props.product.data().images[0]}/>
+            <Image loading='lazy' onLoad={() => setLoading(false)} alt="" width='1000' height="1000" src={props.product.data().images[0]}/>
             {loading && <p className={styles.loadingImage}><FontAwesomeIcon icon={faImage}/></p>}
             {props.product.data().descontPercent && <h4 className={styles.percent}>{props.product.data().descontPercent} OFF</h4>}
             </Link>
