@@ -7,6 +7,7 @@
 
 .LastProducts h3 {
     font-weight: 500;
+    font-size: 16px;
 }
 
 .lastGrid {
@@ -26,8 +27,8 @@
 }
 
 .lastGrid h4 {
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .innerLast {
@@ -43,4 +44,8 @@
     border-radius: 4px;
     object-fit: cover;
     object-position: center;
+}
+
+.innerLast p {
+    font-size: 14px;
 }

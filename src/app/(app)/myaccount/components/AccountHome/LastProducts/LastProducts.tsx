@@ -22,7 +22,8 @@ export default function LastProducts(){
                     <div className={styles.innerLast}>
                         
                         {user.wishes.length > 0 && <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image>}
-                        {user.wishes.length > 0 && <div>{user.wishes[0].data().name}</div>}
+                        {user.wishes.length > 0 && <p>{user.wishes[0].data().name}</p>}
+                    
                     </div>
                 </div>
 

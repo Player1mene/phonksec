@@ -38,6 +38,26 @@
     color: #223814;
 }
 
+.buttonAndLink {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.buttonAndLink a {
+    color: white;
+    text-decoration: underline;
+}
+
+.buttonAndLink a:hover {
+    text-decoration: none;
+}
+
+.buttonAndLink button {
+    width: 100%;
+}
+
 .loginGoogle svg {
     font-size: 20px;
 }
