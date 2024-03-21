@@ -12,8 +12,8 @@ export default function ProductInfo({productsId}:{ productsId: string}){
 
     const [product, setProduct] = useState<any>(null)
 
-    const flicking1 = useRef();
-    const flicking2 = useRef();
+    const flicking1 = useRef<any>();
+    const flicking2 = useRef<any>();
   
     const [plugins, setPlugins] = useState<any>([]);
   
@@ -47,21 +47,25 @@ export default function ProductInfo({productsId}:{ productsId: string}){
     return (
         <div className={styles.productSlider}>
             
-            <Flicking ref={flicking1} className={styles.slide} defaultIndex={0} bounce={30} plugins={plugins}>
+             <Flicking ref={flicking1} className={styles.slide} defaultIndex={0} plugins={plugins}>
                 
-                {product && product.images.map((value:string, index:number)=>(
-                    <Image className={`${styles.singleSlider} panel-image  flicking-panel full has-background-primary`} src={value} key={index} alt='' width="1000" height="1000" />
-                ))}
+                {product ? product.images.map((value:string, key:number)=>(
+                    <Image className={`${styles.singleSlider} panel-image  flicking-panel full has-background-primary`} src={value} key={key} alt='' width="1000" height="1000" />
+                )) : <div></div>}
             
             </Flicking>
 
-            <Flicking ref={flicking2} className={styles.slideButtons} moveType="freeScroll" align="prev" bound={true} bounce={30}>
             
-                {product && product.images.map((value:string, index:number)=>(
-                        <Image className={`flicking-panel full has-background-primary thumb-image ${styles.thumbPage}`} src={value} key={index} alt='' width="1000" height="1000" />
-                ))}
+
+            <Flicking ref={flicking2} className={styles.slideButtons} moveType="freeScroll" align="prev" bound={true}>
+            
+
+                {product ? product.images.map((value:string, key:number)=>(
+                        <Image className={`flicking-panel full has-background-primary thumb-image ${styles.thumbPage}`} src={value} key={key} alt='' width="1000" height="1000" />
+                )) : <div></div>}
                 
             </Flicking>
+
 
             <div className={styles.infoProduct}>
                 Info produtos
