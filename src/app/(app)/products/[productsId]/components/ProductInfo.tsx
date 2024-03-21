@@ -46,8 +46,10 @@ export default function ProductInfo({productsId}:{ productsId: string}){
 
     return (
         <div className={styles.productSlider}>
-            
-             <Flicking ref={flicking1} className={styles.slide} defaultIndex={0} plugins={plugins}>
+
+            <div className={styles.productSlim}>
+
+            <Flicking ref={flicking1} className={styles.slide} defaultIndex={0} plugins={plugins}>
                 
                 {product ? product.images.map((value:string, key:number)=>(
                     <Image className={`${styles.singleSlider} panel-image  flicking-panel full has-background-primary`} src={value} key={key} alt='' width="1000" height="1000" />
@@ -66,10 +68,13 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                 
             </Flicking>
 
+            </div>
+
 
             <div className={styles.infoProduct}>
                 Info produtos
             </div>
+            
             </div>
     )
 }
