@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import styles from './Footer/Footer.module.css'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import Logo from '../../../public/phonkseclogofooter.png'
 
 
 const inter = Inter({ subsets:['latin'] })
@@ -20,7 +22,7 @@ export default function Footer(){
                         <button className={styles.goUp} onClick={handlerScrollTop}>Voltar para cima</button>
                     </div>
                     <div className={styles.footerNav}>
-                        <img src='https://cdn.discordapp.com/attachments/1091340777197670460/1213451432628453447/image.png?ex=65f585b6&is=65e310b6&hm=a34062f50e93aa2088a92e70b6d8d655cb142d9e81d68005cde6c2a1da8fa15a&' />
+                        <Image src={Logo} width="300" alt='' />
                        
                         <ul>
                             <li><h4>Navegação</h4></li>
