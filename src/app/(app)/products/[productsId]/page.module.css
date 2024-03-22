@@ -2,3 +2,13 @@
     margin-top: 70px;
 }
 
+.recommended {
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.recommended h1 {
+    font-size: 20px;
+}

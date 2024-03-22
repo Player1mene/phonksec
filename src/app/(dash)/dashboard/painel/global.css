@@ -6,3 +6,13 @@
     background-color: rgb(48, 48, 48);
     height: 100vh;
 }
+
+::-moz-selection {
+    color: white;
+    background: #5bc917;
+}
+  
+  ::selection {
+    color: white;
+    background: #5bc917;
+  }

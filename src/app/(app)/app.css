@@ -42,8 +42,17 @@ img {
     left: -72px;
 }
 
+::-moz-selection {
+    background: #5bc917;
+  }
+  
+  ::selection {
+    background: #5bc917;
+  }
+  
+
 .active {
-    box-shadow: 0px 0px 3px 0px #5bc917 !important;   
+    box-shadow: 0px 0px 0px 3px #5bc917 !important;    
 }
 
 @media screen and (max-width: 1250px){
