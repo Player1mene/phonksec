@@ -9,7 +9,7 @@ import { db } from '@/app/db/firebase'
 import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-import FavoritePhoto from './FavoritePhoto'
+import FavoriteProduct from './FavoriteProduct'
 
 export default function ProductFieldFunction(props : {product: any}) {
     
@@ -25,7 +25,7 @@ export default function ProductFieldFunction(props : {product: any}) {
             </Link>
             <p className={styles.productsTitle}>{loading && <p className={styles.loadingName}></p>}<Link href={`/products/${props.product.id}`}>{props.product.data().name.length > 15 ? props.product.data().name.substring(0,15)+'...' : props.product.data().name}</Link></p>
             <p className={styles.productsPrice}>{loading && <p className={styles.loadingName}></p>} {props.product.data().lastPrice && <Link href={`/products/${props.product.id}`}>De <h5 style={{textDecoration: 'line-through'}}>R${props.product.data().lastPrice}</h5> Por </Link>}<Link href={`/products/${props.product.id}`}>R${props.product.data().price}</Link></p>
-            <div className={styles.productsTitle}>{loading && <p className={styles.loadingName}></p>} <p>Unisex</p> <FavoritePhoto product={props.product}/></div>
+            <div className={styles.productsTitle}>{loading && <p className={styles.loadingName}></p>} <p>Unisex</p> <FavoriteProduct product={props.product}/></div>
         </div>
     )
 }

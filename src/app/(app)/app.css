@@ -43,10 +43,12 @@ img {
 }
 
 ::-moz-selection {
+    color: white;
     background: #5bc917;
-  }
+}
   
   ::selection {
+    color: white;
     background: #5bc917;
   }
   

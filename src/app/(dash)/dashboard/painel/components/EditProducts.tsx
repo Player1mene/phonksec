@@ -1,12 +1,14 @@
 'use client'
 import { db } from "@/app/db/firebase";
 import { collection, doc, getDoc, onSnapshot, query, updateDoc, where } from "firebase/firestore";
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import stylesP from '../page.module.css';
 import styles from '../products/productsComponents/PageForm.module.css'
 import FormInput from "@/app/components/inputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import Button from "@/app/components/inputs/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 
 interface Category {
@@ -101,6 +103,7 @@ interface Category {
 
 export default function EditProducts(params: { productsId: string }){
 
+    const [sizes, setSizes] = useState<string[]>(['']);
     const [product,  setProduct] = useState<any>([])
     useEffect(()=>{
         getDoc(doc(db, 'products', params.productsId)).then((doc)=>{
@@ -110,21 +113,28 @@ export default function EditProducts(params: { productsId: string }){
 
     const name = useForm({type: null})
     const price = useForm({type: 'price'})
+    const size = useForm({type: null})
     const [color, setColor] = useState<string | null>(null)
     const [confirm, setConfirm] = useState<boolean>(false)
     const [category, setCategory] = useState<string | null>(null)
+    const [modal, setModal] = useState<boolean>(false);
+
 
     useEffect(()=>{
         name.setValue(product.name)
         price.setValue(product.price)
         setCategory(product.category)
         setColor(product.color)
+        if(product.sizes){
+          setSizes(product.sizes);
+        }else{
+          setSizes([]);
+        }
     },[product])
 
         
-        async function handlerSubmit(e: React.FormEvent<HTMLFormElement>){
-            e.preventDefault()
-            if(color && category && name.validate() && price.validate()){
+        async function handlerSubmit(){
+            if(color && category && sizes && name.validate() && price.validate()){
                 const items = name.value.split(' ');
                 let result:any = [];
                 const product = doc(db, 'products', params.productsId);
@@ -150,6 +160,7 @@ export default function EditProducts(params: { productsId: string }){
                     category: category,
                     keywords: result,
                     color: color,
+                    sizes: sizes,
                     docDate: new Date().getTime(), 
                     date: new Date().toLocaleDateString(),
                   }).then(()=>{
@@ -162,13 +173,35 @@ export default function EditProducts(params: { productsId: string }){
         }
     }
 
+    function activeSizeModal(){
+      setModal(true)
+    }
+
+    function addSize(){
+      if(size.validate()){
+        setSizes([...sizes, size.value])
+      }
+    }
+
+    function handlerOutSide(event: React.MouseEvent){
+      if(event.target === event.currentTarget) setModal(false)
+    }
+  
 
 
 
     return (
     <div className={stylesP.painel}>
         <h2>Produto</h2>
-         <form className={styles.form} onSubmit={(e)=>{handlerSubmit(e)}}>
+         <form className={styles.form} onSubmit={(e)=>{e.preventDefault()}}>
+          {modal && 
+          <div className={styles.modal} onClick={(event)=>{handlerOutSide(event)}}>
+            <div className={styles.formModal} >
+              <FormInput label="Nome do tamanho" name="tamanho" type="text" placeholder="Digite o nome do tamanho" {...size} />
+              <button onClick={()=>{addSize()}}>Adicionar</button>
+            </div>
+          </div>
+          }
             {confirm && <div className={styles.confirm}><p>Informações Alteradas com exito</p></div>} 
             <div className={styles.selectForm}>
             <FormInput label="Nome do Produto" name="nome" type='text' placeholder='Digite o nome do produto...' {...name}/>
@@ -192,9 +225,20 @@ export default function EditProducts(params: { productsId: string }){
                 ))} 
                 </select>
             </div>
-            <Button inputName="Enviar Produto"/>
+            <button className={styles.button} onClick={()=>{handlerSubmit()}}>Atualizar Produto</button>
+          </div>
+          <div className={styles.sizeButtons}>
+            <div className={styles.sizes}>
+              {sizes && sizes.map((value, index)=>(
+                  <button className={styles.addSizes}  key={index}>{value}</button>
+              ))}
+
+              <button className={styles.addSizes} onClick={()=>{activeSizeModal()}}><FontAwesomeIcon icon={faPlus}/></button>
+            </div>
           </div>
         </form>
+
+        
     </div>
     )
 }

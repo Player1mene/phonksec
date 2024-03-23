@@ -7,7 +7,7 @@ import { db } from '@/app/db/firebase';
 import { useEffect, useRef, useState } from 'react';
 import { Sync } from '@egjs/flicking-plugins';
 import { Inter } from 'next/font/google';
-import FavoritePhoto from '@/app/components/productFunctions/FavoritePhoto';
+import FavoriteProduct from '@/app/components/productFunctions/FavoriteProduct';
 const inter = Inter({ subsets: ["latin"], weight: ["100","200","300","400","500","600","700"], display: 'swap' });
 
 
@@ -85,19 +85,16 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                <h1>{product && `${product.data().name.length >= 60 ? product.data().name.substr(0,60)+"..." : product.data().name}`}</h1>
                <p className={styles.price}>{product && `R$${product.data().price}`}</p>
                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget risus eleifend, malesuada urna quis, sagittis nulla. Praesent auctor ante id facilisis feugiat. Suspendisse sodales, sem eget tristique feugiat, nunc justo pretium nunc, quis imperdiet erat dui sit amet lorem. Nulla maximus lorem molestie turpis finibus, a sollicitudin felis fringilla. Donec at nulla felis. Nam fermentum, nisl et dapibus sodales, urna est rutrum libero</p>
+               <h4>Tamanhos:</h4>
                <div className={styles.checks}>
-                <button className={styles.widthButton}>32</button>
-                
-                <button className={styles.widthButton}>40</button>
-                
-                <button className={styles.widthButton}>45</button>
-                
-                <button className={styles.widthButton}>50</button>
+                {product && product.data().sizes.map((value:string,index:number)=>(
+                  <button className={styles.widthButton} key={index}>{value}</button>
+                ))}
                </div>
                <div className={styles.checkUp}>
                     <button className={`${inter.className} ${styles.addCart}`}>Adicionar ao carrinho</button>
 
-                    {product && <FavoritePhoto product={product}/>}
+                    {product && <FavoriteProduct product={product}/>}
                     
                </div>
             </div>

@@ -8,7 +8,7 @@ import FasHeart from '../../../../public/fasHeart.svg';
 import FarHeart from '../../../../public/farHeart.svg';
 import styles from '../ListProducts/ListProducts.module.css'
 
-export default function FavoritePhoto(props: {product:any}){
+export default function FavoriteProduct(props: {product:any}){
     const user = React.useContext(AdminContext)
     const [favorite, setFavorite] = useState<boolean>(false);
     const router = useRouter();
