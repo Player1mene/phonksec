@@ -181,6 +181,10 @@
     background-color: rgb(81, 161, 0);
 }
 
+.spinnerContainer {
+    position: relative;
+}
+
 @-webkit-keyframes AnimationName {
     0%{background-position:48% 0%}
     50%{background-position:53% 100%}
