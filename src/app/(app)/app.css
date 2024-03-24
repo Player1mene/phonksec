@@ -67,7 +67,7 @@ img {
   
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 768px) {
     .torn-paper {
         display: block;
     }

@@ -18,8 +18,8 @@ export default function LastProducts(){
                     <h4>Último na lista de Desejos</h4>
                     <div className={styles.innerLast}>
                         
-                        {user.wishes && <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image>}
-                        {user.wishes && <p>{user.wishes[0].data().name}</p>}
+                        {user.wishes && user.wishes.length > 0  ? <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image> : ""}
+                        {user.wishes && user.wishes.length > 0 ? <p>{user.wishes[0].data().name}</p> : ""} 
                     
                     </div>
                 </div>
@@ -34,7 +34,8 @@ export default function LastProducts(){
                 <div className={styles.lastCart}>
                     <h4>Último no carrinho</h4>
                     <div className={styles.innerLast}>
-                            
+                        {user.cart && user.cart.length > 0 ? <Image width="1000" height="1000" alt="" src={user.cart[0].data().photo}></Image>: ""}
+                        {user.cart && user.cart.length > 0 ? <p>{user.cart[0].data().name}</p> : ""}
                     </div>
                 </div>
             </div>

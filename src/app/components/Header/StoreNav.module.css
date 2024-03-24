@@ -98,6 +98,11 @@
     gap: 40px;
 }
 
+.cart {
+    display: flex;
+    gap: 3px;
+}
+
 .logo {
     padding-right: 20px;
 }

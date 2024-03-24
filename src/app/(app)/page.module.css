@@ -123,7 +123,6 @@
   height: 100%;
   width: 100px;
   text-align: center;
-  animation: logo 1s infinite;
 } 
 
 .loadingLogo img {
@@ -290,9 +289,9 @@
   width: 364px;
   height: 111px;
   padding: 10px;
-  background: linear-gradient(180deg, rgba(44,43,43,1) 0%, rgba(0,0,0,1) 100%);
+  background: rgb(32, 32, 32);
   border-radius: 5px;
-  box-shadow: 0px 0px 1px 0px #ccc;
+  box-shadow: 0px 0px 0px 0.5px #555555;
 }
 
 .artistSingle img {
@@ -310,7 +309,7 @@
   display: inline-block;
   position: relative;
   width: 100px;
-  background-image: url('https://cdn.discordapp.com/attachments/1176185521983201290/1209477054182199369/remix-aa14e69a-af31-4617-994e-38489ca70684.png?ex=65f04ac8&is=65ddd5c8&hm=c4627ab53fcbf8b810b8069b9fc0258d39d58371392c9f2af7a91ade554c9528&');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/logo-and-wallpapers%2Ffavicon.webp?alt=media&token=f277508a-6cf8-4c15-9510-42c92a3e7bf3');
   background-position: 20px 20px;
   background-size: 50px 50px;
   background-repeat: no-repeat;
@@ -352,14 +351,6 @@
 
 
 
-@keyframes logo {
-  from {
-    opacity: 0.5;
-  }
-  to{
-    opacity: 1;
-  }
-}
 
 @media screen and (max-width: 1175px) {
 
@@ -457,7 +448,7 @@
   
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 790px) {
 
   .more {
     z-index: 102;
@@ -516,7 +507,7 @@
 }
 
 
-@media screen and (max-width: 513px) {
+@media screen and (max-width: 768px) {
 
   .categories {
     

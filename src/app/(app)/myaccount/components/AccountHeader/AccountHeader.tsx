@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faHeart, faShoppingCart, faUser, faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 import { auth } from "@/app/db/firebase";
 import { signOut } from "firebase/auth";
+import { AdminContext } from '@/app/adminContext';
+import { useContext } from 'react';
 
 export default function AccountHeader(){
+
+    const {logOut} = useContext(AdminContext)
 
     return (
     <div className={styles.header}>        
@@ -21,7 +25,7 @@ export default function AccountHeader(){
         
             <li><Link href="/myaccount"><FontAwesomeIcon icon={faShoppingCart}/> Carrinho</Link></li>
 
-            <li><Link href="#" onClick={()=>{signOut(auth)}}><FontAwesomeIcon icon={faXmarkCircle}/> Fazer logout</Link></li>
+            <li><Link href="#" onClick={()=>{logOut()}}><FontAwesomeIcon icon={faXmarkCircle}/> Fazer logout</Link></li>
         </ul>
 
     </div>

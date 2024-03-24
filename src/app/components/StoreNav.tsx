@@ -105,12 +105,12 @@ export default function StoreNav(){
 
                         <UseSearch setSearch={setSearch}/>
                         {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
-                        {user.login && <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>}
+                        {user.login && <Link href="/myaccount/cart" className={styles.cart}><FontAwesomeIcon icon={faCartShopping} /> {user.cart && user.cart.length > 0 ? <p>{user.cart.length}</p> : <p>0</p>}</Link>}
                         {!user.login && <Link href="/login" className={styles.login}>Fazer Login / Cadastrar-se</Link>}
                     </div>
                     <div className={styles.navigation}>    
                         {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
-                        {user.login && <Link href="/myaccount/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>}
+                        {user.login && <Link href="/myaccount/cart" className={styles.cart}><FontAwesomeIcon icon={faCartShopping} /> {user.cart && user.cart.length > 0  ? <p>{user.cart.length}</p> : <p>0</p>}</Link>}
                         {!user.login && <Link href="/login"><FontAwesomeIcon icon={faRightToBracket}/></Link>}
                         {!user.login && <Link href="/register"><FontAwesomeIcon icon={faUserPlus}/></Link>}
                       </div>

@@ -148,6 +148,7 @@
 }
 
 .loadingName {
+    z-index: 1000;
     position: absolute;
     top: 0;
     left: 0;
@@ -274,7 +275,7 @@
     
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 768px) {
     .products {
         grid-template-columns: 1fr 1fr 1fr; 
         padding: 20px 28px;

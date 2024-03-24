@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { auth, db, provider } from './db/firebase';
-import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect } from 'firebase/auth';
+import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect, signOut } from 'firebase/auth';
 import { addDoc, collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
 
 interface UserContextType {
@@ -13,9 +13,10 @@ interface UserContextType {
     loginGoogle: any,
     signIn: any,
     loading: boolean,
+    logOut: any,
 }
 
-export const AdminContext = React.createContext<UserContextType>({login: false, user: null, admin: false, wishes: null, cart: null, loginGoogle: null, signIn: null, loading: false});
+export const AdminContext = React.createContext<UserContextType>({login: false, user: null, admin: false, wishes: null, cart: null, loginGoogle: null, signIn: null, loading: false, logOut: null});
 
 export const UserStorage: React.FC<{children: React.ReactNode}>  = ({children}) => { 
 
@@ -143,9 +144,26 @@ function signIn(email: string,password: string){
 }
 
 
+function  logOut() {
+    signOut(auth).then(()=>{
+        setUser(null);
+        setAdmin(false);
+        setLogin(false);
+        setCart(null);
+        setWishes(null);
+    }).catch(()=>{
+        setUser(null);
+        setAdmin(false);
+        setLogin(false);
+        setCart(null);
+        setWishes(null);
+    })
+}
+
+
 
   return (
-       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart, loginGoogle: ()=>{ loginGoogle() }, signIn: (email: string, password: string) => {signIn(email,password)}, loading: loading}}>
+       <AdminContext.Provider  value={{login: login, user: user, admin: admin, wishes: wishes, cart: cart, loginGoogle: ()=>{ loginGoogle() }, signIn: (email: string, password: string) => {signIn(email,password)}, loading: loading, logOut: ()=> {logOut()}}}>
             {children}    
         </AdminContext.Provider>
   )

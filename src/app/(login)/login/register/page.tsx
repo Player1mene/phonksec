@@ -5,7 +5,14 @@ import Image from 'next/image';
 import RegisterForm from '../loginComponents/RegisterForm';
 
 export const metadata: Metadata = {
-    title: "Login - PhonkSec",
+    title: "Cadastre-se - PhonkSec",
+    icons: [
+        {
+          rel: 'icon',
+          type: 'image/webp',
+          url: 'https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/logo-and-wallpapers%2Ffavicon.webp?alt=media&token=f277508a-6cf8-4c15-9510-42c92a3e7bf3',
+        },
+      ],
 };
 
 export default function page(){

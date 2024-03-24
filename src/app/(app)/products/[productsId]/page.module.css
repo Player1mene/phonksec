@@ -14,7 +14,7 @@
     font-size: 20px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     .recommended h1 {
         padding: 10px 27px;
     }

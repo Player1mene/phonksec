@@ -100,7 +100,7 @@
 }
 
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:768px) {
 
     .footerNav {
     padding: 30px;

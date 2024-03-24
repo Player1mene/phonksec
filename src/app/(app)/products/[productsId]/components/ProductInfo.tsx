@@ -2,12 +2,14 @@
 import Image from 'next/image'
 import styles from './ProductInfo.module.css'
 import Flicking from '@egjs/react-flicking'
-import { doc, getDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '@/app/db/firebase';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Sync } from '@egjs/flicking-plugins';
 import { Inter } from 'next/font/google';
 import FavoriteProduct from '@/app/components/productFunctions/FavoriteProduct';
+import { AdminContext } from '@/app/adminContext';
+import Spinner from "../../../../../../public/spinnerWhite.svg"
 const inter = Inter({ subsets: ["latin"], weight: ["100","200","300","400","500","600","700"], display: 'swap' });
 
 
@@ -15,11 +17,12 @@ export default function ProductInfo({productsId}:{ productsId: string}){
 
 
 
-
+    const user = useContext(AdminContext);
     const [product, setProduct] = useState<any>(null)
-
+    const [size, setSize] = useState<string | null>(null)
     const flicking1 = useRef<any>();
     const flicking2 = useRef<any>();
+    const [load, setLoad] = useState<boolean>(false)
   
     const [plugins, setPlugins] = useState<any>([]);
   
@@ -51,13 +54,41 @@ export default function ProductInfo({productsId}:{ productsId: string}){
         console.log('carrega')
     },[Flicking])
 
+    function addCart(){
+      setLoad(true)
+      if(user.login){
+        setLoad(true)  
+        if(size && product){
+          addDoc(collection(db, "usersCart"), {
+            productId: productsId,
+            userId: user.user.userId,
+            name: product.data().name,
+            price: product.data().price,
+            photo: product.data().images[0],
+            size: size,
+            docDate: new Date().getTime(), 
+            date: new Date().toLocaleDateString(),
+        }).then(()=>{
+          setLoad(false);
+        })
+        }else{
+          alert('escolhe um tamanho');
+          setLoad(false);
+        }
+      }
+    }
+
 
 
 
     return (
         <div className={`${inter.className} ${styles.productSlider}`}>
 
+
             <div className={styles.productSlim}>
+
+            {product && <div className={styles.percent}>{product.data().descontPercent && <h2>{product.data().descontPercent} OFF</h2>}</div>}
+
 
             <Flicking ref={flicking1} className={styles.slide} defaultIndex={0} plugins={plugins}>
                 
@@ -88,11 +119,11 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                <h4>Tamanhos:</h4>
                <div className={styles.checks}>
                 {product && product.data().sizes.map((value:string,index:number)=>(
-                  <button className={styles.widthButton} key={index}>{value}</button>
+                  <button onClick={()=>{setSize(value)}} className={`${styles.widthButton} ${size == value ? styles.widthFocus : ""}`} key={index}>{value}</button>
                 ))}
                </div>
                <div className={styles.checkUp}>
-                    <button className={`${inter.className} ${styles.addCart}`}>Adicionar ao carrinho</button>
+                    <button onClick={()=>{addCart()}} className={`${inter.className} ${styles.addCart}`}>{load ? <Image width="24" height="24" alt='' src={Spinner}/> : "Adicionar ao carrinho"}</button>
 
                     {product && <FavoriteProduct product={product}/>}
                     
