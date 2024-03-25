@@ -124,7 +124,7 @@ export default function ProductInfo({productsId}:{ productsId: string}){
             <Flicking ref={flicking1} className={styles.slide} defaultIndex={0} plugins={plugins}>
                 
                 {product ? product.data().images.map((value:string, key:number)=>(
-                    <Image className={`${styles.singleSlider} panel-image  flicking-panel full has-background-primary`} src={value} key={key} alt='' width="1000" height="1000" />
+                    <Image className={`${styles.singleSlider} panel-image  flicking-panel full has-background-primary`} src={value} key={key} alt='' width="2000" height="2000" />
                 )) : <div></div>}
             
             </Flicking>
@@ -146,7 +146,7 @@ export default function ProductInfo({productsId}:{ productsId: string}){
             <div className={styles.infoProduct}>
                <h1>{product && `${product.data().name.length >= 60 ? product.data().name.substr(0,60)+"..." : product.data().name}`}</h1>
                <p className={styles.price}>{product && `${product.data().lastPrice && 'Por'} R$${product.data().price}`} {product && <p style={{display: 'inline-flex', gap: "5px"}}>De <p style={{textDecoration: 'line-through'}}>{`R$${product.data().lastPrice && product.data().lastPrice}`}</p></p>}</p>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget risus eleifend, malesuada urna quis, sagittis nulla. Praesent auctor ante id facilisis feugiat. Suspendisse sodales, sem eget tristique feugiat, nunc justo pretium nunc, quis imperdiet erat dui sit amet lorem. Nulla maximus lorem molestie turpis finibus, a sollicitudin felis fringilla. Donec at nulla felis. Nam fermentum, nisl et dapibus sodales, urna est rutrum libero</p>
+               {product && <p>{product.data().description}</p>}
                <h4>Tamanhos:</h4>
                <div className={styles.checks}>
                 {product && product.data().sizes.map((value:string,index:number)=>(

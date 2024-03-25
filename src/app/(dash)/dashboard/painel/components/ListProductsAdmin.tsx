@@ -100,7 +100,7 @@ return (
             {val.data().lastPrice && <h4><p style={{textDecoration: 'line-through'}}>R${val.data().lastPrice}</p></h4>}
             <h4>R${val.data().price}</h4>
             <h4>{val.data().category}</h4>
-            {val.data().sizes ? "sim" : "Não"}
+            {val.data().description && <h5>{val.data().description.substr(0,15)}...</h5>}
             </div>
 
             <div className={styles.buttonWrapper}>

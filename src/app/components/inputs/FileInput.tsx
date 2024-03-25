@@ -3,6 +3,10 @@ import React, { useEffect } from 'react'
 import styles from './FileInput.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ["latin"], weight: ["400","500", "600", "700"], display: 'swap' });
+
 
 
 interface SetImages {
@@ -26,16 +30,16 @@ export default function FileInpunt(props: SetImages){
     }
 
     return (
-        <div className={styles.input}>
+        <div className={`${styles.input} ${inter.className}`}>
             <label htmlFor='file'>Escolher Arquivos
                 <input id="file" multiple type='file' name="nome" hidden onChange={(e)=>{putFiles(e)}}/>    
             </label>
             <div className={styles.images}>     
-                {props.image && props.image.map((item, index)=>(
+                {props.image.length > 0 ? props.image.map((item, index)=>(
                     <div key={index} className={styles.imgPreview} style={{backgroundImage: `url('${URL.createObjectURL(item)}')`}}>
                         <div className={styles.close} onClick={()=>{delFiles(item.name)}}><FontAwesomeIcon icon={faXmark}/></div>
                     </div>
-                ))}
+                )) : <p className={styles.notImages}>Sem imagens</p>}
             </div>
         </div>    
     )

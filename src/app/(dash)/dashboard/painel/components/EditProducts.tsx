@@ -8,7 +8,7 @@ import FormInput from "@/app/components/inputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import Button from "@/app/components/inputs/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 
 interface Category {
@@ -111,6 +111,7 @@ export default function EditProducts(params: { productsId: string }){
         })
     },[params.productsId])
 
+
     const name = useForm({type: null})
     const price = useForm({type: 'price'})
     const size = useForm({type: null})
@@ -118,6 +119,7 @@ export default function EditProducts(params: { productsId: string }){
     const [confirm, setConfirm] = useState<boolean>(false)
     const [category, setCategory] = useState<string | null>(null)
     const [modal, setModal] = useState<boolean>(false);
+    const [textarea, setTextarea] = useState<string>('');
 
 
     useEffect(()=>{
@@ -134,7 +136,7 @@ export default function EditProducts(params: { productsId: string }){
 
         
         async function handlerSubmit(){
-            if(color && category && sizes && name.validate() && price.validate()){
+            if(color && category && sizes && name.validate() && price.validate() && textarea){
                 const items = name.value.split(' ');
                 let result:any = [];
                 const product = doc(db, 'products', params.productsId);
@@ -159,6 +161,7 @@ export default function EditProducts(params: { productsId: string }){
                     price: price.value,
                     category: category,
                     keywords: result,
+                    description: textarea,
                     color: color,
                     sizes: sizes,
                     docDate: new Date().getTime(), 
@@ -182,6 +185,11 @@ export default function EditProducts(params: { productsId: string }){
         setSizes([...sizes, size.value])
       }
     }
+
+
+    function removeSize(value: string){
+      setSizes(sizes.filter((item) => item !== value));
+  }
 
     function handlerOutSide(event: React.MouseEvent){
       if(event.target === event.currentTarget) setModal(false)
@@ -230,12 +238,21 @@ export default function EditProducts(params: { productsId: string }){
           <div className={styles.sizeButtons}>
             <div className={styles.sizes}>
               {sizes && sizes.map((value, index)=>(
-                  <button className={styles.addSizes}  key={index}>{value}</button>
+                  <button className={`${styles.addSizes} ${styles.size}`}  key={index}>{value} <p onClick={()=>{removeSize(value)}}><FontAwesomeIcon icon={faXmark}/></p></button>
               ))}
 
               <button className={styles.addSizes} onClick={()=>{activeSizeModal()}}><FontAwesomeIcon icon={faPlus}/></button>
             </div>
+
+            <div className={styles.textArea}>
+              <textarea onChange={(e)=>{setTextarea(e.target.value)}} value={textarea}></textarea>
+            </div>
           </div>
+
+          
+
+         
+
         </form>
 
         

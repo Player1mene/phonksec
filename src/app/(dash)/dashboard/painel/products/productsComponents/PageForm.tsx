@@ -3,11 +3,13 @@ import FileInpunt from "@/app/components/inputs/FileInput";
 import FormInput from "@/app/components/inputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import styles from './PageForm.module.css'
-import { ReactPropTypes, useState } from "react";
+import { ReactPropTypes, useEffect, useState } from "react";
 import Button from "@/app/components/inputs/Button";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "@/app/db/firebase";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 interface Category {
     camisa: Parameter,
@@ -101,20 +103,29 @@ interface Category {
 
 export default function PageForm(){
 
+    
+    const size = useForm({type: null})
     const name = useForm({type: null})
     const price = useForm({type: 'price'})
     const [image, setImage] = useState<File[]>([])
     const [color, setColor] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
     const [confirm, setConfirm] = useState(false);
+    const [sizes, setSizes] = useState<string[]>(['']);
+    const [modal, setModal] = useState<boolean>(false);
+    const [textarea, setTextarea] = useState<string>('');
     const storage = getStorage()
 
+
+    useEffect(()=>{
+      setSizes([])
+    },[])
 
 
 
     async function handlerSubmit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault()
-        if(image && color && category && name.validate() && price.validate()){
+        if(image && color && category && name.validate() && price.validate() && sizes && textarea){
         const imagesUrlArray:string[] = [];
         const items = name.value.split(' ');
         let result:any = [];
@@ -150,6 +161,8 @@ export default function PageForm(){
             keywords: result,
             category: category,
             color: color,
+            description: textarea,
+            sizes: sizes,
             images: imagesUrlArray,
             docDate: new Date().getTime(), 
             date: new Date().toLocaleDateString(),
@@ -163,12 +176,55 @@ export default function PageForm(){
     }
     }
 
+    function activeSizeModal(){
+      setModal(true)
+    }
+
+    function addSize(){
+      if(size.validate()){
+        setSizes([...sizes, size.value])
+      }
+    }
+
+
+    function removeSize(value: string){
+      setSizes(sizes.filter((item) => item !== value));
+  }
+
+  function handlerOutSide(event: React.MouseEvent){
+    if(event.target === event.currentTarget) setModal(false)
+  }
+
 
     return (
         <form className={styles.form} onSubmit={(e)=>{handlerSubmit(e)}}>
          {confirm && <div className={styles.confirm}><p>Produto enviado com sucesso</p></div>} 
+         {modal && 
+          <div className={styles.modal} onClick={(event)=>{handlerOutSide(event)}}>
+            <div className={styles.formModal} >
+              <FormInput label="Nome do tamanho" name="tamanho" type="text" placeholder="Digite o nome do tamanho" {...size} />
+              <button onClick={()=>{addSize()}}>Adicionar</button>
+            </div>
+          </div>
+          }
             <div className={styles.infoForm}>
-               <FileInpunt image={image} setImage={setImage}/>            
+               <FileInpunt image={image} setImage={setImage}/>    
+               <div className={styles.sizeButtons}>
+            <div className={styles.sizes}>
+              {sizes && sizes.map((value, index)=>(
+                  <button className={`${styles.addSizes} ${styles.size}`}  key={index}>{value} <p onClick={()=>{removeSize(value)}}><FontAwesomeIcon icon={faXmark}/></p></button>
+              ))}
+
+              <button className={styles.addSizes} onClick={()=>{activeSizeModal()}}><FontAwesomeIcon icon={faPlus}/></button>
+            </div>
+
+            
+          </div>    
+
+          <div className={styles.textArea}>
+              <textarea onChange={(e)=>{setTextarea(e.target.value)}} value={textarea}></textarea>
+            </div>
+
             </div>
             <div className={styles.selectForm}>
             <FormInput label="Nome do Produto" name="nome" type='text' placeholder='Digite o nome do produto...' {...name}/>
