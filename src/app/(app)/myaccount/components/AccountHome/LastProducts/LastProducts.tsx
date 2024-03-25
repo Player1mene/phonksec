@@ -34,7 +34,7 @@ export default function LastProducts(){
                 <div className={styles.lastCart}>
                     <h4>Último no carrinho</h4>
                     <div className={styles.innerLast}>
-                        {user.cart && user.cart.length > 0 ? <Image width="1000" height="1000" alt="" src={user.cart[0].data().photo}></Image>: ""}
+                        {user.cart && user.cart.length > 0 ? <Image width="1000" height="1000" alt="" src={user.cart[0].data().image}></Image>: ""}
                         {user.cart && user.cart.length > 0 ? <p>{user.cart[0].data().name}</p> : ""}
                     </div>
                 </div>
