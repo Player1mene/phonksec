@@ -107,7 +107,7 @@ function loginGoogle(){
     .then((result:any) => {  
       const user:any | null = result.user;
       getDocs(query(collection(db, "users"), where("userId", "==", user.uid))).then((dbUser)=>{
-          if(dbUser.docs.length < 1){
+          if(dbUser.docs.length == 0){
             createUserGoogle(user)
           }else{
             getUser(user.uid);
