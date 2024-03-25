@@ -71,7 +71,7 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                   userId: user.user.userId,
                   name: product.data().name,
                   price: product.data().price,
-                  photo: product.data().images[0],
+                  image: product.data().images[0],
                   size: size,
                   count: 1,
                   docDate: new Date().getTime(), 
