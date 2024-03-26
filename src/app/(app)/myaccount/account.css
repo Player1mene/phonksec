@@ -40,7 +40,7 @@
 
 @media screen and (max-width: 940px) {
     .accountGrid{
-        padding: 27px 2%;
+        padding: 12px 27px;
         display: grid;
         gap: 27px;
         grid-template-columns: 1fr;

@@ -1,10 +1,16 @@
-.header {
+
+
+.headerWrapper {
     display: flex;
     flex-direction: column;
     background-color: #F0F0F0;
     box-shadow: 0px 0px 0px 2px #ccc;
     border-radius: 4px;
     overflow: hidden;
+}
+
+.menu {
+    display: none;
 }
 
 .header h3 {
@@ -44,12 +50,71 @@
 }
 
 @media screen and (max-width: 940px) {
-    .header {
-        display: none;
+
+    .menu {
+        display: block;
+        position: fixed;
+        top: 83px;
+        width: 40px;
+        height: 40px;
+        border-radius: .4rem;
+        background-color: white;
+        box-shadow: 0px 0px 0px 1px #ccc;
+        border: 0;
+        cursor: pointer;
+        right: 27px;
+    }
+    .headerWrapper {
+        position: fixed;
+        top: 138px;
+        right: 27px;
+        display: block;
         flex-direction: column;
         background-color: #F0F0F0;
         box-shadow: 0px 0px 0px 2px #ccc;
         border-radius: 4px;
         overflow: hidden;
+        animation: .5s ease menu forwards;
+    }
+
+    .headerFadeOut {
+        position: fixed;
+        top: 138px;
+        right: 27px;
+        display: block;
+        flex-direction: column;
+        background-color: #F0F0F0;
+        box-shadow: 0px 0px 0px 2px #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+        animation: .5s ease fade forwards;
+    }
+
+    @keyframes menu {
+
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        } to {
+            opacity: 1;
+            transform: initial;
+        }
+
+        
+    }
+
+    @keyframes fade {
+
+        from {
+            opacity: 1;
+            transform: initial;
+        } to {
+            opacity: 0;
+            transform: translateY(-20px);
+        } to {
+            display: none;
+        }
+
+        
     }
 }
