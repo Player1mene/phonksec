@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 
 
-export default function({product}: {product: any}){
+export default function ListSingle({product}: {product: any}){
 
     return(
         <div className={styles.ListSingle}>
