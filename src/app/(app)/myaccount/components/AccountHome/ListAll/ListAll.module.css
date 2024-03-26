@@ -34,3 +34,39 @@
     max-height: 100%;
     overflow-y: auto;
 }
+
+.nothing {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nothing svg {
+    font-size: 30px;
+    color: #8b8b8b;
+}
+
+.nothing p {
+    font-weight: 500;
+    color: #8b8b8b;
+}
+
+
+@media screen and (max-width: 1090px) {
+    .ListAll {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 557px) {
+    .ListAll {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+    }
+}

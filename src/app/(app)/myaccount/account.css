@@ -17,3 +17,36 @@
 .grid2 {
     grid-column: span 3;
 }
+
+@media screen and (max-width: 1250px) {
+    .accountGrid{
+        padding: 27px 2%;
+        display: grid;
+        gap: 27px;
+        grid-template-columns: repeat(4, 1fr);
+        height: calc(100vh - 70px);
+    }
+}
+
+@media screen and (max-width: 1090px) {
+    .accountGrid{
+        padding: 27px 2%;
+        display: grid;
+        gap: 27px;
+        grid-template-columns: repeat(4, 1fr);
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .accountGrid{
+        padding: 27px 2%;
+        display: grid;
+        gap: 27px;
+        grid-template-columns: 1fr;
+        height: 100%;
+    }
+}
+
+
+

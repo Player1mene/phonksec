@@ -475,7 +475,7 @@
   
   .artistSliderWrapper {
     display: flex;
-    width: calc((364px * 4) + 100px);
+    width: calc((364px * 6) + 100px);
     padding: 0 20px;
     gap: 10px;
     justify-content: flex-start;

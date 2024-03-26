@@ -145,6 +145,25 @@ export default function Home() {
                             <p>Prod.Musical & Artista</p>
                           </div>
                         </div>
+
+
+                        <div className={styles.artistSingle}>
+                          <img src='https://yt3.googleusercontent.com/ytc/AIdro_mqI2BoGUDVTTmOMwV-VRPRRnq4m5CQt5GAc4-_Iw=s900-c-k-c0x00ffffff-no-rj'/>
+                          <div className={styles.artDesc}>
+                            <h5>YUN LI</h5>
+                            <p>Prod.Musical & Artista</p>
+                          </div>
+                        </div>
+
+                        <div className={styles.artistSingle}>
+                          <img src='https://i.scdn.co/image/ab6761610000e5eb18e8eae52ffbcb93b6428ebd'/>
+                          <div className={styles.artDesc}>
+                            <h5>BIFFE</h5>
+                            <p>Prod.Musical & Artista</p>
+                          </div>
+                        </div>
+
+
                        </div>
                     </div>
                 </div>
