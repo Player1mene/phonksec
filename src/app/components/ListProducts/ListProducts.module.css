@@ -1,5 +1,6 @@
 .ListProducts {
     width: 100%;
+    height: auto;
     min-height: 110vh;
 }
 
@@ -7,8 +8,8 @@
     width: 100%;
     display: grid;
     padding: initial;
-    grid-template-columns:repeat(5, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    gap:10px;
 }
 
 
@@ -81,7 +82,7 @@
 
 .notfound {
     width: 100%;
-    grid-column: span 5; 
+    grid-column: span 4; 
     padding: 50px 0; 
     display: flex;
     flex-direction: column;
@@ -208,7 +209,7 @@
 }
 @media screen and (max-width: 1250px) {
     .products {
-        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        grid-template-columns: repeat(4, 1fr); 
     }
 
     .notfound {
@@ -254,7 +255,7 @@
 
 @media screen and (max-width: 800px) {
     .products {
-        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        grid-template-columns: repeat(4, 1fr); 
     }
 
 
@@ -277,7 +278,7 @@
 
 @media screen and (max-width: 768px) {
     .products {
-        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-columns: repeat(3, 1fr); 
         padding: 20px 28px;
     }
 
@@ -312,7 +313,7 @@
 @media screen and (max-width: 511px) {
 
     .products {
-        grid-template-columns: 1fr 1fr; 
+        grid-template-columns: repeat(2, 1fr); 
         padding: 20px 28px;
     }
 

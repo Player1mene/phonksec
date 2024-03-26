@@ -1,14 +1,23 @@
 .products {
     margin-top: 70px;
     display: grid;
-    padding: 20px 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px 5px;
+    gap: 1px;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .list {
     width: 100%;
-    grid-column: span 3;
-    padding: 0 5px;
+    grid-column: span 4;
+    padding: 0;
+}
+
+.filter select {
+    padding: inherit 2%;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
 }
 
 
@@ -17,11 +26,19 @@
     .products {
         display: grid;
         grid-template-columns: 1fr;
+        padding: 20px 10px;
     }
     
     .list {
         width: 100%;
         grid-column: span 1;
+    }
+
+    .filter select {
+        line-height: 14px;
+        font-size: 15px;
+        font-weight: 500;
+        width: 100%;
     }
   
 }

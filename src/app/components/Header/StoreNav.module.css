@@ -1,4 +1,5 @@
 .header {
+    z-index: 1001;
     width: 100%;
     margin: 0 auto;
     height: 70px;
@@ -24,30 +25,101 @@
     font-size: 15px !important;
 }
 
+
 .categ {
-    position: absolute;
-    width: 50%;
+    z-index: 900;
+    position:fixed;
     top: 70px;
-    left: 0;
-    padding: 10px;
-    display: grid !important;
-    grid-template-columns: repeat(4, 3fr);
-    background-color: #141414;
-    transition: 0.5s;
-    gap: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    list-style-type: none;
+    left: 50px;
+    display: grid;
+    width: 600px;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(6,1fr);
+    list-style-type: none;
+    animation: .3s ease fadeIn;
+    list-style-type: none;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    } to {
+        opacity: 1;
+        transform: initial;
+    }
+}
+
+
+
+.categFade {
+    z-index: 900;
+    position:fixed;
+    top: 70px;
+    left: 50px;
+    display: grid;
+    width: 600px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(6,1fr);
+    list-style-type: none;
+    animation: .3s ease fadeOut forwards;
+    list-style-type: none;
+}
+
+@keyframes fadeOut {
+    from {
+        
+        opacity: 1;
+        transform: initial;
+    } to {
+        
+        opacity: 0;
+        transform: translateY(-20px);
+        
+    } to {
+        top: -200px;
+        display: none !important;
+    }
+}
+
+.categ li {
+    display: inline-flex;
+    width: 100%;
+    height: 90px;
+    padding: 5px;
+    background-color: #141414;
 }
 
 .categ li a {
     font-size: 14px;
-    padding: 40px 20px;
+    width: 100%;
+    display: inline-flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 10px;
+}
+
+
+.categ li:nth-of-type(6) {
+    border-bottom-right-radius: 10px;
+}
+
+.categ li:nth-of-type(7) {
+    border-bottom-left-radius: 10px;
+}
+
+.categ li:nth-of-type(9) {
+    border-bottom-right-radius: 10px;
 }
 
 .categList li a {
@@ -176,6 +248,7 @@
     color: white;
 }
 
+
 @media screen and (max-width: 800px) {
     .navigation {
         display: flex;
@@ -191,6 +264,11 @@
 
     .logo {
         padding-right: 0;
+    }
+
+    .categ {
+        display: none;
+        animation: none;
     }
 }
 

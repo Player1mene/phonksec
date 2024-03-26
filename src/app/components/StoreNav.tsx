@@ -34,6 +34,7 @@ export default function StoreNav(){
         function menuMobile(){
             setCateg(false)
             setMenu(false)
+            setSearch(false)
         }
         window.addEventListener('resize',menuMobile);
 
@@ -54,8 +55,10 @@ export default function StoreNav(){
     }, [pathname, searchParams]);
 
     return (
-        <header className={styles.headerW}>
-            <div className={`container ${styles.header}`}>    
+        <div>
+
+<header className={styles.headerW}>
+            <div className={`container ${styles.header}`}>   
                     {menu && <NavMenu setMenu={setMenu}/>}
                     {search && <UseSearch setSearch={setSearch}/>}
                     <div className={styles.navigation}>
@@ -82,7 +85,25 @@ export default function StoreNav(){
 
                         </ul>
 
-                        {categ && <ul className={styles.categ}>
+                        <UseSearch setSearch={setSearch}/>
+                        {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
+                        {user.login && <Link href="/myaccount/cart" className={styles.cart}><FontAwesomeIcon icon={faCartShopping} /> {user.cart && user.cart.length > 0 ? <p>{user.cart.length}</p> : <p>0</p>}</Link>}
+                        {!user.login && <Link href="/login" className={styles.login}>Fazer Login / Cadastrar-se</Link>}
+                    </div>
+                    <div className={styles.navigation}>    
+                        {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
+                        {user.login && <Link href="/myaccount/cart" className={styles.cart}><FontAwesomeIcon icon={faCartShopping} /> {user.cart && user.cart.length > 0  ? <p>{user.cart.length}</p> : <p>0</p>}</Link>}
+                        {!user.login && <Link href="/login"><FontAwesomeIcon icon={faRightToBracket}/></Link>}
+                        {!user.login && <Link href="/register"><FontAwesomeIcon icon={faUserPlus}/></Link>}
+                      </div>
+            </div>
+
+            
+        </header>
+
+
+            
+        <div className={`${styles.categ} ${!categ && styles.categFade}`}>
                                     <li><Link href="/products?category=camisa"  style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fcamisa.png?alt=media&token=a0d341dd-2924-48ad-b73f-bbc1f50f4fdd')`}}>Camisas</Link></li>
                                     
                                     <li><Link href="/products?category=moletom" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fmoletom.png?alt=media&token=329eb6ed-3abd-4585-bb42-95de04150f0e')`}}>Moletons</Link></li>
@@ -100,21 +121,9 @@ export default function StoreNav(){
                                     <li><Link href="/products?category=sobretudo" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Fsobretudo.png?alt=media&token=2058a869-4619-44b7-894e-aaf26198a5a4')`}} >Sobretudos</Link></li>
                                     
                                     <li><Link href="/products?category=acessorios" style={{backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/categories%2Facessorio.png?alt=media&token=40f0aae2-a8de-4a35-a79c-78af8a5cf6c2')`}}>Acessorios</Link></li>
-                                </ul>}
+                                </div>
 
-
-                        <UseSearch setSearch={setSearch}/>
-                        {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
-                        {user.login && <Link href="/myaccount/cart" className={styles.cart}><FontAwesomeIcon icon={faCartShopping} /> {user.cart && user.cart.length > 0 ? <p>{user.cart.length}</p> : <p>0</p>}</Link>}
-                        {!user.login && <Link href="/login" className={styles.login}>Fazer Login / Cadastrar-se</Link>}
-                    </div>
-                    <div className={styles.navigation}>    
-                        {user.login && <Link href="/myaccount"><FontAwesomeIcon icon={faUser} /></Link>}
-                        {user.login && <Link href="/myaccount/cart" className={styles.cart}><FontAwesomeIcon icon={faCartShopping} /> {user.cart && user.cart.length > 0  ? <p>{user.cart.length}</p> : <p>0</p>}</Link>}
-                        {!user.login && <Link href="/login"><FontAwesomeIcon icon={faRightToBracket}/></Link>}
-                        {!user.login && <Link href="/register"><FontAwesomeIcon icon={faUserPlus}/></Link>}
-                      </div>
-            </div>
-        </header>
+        </div>
+        
     )
 }
