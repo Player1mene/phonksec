@@ -17,8 +17,8 @@ export default function FavoriteGrid(){
         <div className={styles.FavoriteGrid}>
             {wishes && wishes.length > 0 ? 
                 wishes.map((wishe: any, index:number)=>(
-                    <div className={styles.innerProduct}>
-                        <ListSingle product={wishe.data()} styles={styles} key={index}/> 
+                    <div className={styles.innerProduct} key={index}>
+                        <ListSingle product={wishe.data()} styles={styles}/> 
                         <button onClick={()=>{deleteDoc(doc(db, "usersFavorite", wishe.id))}}><FontAwesomeIcon icon={faTrash}/></button>   
                     </div>
                 ))
