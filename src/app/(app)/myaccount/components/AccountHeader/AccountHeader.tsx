@@ -24,9 +24,9 @@ export default function AccountHeader(){
         <ul>
             <li><Link href="/myaccount"><FontAwesomeIcon icon={faUser} /> Visão geral</Link></li>
             
-            <li><Link href="/myaccount"><FontAwesomeIcon icon={faHeart} /> Lista de Desejos</Link></li>
+            <li><Link href="/myaccount/favorites/"><FontAwesomeIcon icon={faHeart} /> Lista de Desejos</Link></li>
             
-            <li><Link href="/myaccount"><FontAwesomeIcon icon={faBagShopping}/> Meus pedidos</Link></li>
+            <li><Link href="/myaccount/requests/"><FontAwesomeIcon icon={faBagShopping}/> Meus pedidos</Link></li>
 
             <li><Link href="/myaccount"><FontAwesomeIcon icon={faShoppingCart}/> Carrinho</Link></li>
 

@@ -3,7 +3,7 @@
     display: grid;
     gap: 27px;
     grid-template-columns: repeat(4, 1fr);
-    height: calc(100vh - 70px);
+    height: 100%;
 }
 
 .myaccount {

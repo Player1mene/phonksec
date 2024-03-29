@@ -9,6 +9,9 @@
 .listWishes,
 .listRequests,
 .listCarts {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
     background-color: #F0F0F0;
     box-shadow: 0px 0px 0px 2px #ccc;
     border-radius: 4px;
@@ -30,6 +33,7 @@
 }
 
 .innerLast {
+    width: 100%;
     height: calc(100% - 45px);
     max-height: 100%;
     overflow-y: auto;
@@ -54,6 +58,39 @@
     color: #8b8b8b;
 }
 
+.ListSingle {
+    padding: 12px;
+    color: #5D5D5D;
+    font-weight: 500;
+    width: 100%;
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    background-color: #F0F0F0;
+    box-shadow: 0px 0px 0px 2px #ccc;
+}
+
+.ListSingle img {
+width: 60px;
+height: 60px;
+border-radius: .4rem;
+box-shadow: 0px 0px 1px 0px #ccc;
+grid-template-columns: 1 / 1;
+object-fit: cover;
+-o-object-fit: cover;
+object-position: center;
+}
+
+.singleInfo {
+width: 100%;
+grid-column: 2 / 5;
+display: flex;
+flex-direction: column;
+gap: 5px;
+justify-content: center;
+}
+
 
 @media screen and (max-width: 1090px) {
     .ListAll {
@@ -66,7 +103,26 @@
 @media screen and (max-width: 557px) {
     .ListAll {
         display: grid;
-        gap: 0px;
+        gap: 30px;
+        height: 100vh !important;
         grid-template-columns: 1fr;
     }
+
+    .listWishes,
+.listRequests,
+.listCarts {
+    background-color: #F0F0F0;
+    box-shadow: 0px 0px 0px 2px #ccc;
+    border-radius: 4px;
+    height: 100%;
+}
+
+.listRequests .innerLast {
+    padding: 20px 0;
+    height: 100%;
+}
+
+
+
+
 }

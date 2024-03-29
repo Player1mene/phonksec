@@ -69,9 +69,6 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                 addDoc(collection(db, "usersCart"), {
                   productId: productsId,
                   userId: user.user.userId,
-                  name: product.data().name,
-                  price: product.data().price,
-                  image: product.data().images[0],
                   size: size,
                   count: 1,
                   docDate: new Date().getTime(), 

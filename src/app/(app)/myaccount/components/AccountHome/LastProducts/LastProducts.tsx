@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSadTear } from '@fortawesome/free-solid-svg-icons';
+import ListSingle from '../../ListSingle/ListSingle';
 
 
 export default function LastProducts(){
@@ -25,8 +26,7 @@ export default function LastProducts(){
                                 <p>Nada por aqui</p>
                         </div>}
                         
-                        {user.wishes && user.wishes.length > 0  ? <Image width="1000" height="1000" alt="" src={user.wishes[0].data().image}></Image> : ""}
-                        {user.wishes && user.wishes.length > 0 ? <p>{user.wishes[0].data().name}</p> : ""} 
+                        {user.wishes && user.wishes.length > 0  ? <ListSingle product={user.wishes[0].data()} styles={styles} /> : ""}
                     
                     </div>
                 </div>
@@ -48,8 +48,9 @@ export default function LastProducts(){
                                 <FontAwesomeIcon icon={faFaceSadTear}/>
                                 <p>Nada por aqui</p>
                         </div>}
-                        {user.cart && user.cart.length > 0 ? <Image width="1000" height="1000" alt="" src={user.cart[0].data().image}></Image>: ""}
-                        {user.cart && user.cart.length > 0 ? <p>{user.cart[0].data().name}</p> : ""}
+
+                        {user.cart && user.cart.length > 0  ? <ListSingle product={user.cart[0].data()} styles={styles} /> : ""}
+                    
                     </div>
                 </div>
             </div>

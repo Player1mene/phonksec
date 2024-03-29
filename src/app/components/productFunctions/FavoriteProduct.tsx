@@ -56,11 +56,6 @@ export default function FavoriteProduct(props: {product:any}){
                         addDoc(collection(db, "usersFavorite"), {
                             productId: props.product.id,
                             userId: user.user.userId,
-                            name: props.product.data().name,
-                            lastPrice: props.product.data().lastPrice && props.product.data().lastPrice,
-                            descontPercent: props.product.data().descontPercent && props.product.data().descontPercent,
-                            price: props.product.data().price,
-                            image: props.product.data().images[0],
                             docDate: new Date().getTime(), 
                             date: new Date().toLocaleDateString(),
                         }).then(()=>{
@@ -72,9 +67,6 @@ export default function FavoriteProduct(props: {product:any}){
                         addDoc(collection(db, "usersFavorite"), {
                             productId: props.product.id,
                             userId: user.user.userId,
-                            name: props.product.data().name,
-                            price: props.product.data().price,
-                            image: props.product.data().images[0],
                             docDate: new Date().getTime(), 
                             date: new Date().toLocaleDateString(),
                         }).then(()=>{

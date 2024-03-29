@@ -17,7 +17,7 @@ export default function ListAll(){
                     <h3>Minha lista de Desejos</h3>
                     <div className={styles.innerLast}>
                         {wishes && wishes.length > 0  ? wishes.map((product:any, index:number)=>(
-                            <ListSingle key={index} product={product.data()}/>
+                            <ListSingle key={index} product={product.data()} styles={styles}/>
                         )) : 
                             <div className={styles.nothing}>
                                 <FontAwesomeIcon icon={faFaceSadTear}/>
@@ -41,7 +41,7 @@ export default function ListAll(){
                     <h3>Carrinho</h3>
                     <div className={styles.innerLast}>
                         {cart && cart.length > 0  ? cart.map((product:any, index:number)=>(
-                            <ListSingle key={index} product={product.data()}/>
+                            <ListSingle key={index} product={product.data()} styles={styles}/>
                         )) : 
                         
                         <div className={styles.nothing}>

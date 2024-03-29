@@ -28,9 +28,15 @@ export default function UseSearch(props:  { setSearch: React.Dispatch<React.SetS
     
     return (
         <form className={styles.search} onSubmit={(e)=>{search(e)}}>
-            <input type="text" value={inputSearch} onChange={(e)=>{setInputSearch(e.target.value)}} placeholder="Camisa estampada, tênis, moletons, etc"/>
+            <label htmlFor='#input' className={styles.label}>
+            
+            <input type="text" id="input" value={inputSearch} onChange={(e)=>{setInputSearch(e.target.value)}} placeholder="Camisa estampada, tênis, moletons, etc"/>
             <button><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+           
+            </label>
+        
             <button className={styles.close} onClick={()=>{props.setSearch(false)}}><FontAwesomeIcon icon={faXmark}/></button>
+
         </form>
     )
 }
