@@ -56,6 +56,14 @@ export default function ProductInfo({productsId}:{ productsId: string}){
         console.log('carrega')
     },[Flicking])
 
+    function formatValue(value: string, count: number) : string {
+      var str:any = value.replace(",",".");
+      var cal:string = Number(str * count).toString();
+      var toString:string = Number.parseFloat(cal).toFixed(2).toString().replace(".",',');
+      console.log(toString)
+      return toString;
+    }
+
     function addCart(){
       setLoad(true)
       if(user.login){
@@ -71,6 +79,8 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                   userId: user.user.userId,
                   size: size,
                   count: 1,
+                  productPrice: product.data().price,
+                  price: product.data().price,
                   docDate: new Date().getTime(), 
                   date: new Date().toLocaleDateString(),
               }).then(()=>{
@@ -83,9 +93,13 @@ export default function ProductInfo({productsId}:{ productsId: string}){
               
             }else{
 
-              const product = doc(db, 'usersCart', dbUser.docs[0].id);
-              updateDoc(product, {
+              
+
+              const prod = doc(db, 'usersCart', dbUser.docs[0].id);
+              const pricePlus = formatValue(product.data().price, dbUser.docs[0].data().count + 1);
+              updateDoc(prod, {
                 count: dbUser.docs[0].data().count + 1,
+                price: pricePlus,
               }).then(()=>{
                 setLoad(false);
                 setConfirm('Mais um adicionado')

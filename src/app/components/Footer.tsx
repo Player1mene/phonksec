@@ -38,11 +38,11 @@ export default function Footer(){
                         <ul>
                             
                             <li><h4>Links de usuário</h4></li>
-                            <li><Link href="/">Minha Conta</Link></li>
+                            <li><Link href="/myaccount">Minha Conta</Link></li>
                             
-                            <li><Link href="/">Carrinho</Link></li>
+                            <li><Link href="/myaccount/cart">Carrinho</Link></li>
 
-                            <li><Link href="/products">Checkout</Link></li>
+                            <li><Link href="/questions">Perguntas Frequentes</Link></li>
 
                             <li><Link href="/about">Politicas e Termos</Link></li>
                             

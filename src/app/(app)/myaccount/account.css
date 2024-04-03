@@ -34,7 +34,7 @@
         display: grid;
         gap: 27px;
         grid-template-columns: repeat(4, 1fr);
-        height: 100%;
+        height: auto !important;
     }
 }
 
@@ -44,7 +44,7 @@
         display: grid;
         gap: 27px;
         grid-template-columns: 1fr;
-        height: 100%;
+        height: auto !important;
     }
 }
 

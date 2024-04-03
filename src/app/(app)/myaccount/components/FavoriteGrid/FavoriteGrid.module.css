@@ -68,3 +68,16 @@ justify-content: center;
         grid-template-columns: repeat(2,1fr);
     }
 }
+
+
+@media screen and (max-width: 557px) {
+    .FavoriteGrid {
+        display: grid;
+        gap: 10px;
+        padding-right: 5px;
+        padding-bottom: 10px;
+        max-height: calc(100vh - 70px - 30px);
+        overflow-x: hidden;
+        grid-template-columns: 1fr;
+    }
+}

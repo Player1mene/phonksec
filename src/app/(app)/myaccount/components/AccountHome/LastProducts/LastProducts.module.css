@@ -112,8 +112,13 @@
     .lastGrid {
         display: grid;
         gap: 12px;
-        height: 100vh !important;
+        background: transparent;
+        height: auto !important;
         grid-template-columns: 1fr;
+    }
+
+    .LastProducts {
+        height: auto !important;
     }
 
     .lastWishe,
@@ -127,8 +132,10 @@
     }
 
     .innerLast {
-        grid-template-columns: 1fr;
-        height: 100% !important;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 120px !important;
     }
 
     .innerLast img {
@@ -147,8 +154,8 @@
     }
 
     .ListSingle img {
-        width: 100% !important;
-        height: 200px !important;
+        width: 100px !important;
+        height: 100px !important;
         border-radius: .4rem;
         grid-template-columns: 1 / 1 !important;
         object-fit: cover;
@@ -175,4 +182,5 @@
         gap: 5px;
         justify-content: flex-start;
     }
+
 }

@@ -28,7 +28,7 @@ export default function AccountHeader(){
             
             <li><Link href="/myaccount/requests/"><FontAwesomeIcon icon={faBagShopping}/> Meus pedidos</Link></li>
 
-            <li><Link href="/myaccount"><FontAwesomeIcon icon={faShoppingCart}/> Carrinho</Link></li>
+            <li><Link href="/myaccount/cart"><FontAwesomeIcon icon={faShoppingCart}/> Carrinho</Link></li>
 
             <li><Link href="#" onClick={()=>{logOut()}}><FontAwesomeIcon icon={faXmarkCircle}/> Fazer logout</Link></li>
         </ul>

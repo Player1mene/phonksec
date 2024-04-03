@@ -2,6 +2,8 @@
 import { redirect, useRouter } from "next/navigation";
 import React, { useContext } from "react";
 import { AdminContext } from "@/app/adminContext";
+import './account.css'
+import '../../globals.css'
 import AccountHeader from "./components/AccountHeader/AccountHeader";
 
 
