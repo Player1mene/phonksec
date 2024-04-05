@@ -136,7 +136,7 @@ export default function ProductInfo({productsId}:{ productsId: string}){
                 
                 {product ? product.data().images.map((value:string, key:number)=>(
                     <Image className={`${styles.singleSlider} panel-image  flicking-panel full has-background-primary`} src={value} key={key} alt='' width="2000" height="2000" />
-                )) : <div></div>}
+                )) : <div  className={styles.singleSkeleton} ></div>}
             
             </Flicking>
 
@@ -147,7 +147,7 @@ export default function ProductInfo({productsId}:{ productsId: string}){
 
                 {product ? product.data().images.map((value:string, key:number)=>(
                         <Image className={`flicking-panel full has-background-primary thumb-image ${styles.thumbPage}`} src={value} key={key} alt='' width="1000" height="1000" />
-                )) : <div></div>}
+                )) : <div className={`flicking-panel full has-background-primary thumb-image ${styles.thumbSkeleton}`} ></div>}
                 
             </Flicking>
 
@@ -155,14 +155,18 @@ export default function ProductInfo({productsId}:{ productsId: string}){
 
 
             <div className={styles.infoProduct}>
-               <h1>{product && `${product.data().name.length >= 60 ? product.data().name.substr(0,60)+"..." : product.data().name}`}</h1>
-               <p className={styles.price}>{product && `${product.data().lastPrice && 'Por'} R$${product.data().price}`} {product && <p style={{display: 'inline-flex', gap: "5px"}}>De <p style={{textDecoration: 'line-through'}}>{`R$${product.data().lastPrice && product.data().lastPrice}`}</p></p>}</p>
-               {product && <p>{product.data().description}</p>}
+            {product ? <h1>{`${product.data().name.length >= 60 ? product.data().name.substr(0,60)+"..." : product.data().name}`}</h1> : <div className={styles.titleSkeleton}></div>}
+               {product ? 
+              <p className={styles.price}>{product && `${product.data().lastPrice && 'Por'} R$${product.data().price}`} {product && <p style={{display: 'inline-flex', gap: "5px"}}>De <p style={{textDecoration: 'line-through'}}>{`R$${product.data().lastPrice && product.data().lastPrice}`}</p></p>}</p>
+              :
+              <div className={styles.priceSkeleton}></div>
+              }
+               {product ? <p>{product.data().description}</p> : <div className={styles.descriptionSkeleton}></div>}
                <h4>Tamanhos:</h4>
-               <div className={styles.checks}>
-                {product && product.data().sizes.map((value:string,index:number)=>(
+               <div className={product ? styles.checks : ""}>
+                {product ? product.data().sizes.map((value:string,index:number)=>(
                   <button onClick={()=>{setSize(value)}} className={`${styles.widthButton} ${size == value ? styles.widthFocus : ""}`} key={index}>{value}</button>
-                ))}
+                )): <div className={styles.sizeSkeleton}></div>}
                </div>
                <div className={styles.checkUp}>
                     <button onClick={()=>{addCart()}} className={`${inter.className} ${styles.addCart}`}>{load ? <Image width="24" height="24" alt='' src={Spinner}/> : confirm}</button>

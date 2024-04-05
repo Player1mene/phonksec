@@ -9,7 +9,7 @@ import Button from "@/app/components/inputs/Button";
 export default function CartEdit(){
 
     const { cart } = useContext(AdminContext);
-    const [total, setTotal] = useState<number>(0)
+    const [total, setTotal] = useState<string>('0,00')
 
     useEffect(()=>{
         function formatValue(value: string) : number {
@@ -19,13 +19,12 @@ export default function CartEdit(){
         }
 
         if(cart.length === 0){
-            setTotal(0);
+            setTotal('0,00');
         }else{
             var totalPrice:any = 0
-
             cart.map((value:any)=>{
                 totalPrice += formatValue(value.data().price);
-                setTotal(Number(parseFloat(totalPrice).toFixed(2)));
+                setTotal(Number.parseFloat(totalPrice).toFixed(2).toString().replace(".",","));
             })
             
         }
@@ -40,9 +39,11 @@ export default function CartEdit(){
     return(
         <div className={styles.cart}>
             <div className={styles.CartSingles}>
-                {cart.map((value:any, index:number)=>(
+                {cart.length > 0 && cart ? cart.map((value:any, index:number)=>(
                     <CartSingle product={value} key={index}/>
-                ))}
+                )):
+                <p>Nada adicionado ao carrinho ainda</p>
+                }
             </div>
             <div className={styles.CartPay}>
                     <h3>Total: R${total}</h3>
