@@ -2,7 +2,7 @@
     width: 100% !important;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 70px - 40px);
     padding: 0 27px;
 }
 
@@ -84,6 +84,8 @@
     object-fit: cover;
     object-position: center;
     height: 150px;
+     
+    background-color: white;
 }
 
 .cartInfo {
