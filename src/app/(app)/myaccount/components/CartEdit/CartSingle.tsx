@@ -9,6 +9,7 @@ export default function CartSingle({product}: { product: any}){
 
     const [productSingle, setProductSingle] = useState<any>(null)
     const [count, setCount] = useState<number>(0)
+    const [loading, setLoading] = useState<boolean>(true)
 
     useEffect(()=>{
         async function getDocument (coll:string, id:string) {
@@ -77,13 +78,17 @@ export default function CartSingle({product}: { product: any}){
         <div className={styles.CartSingle}>
             {productSingle && 
             <div className={styles.productSingle}>
-                <Image src={productSingle.images[0]} alt="" width="1000" height="1000" />
+                <div className={styles.productImage}>
+                   {loading && <div className={styles.loading}></div>} 
+                <Image src={productSingle.images[0]} alt="" onLoad={()=>{setLoading(false)}}width="1000" height="1000" />
+                </div>
                     <div className={styles.cartInfo}>
-                        <p>{productSingle.name.substr(0, 23)}...</p>
-                        <p className={styles.lastPrice}><p className={styles.lastSingle}>R${productSingle.lastPrice}</p> {productSingle.descontPercent && <p className={styles.percent}>{productSingle.descontPercent} OFF</p>}</p>
-                        <p>R${product.data().price}</p>
-                        <p>Tamanho: {product.data().size}</p>
+                        <p>{loading && <div className={styles.loading}></div>}  {productSingle.name.substr(0, 23)}...</p>
+                        <p className={styles.lastPrice}>{loading && <div className={styles.loading}></div>} <p className={styles.lastSingle}>R${productSingle.lastPrice}</p> {productSingle.descontPercent && <p className={styles.percent}>{productSingle.descontPercent} OFF</p>}</p>
+                        <p>{loading && <div className={styles.loading}></div>}  R${product.data().price}</p>
+                        <p>{loading && <div className={styles.loading}></div>}  Tamanho: {product.data().size}</p>
                         <div className={styles.count}>
+                        {loading && <div className={styles.loading}></div>} 
                             <button onClick={()=>{removeCount()}}>-</button>
                             <div className={styles.countNumber}>{count}</div>
                             <button onClick={()=>{addCount()}}>+</button>    

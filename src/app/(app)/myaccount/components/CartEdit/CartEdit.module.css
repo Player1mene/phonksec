@@ -86,14 +86,22 @@
     object-fit: cover;
     object-position: center;
     height: 150px;
-     
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     background-color: white;
+}
+
+.productImage {
+    position: relative;
 }
 
 .cartInfo {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.cartInfo p {
+    position: relative;
 }
 
 .lastPrice {
@@ -117,6 +125,7 @@
 }
 
 .count {
+    position: relative;
     display: flex;
 }
 
@@ -127,10 +136,8 @@
     align-content: center;
     justify-content: center;
     align-items: center;
-    border: 0;
     background-color: transparent;
-    
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     cursor: pointer;
 }
 
@@ -142,6 +149,44 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+
+.loading {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    -webkit-animation: AnimationName 2s infinite;
+    -moz-animation: AnimationName 2s  infinite;
+    -o-animation: AnimationName 2s  infinite;
+    animation: AnimationName 2s  infinite;
+    background: linear-gradient(310deg, #ffffff, #c6c6c6);  
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    background-size: 400% 400%;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
 }
 
 @media screen and (max-width: 550px){
