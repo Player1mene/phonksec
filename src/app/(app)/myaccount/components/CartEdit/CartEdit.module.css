@@ -185,4 +185,16 @@
         font-weight: 400;
         font-size: 16px;
     }
+
+    .CartSingles {
+        display: grid;
+        padding: 0px 3px;
+        padding-top: 3px;
+        padding-bottom: 10px;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        height: calc(100% - 70px - 100px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
 }
