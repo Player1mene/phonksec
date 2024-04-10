@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./page.module.css";
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft, faQuoteRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Handjet, Inter, League_Spartan } from 'next/font/google';
 import Link from 'next/link';
@@ -30,16 +30,10 @@ export default function Home() {
     <main className={styles.main}>
       <section className={styles.presentation}>
           <div className={`${handjet.className} ${styles.abs} `}>
-          
-            <div className={styles.absHeader}>
-              <h1>PHONKSEC DIZ:</h1>
-              <button className={styles.closeButton}>
-                <FontAwesomeIcon icon={faXmark}/>
-              </button>
-            </div>
-
             <div className={styles.welcomeInfo}>
+              <div>
               <Image alt='' width='2000' height="0" className={styles.logoImage} src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/logo-and-wallpapers%2Fphonksec_logo.png?alt=media&token=8b2a0c5c-8d85-41d7-954b-560b7d9d7e93"/>
+              </div>
               <div>
 
                 <h1>Sobre nós</h1>
@@ -169,6 +163,32 @@ Ao ler os depoimentos de nossos clientes, você entenderá o que nos diferencia 
     </div>
 
 
+</div>
+
+<div className={styles.singleDepoiment}>
+  <div className={styles.depoiment}>
+    <FontAwesomeIcon icon={faQuoteLeft} className={styles.quoteLeft}/>
+    <Image src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/peopleImages%2Fcarol.jpg?alt=media&token=c4d15369-5e4e-4b36-b6bb-6648c8a428c9" alt="Carol" width="1000" height="1000"/>
+    <h2>Carol</h2>
+    <p>"Descobri a Phonksec por acaso e desde então não consigo mais parar de comprar suas peças únicas! Cada item que adquiro é uma expressão da minha personalidade e me faz sentir poderosa. A qualidade é impecável e o estilo alternativo realmente ressoa comigo. Estou orgulhosa de fazer parte dessa comunidade vibrante!"</p>
+    <FontAwesomeIcon icon={faQuoteRight} className={styles.quoteRight}/>
+  </div>
+
+  <div className={styles.depoiment}>
+  <FontAwesomeIcon icon={faQuoteLeft} className={styles.quoteLeft}/>
+  <Image src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/peopleImages%2Fmarina.jpg?alt=media&token=1455a96b-7669-41be-895f-c5fa96fab4f3" alt="Marina" width="1000" height="1000"/>
+    <h2>Marina</h2>
+    <p>"As roupas da Phonksec são uma verdadeira obra de arte! Sou apaixonada pela criatividade e originalidade de cada coleção. O melhor de tudo é que encontro opções para todas as ocasiões, desde peças do dia a dia até looks deslumbrantes para eventos especiais. A equipe da Phonksec sempre foi incrivelmente atenciosa e ágil. Recomendo para todas as amantes de moda alternativa!"</p>
+    <FontAwesomeIcon icon={faQuoteRight} className={styles.quoteRight}/>
+  </div>
+
+  <div className={styles.depoiment}>
+  <FontAwesomeIcon icon={faQuoteLeft} className={styles.quoteLeft}/>
+  <Image src="https://firebasestorage.googleapis.com/v0/b/phonksec.appspot.com/o/peopleImages%2Fluana.jpg?alt=media&token=d2598dad-8708-4a12-ad18-dee27dd9cf9a" alt="Luana" width="1000" height="1000"/>
+    <h2>Luana</h2>
+    <p>"Como artista, sempre busquei me expressar através da moda. A Phonksec me conquistou com suas colaborações únicas com artistas e músicos. Cada peça conta uma história e me inspira a criar. A sensação de vestir uma roupa Phonksec vai muito além do estilo; é como estar conectada a uma comunidade criativa e autêntica. Mal posso esperar para ver o que eles lançarão a seguir!"</p>
+    <FontAwesomeIcon icon={faQuoteRight} className={styles.quoteRight}/>
+  </div>
 </div>
 
           </div>
