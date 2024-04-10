@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     background-color: #F0F0F0;
-    box-shadow: 0px 0px 0px 2px #ccc;
+    box-shadow: 0 0px 2px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     border-radius: 4px;
     overflow: hidden;
 }
@@ -17,7 +17,7 @@
     padding: 10px 0;
     text-align: center;
     background-color: #D9D9D9;
-    box-shadow: 0px 0px 0px 2px #ccc;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     font-size: 16px;
@@ -36,11 +36,11 @@
     display: inline-flex;
     padding: 12px 31px;
     font-size: 14px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     gap: 10px;
     align-items: center;
     color: #3F3F3F;
     font-weight: 500;
-    border-bottom: 1px solid #ccc;
 }
 
 .header ul li a svg {

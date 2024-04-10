@@ -22,7 +22,7 @@ export default function FavoriteGrid(){
                         <button onClick={()=>{deleteDoc(doc(db, "usersFavorite", wishe.id))}}><FontAwesomeIcon icon={faTrash}/></button>   
                     </div>
                 ))
-            : ""}
+            : <div className={styles.loading}></div>}
         </div>
     )
 }

@@ -13,7 +13,7 @@
     width: 100%;
     flex-direction: column;
     background-color: #F0F0F0;
-    box-shadow: 0px 0px 0px 2px #ccc;
+    box-shadow: 0 0px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     border-radius: 4px;
     height: 250px;
 }
@@ -29,7 +29,7 @@
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     background-color: #F0F0F0;
-    border-bottom: 2px solid #ccc;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
 .innerLast {
@@ -53,6 +53,14 @@
     color: #8b8b8b;
 }
 
+.innerLast {
+    position: relative;
+}
+
+.innerSingle {
+    position: relative;
+}
+
 .nothing p {
     font-weight: 500;
     color: #8b8b8b;
@@ -68,28 +76,88 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     background-color: #F0F0F0;
-    box-shadow: 0px 0px 0px 2px #ccc;
+    box-shadow: 0 0px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
 .ListSingle img {
 width: 60px;
 height: 60px;
 border-radius: .4rem;
-box-shadow: 0px 0px 1px 0px #ccc;
 grid-template-columns: 1 / 1;
 object-fit: cover;
 -o-object-fit: cover;
+box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 object-position: center;
 }
 
 .singleInfo {
-width: 100%;
-grid-column: 2 / 5;
-display: flex;
-flex-direction: column;
-gap: 5px;
-justify-content: center;
+    position: relative;
+    width: 100%;
+    grid-column: 2 / 5;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
 }
+
+.singleImage {
+    position: relative;
+}
+
+
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    -webkit-animation: AnimationName 2s infinite;
+    -moz-animation: AnimationName 2s  infinite;
+    -o-animation: AnimationName 2s  infinite;
+    animation: AnimationName 2s  infinite;
+    background: linear-gradient(310deg, #ffffff, #c6c6c6);
+    
+box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    background-size: 400% 400%;
+}
+
+.loadingAll {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 95%;
+    height: 90%;
+    border-radius: 4px;
+    -webkit-animation: AnimationName 2s infinite;
+    -moz-animation: AnimationName 2s  infinite;
+    -o-animation: AnimationName 2s  infinite;
+    animation: AnimationName 2s  infinite;
+    background: linear-gradient(310deg, #ffffff, #c6c6c6);
+    
+box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    background-size: 400% 400%;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+
 
 
 @media screen and (max-width: 1090px) {
@@ -112,7 +180,7 @@ justify-content: center;
     .listRequests,
     .listCarts {
         background-color: #F0F0F0;
-        box-shadow: 0px 0px 0px 2px #ccc;
+        box-shadow: 0 0px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
         border-radius: 4px;
         height: 300px;
     }
