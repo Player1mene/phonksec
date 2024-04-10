@@ -79,7 +79,7 @@ export default function CartSingle({product}: { product: any}){
             <div className={styles.productSingle}>
                 <Image src={productSingle.images[0]} alt="" width="1000" height="1000" />
                     <div className={styles.cartInfo}>
-                        <p>{productSingle.name}</p>
+                        <p>{productSingle.name.substr(0, 23)}...</p>
                         <p className={styles.lastPrice}><p className={styles.lastSingle}>R${productSingle.lastPrice}</p> {productSingle.descontPercent && <p className={styles.percent}>{productSingle.descontPercent} OFF</p>}</p>
                         <p>R${product.data().price}</p>
                         <p>Tamanho: {product.data().size}</p>
