@@ -54,6 +54,8 @@
     display: grid;
     padding: 0px 3px;
     padding-top: 3px;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding-bottom: 10px;
     grid-template-columns: 1fr;
     gap: 10px;
