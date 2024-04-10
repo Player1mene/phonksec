@@ -2,3 +2,12 @@
     overflow-y: auto;
     height: calc(100vh - 70px);
 }
+
+
+@media screen and (max-width: 940px) {
+    .wishes {
+        padding: 0 27px;
+        overflow-y: auto;
+        height: calc(100vh - 70px);
+    } 
+}

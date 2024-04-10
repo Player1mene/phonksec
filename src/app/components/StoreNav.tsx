@@ -11,6 +11,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import UseSearch from './Header/UseSearch'
 import { Inter } from 'next/font/google'
 import { AdminContext } from '../adminContext'
+import useMedia from '../hooks/useMedia'
 
 const inter = Inter({ subsets:['latin'] });
 
@@ -18,7 +19,7 @@ const inter = Inter({ subsets:['latin'] });
 export default function StoreNav(){
 
     
-
+    const mobile = useMedia('(max-width: 800px)')
     const user = useContext(AdminContext);
     const pathname = usePathname()
     const searchParams = useSearchParams()
@@ -31,10 +32,16 @@ export default function StoreNav(){
     }, [pathname, searchParams])
 
     useEffect(()=>{
+        if(mobile == false){
+            setSearch(false);
+        }
+    },[mobile])
+
+    useEffect(()=>{
         function menuMobile(){
+
             setCateg(false)
             setMenu(false)
-            setSearch(false)
         }
         window.addEventListener('resize',menuMobile);
 
