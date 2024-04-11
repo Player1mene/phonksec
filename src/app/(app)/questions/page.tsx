@@ -8,15 +8,6 @@ const handjet = Handjet({
     subsets: ["latin"],
     weight: ['400','500', '600','700'],
   });
-  
-  const inter = Inter({
-    subsets: ["latin"],
-  })
-  
-  const spartan = League_Spartan({
-    subsets: ["latin"],
-    weight: ['400','500', '600','700'],
-  })
 
 export default function page(){
     return(

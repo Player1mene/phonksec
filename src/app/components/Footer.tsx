@@ -32,8 +32,6 @@ export default function Footer(){
                             <li><Link href="/products">Produtos</Link></li>
 
                             <li><Link href="/about">Sobre nós</Link></li>
-                            
-                            <li><Link href="/contact">Contato</Link></li>
                         </ul>
                         <ul>
                             
@@ -44,7 +42,7 @@ export default function Footer(){
 
                             <li><Link href="/questions">Perguntas Frequentes</Link></li>
 
-                            <li><Link href="/about">Politicas e Termos</Link></li>
+                            <li><Link href="/politics">Politicas e Termos</Link></li>
                             
                         </ul>
                     </div>
