@@ -62,7 +62,7 @@ export default function NavMenu(props: {setMenu: Dispatch<SetStateAction<boolean
                             <li><Link href="/products?category=acessorios">Acessorios</Link></li>
                         </ul>}
                     </div></li>
-                    <li><Link href="/my-account"><FontAwesomeIcon icon={faHouse}/> Sobre nós</Link></li>
+                    <li><Link href="/about"><FontAwesomeIcon icon={faHouse}/> Sobre nós</Link></li>
                 </ul>
             </div>
         </div>

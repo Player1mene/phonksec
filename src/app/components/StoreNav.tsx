@@ -88,7 +88,7 @@ export default function StoreNav(){
                                 Categorias {categ ? <FontAwesomeIcon icon={faCaretDown}/> : <FontAwesomeIcon icon={faCaretRight}/>}
                             </li> 
 
-                            <li><Link href="/products">Sobre nós</Link></li>
+                            <li><Link href="/about">Sobre nós</Link></li>
 
                         </ul>
 
