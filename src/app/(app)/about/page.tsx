@@ -25,7 +25,7 @@ const spartan = League_Spartan({
 })
 
 
-export default function Home() {
+export default function page() {
 
   return (
     <main className={styles.main}>

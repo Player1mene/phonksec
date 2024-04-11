@@ -90,6 +90,14 @@
   border-radius: 2px;
 }
 
+.welcomeInfo img {
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+  -o-object-fit: cover;
+  -o-object-position: center;
+}
+
 
 .aboutGrid {
   padding: 72px 0;
@@ -377,7 +385,7 @@
   }
   
   .welcomeInfo h1 {
-    font-size: 96px;
+    font-size: 60px;
     font-weight: 500;
     max-width: 400px;
     color: #7DD149;
@@ -386,6 +394,13 @@
     line-height: 80px;
   }
 
+
+  .welcomeInfo img {
+    width: 250px;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+  }
 
 
   

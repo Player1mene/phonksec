@@ -1,0 +1,49 @@
+.dropDown {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0px 2px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    color: #1a1a1a;
+    border-radius: .5rem;
+    transition: .5s;
+    overflow: hidden;
+}
+
+.dropDown .title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-between;
+    align-content: center;
+    z-index: 1;
+    cursor: pointer;
+    background-color: white;
+    font-weight: 600;
+    padding: 20px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+}
+
+.dropDown .info {
+    z-index: 0;
+    padding: 20px;
+    transition: .5s;
+}
+
+.dropUp .info {
+    padding: 0 20px;
+    height: 0;
+    transform: translateY(-200px);
+}
+
+@media screen and (max-width: 425px) {
+
+    .dropDown .title {
+        font-size: 14px;
+    
+    }
+
+    .dropDown .info {
+        font-size: 14px !important;
+    }
+    
+}
