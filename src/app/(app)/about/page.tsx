@@ -7,6 +7,7 @@ import { Handjet, Inter, League_Spartan } from 'next/font/google';
 import Link from 'next/link';
 import Phonk from '../../../../public/image.png'
 import Image from 'next/image';
+import { Metadata } from 'next';
 
 
 
@@ -23,6 +24,10 @@ const spartan = League_Spartan({
   subsets: ["latin"],
   weight: ['400','500', '600','700'],
 })
+
+export const metadata: Metadata = {
+  title: "Sobre nós - PhonkSec",
+};
 
 
 export default function page() {

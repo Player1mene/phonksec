@@ -2,12 +2,17 @@ import { Handjet, Inter, League_Spartan } from 'next/font/google';
 import styles from './page.module.css'
 import DropDown from '@/app/components/inputs/DropDown';
 import Image from 'next/image';
+import { Metadata } from 'next';
 
 
 const handjet = Handjet({ 
     subsets: ["latin"],
     weight: ['400','500', '600','700'],
   });
+
+  export const metadata: Metadata = {
+    title: "Políticas & Termos - PhonkSec",
+  };
 
 export default function page(){
     return(
