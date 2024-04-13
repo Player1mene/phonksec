@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import styles from './page.module.css'
 import '../../globals.css'
-import LoginForm from './LoginComponents/LoginForm';
+import LoginForm from './components/LoginForm';
 import Image from 'next/image';
 
 export const metadata: Metadata = {

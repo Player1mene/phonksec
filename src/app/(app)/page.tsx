@@ -7,7 +7,7 @@ import Link from 'next/link';
 import "./app.css"
 import Phonk from '../../../public/image.png'
 import Image from 'next/image';
-import Categories from 'components/ListCategories/Categories';
+import Categories from '@/app/components/ProductsCategories/Categories';
 import ListProducts from 'components/Products/ListProducts';
 
 

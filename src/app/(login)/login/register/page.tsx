@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import styles from '../page.module.css'
 import '../../../globals.css'
 import Image from 'next/image';
-import RegisterForm from '../LoginComponents/RegisterForm';
+import RegisterForm from '../components/RegisterForm';
 
 export const metadata: Metadata = {
     title: "Cadastre-se - PhonkSec",
