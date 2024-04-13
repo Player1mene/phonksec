@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import FasHeart from '../../../../public/fasHeart.svg';
 import FarHeart from '../../../../public/farHeart.svg';
 import spinner from '../../../../public/spinner.svg'
-import styles from '../ListProducts/ListProducts.module.css'
+import styles from '../Products/ListProducts.module.css'
 
 export default function FavoriteProduct(props: {product:any}){
     const user = React.useContext(AdminContext)

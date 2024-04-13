@@ -9,7 +9,7 @@ import { db } from '@/app/db/firebase';
 import Image from 'next/image';
 import { SychronizableFlickingOptions, Sync } from '@egjs/flicking-plugins';
 import ProductInfo from './components/ProductInfo';
-import ListProducts from 'components/ListProducts/ListProducts';
+import ListProducts from '@/app/components/Products/ListProducts';
 
 
 

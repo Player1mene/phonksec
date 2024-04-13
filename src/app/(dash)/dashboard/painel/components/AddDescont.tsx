@@ -4,7 +4,7 @@ import { doc, getDoc, updateDoc} from "firebase/firestore";
 import { useEffect, useState } from "react"
 import stylesP from '../page.module.css';
 import styles from '../products/productsComponents/PageForm.module.css'
-import FormInput from "components/Inputs/FormInput";
+import FormInput from "@/app/components/FormInputs/FormInput";
 import useForm from "hooks/useform";
 import Button from "@/app/components/ButtonsInput/Button";
 

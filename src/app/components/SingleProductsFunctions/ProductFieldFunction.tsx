@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import styles from '../ListProducts/ListProducts.module.css'
+import styles from '../Products/ListProducts.module.css'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { AdminContext } from '@/app/adminContext'
@@ -9,7 +9,7 @@ import { db } from '@/app/db/firebase'
 import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-import FavoriteProduct from 'components/ProductFunctions/FavoriteProduct'
+import FavoriteProduct from './FavoriteProduct'
 
 export default function ProductFieldFunction(props : {product: any}) {
     

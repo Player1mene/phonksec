@@ -4,7 +4,7 @@ import { collection, doc, getDoc, onSnapshot, query, updateDoc, where } from "fi
 import React, { useEffect, useState } from "react"
 import stylesP from '../page.module.css';
 import styles from '../products/productsComponents/PageForm.module.css'
-import FormInput from "@/app/components/inputs/FormInput";
+import FormInput from "@/app/components/FormInputs/FormInput";
 import useForm from "@/app/hooks/useform";
 import Button from "@/app/components/ButtonsInput/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

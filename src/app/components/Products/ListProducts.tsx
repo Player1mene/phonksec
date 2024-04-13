@@ -10,7 +10,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import Link from 'next/link'
 import { truncate } from 'fs'
 import Image from 'next/image'
-import ProductFieldFunction from '../ProductFunctions/ProductFieldFunction'
+import ProductFieldFunction from '../SingleProductsFunctions/ProductFieldFunction'
 import { Products } from '@/app/models/DBShirts'
 
 export default function ListProducts(){
