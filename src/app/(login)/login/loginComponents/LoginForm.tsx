@@ -2,7 +2,7 @@
 import useForm from '@/app/hooks/useform'
 import styles from './LoginForm.module.css'
 import FormInput from '@/app/components/inputs/FormInput';
-import Button from '@/app/components/inputs/Button';
+import Button from '@/app/components/ButtonsInput/Button';
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faG } from '@fortawesome/free-solid-svg-icons';

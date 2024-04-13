@@ -9,7 +9,7 @@ import { db } from '@/app/db/firebase'
 import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImage } from '@fortawesome/free-solid-svg-icons'
-import FavoriteProduct from './FavoriteProduct'
+import FavoriteProduct from 'components/ProductFunctions/FavoriteProduct'
 
 export default function ProductFieldFunction(props : {product: any}) {
     

@@ -10,16 +10,54 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import Link from 'next/link'
 import { truncate } from 'fs'
 import Image from 'next/image'
-import ProductFieldFunction from '../productFunctions/ProductFieldFunction'
+import ProductFieldFunction from '../ProductFunctions/ProductFieldFunction'
+import { Products } from '@/app/models/DBShirts'
 
 export default function ListProducts(){
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
-    const [products, setProducts] = useState<any>([])
-    const [pageInt, setPageInt] = useState<any>(1)
-    const [total, setTotal] = useState<any>(0)
+    const [products, setProducts] = useState<Products[] | null >(null)
+    const [pageInt, setPageInt] = useState<number>(1)
+    const [total, setTotal] = useState<number>(0)
     const [loading, setLoading] = useState<boolean>(true);
+
+
+      
+    function pagination(doc:any){
+        setProducts(null)
+        setLoading(false)
+        const orderResult:any = doc.docs.sort((a:any, b:any)=>{
+            if(a.data().docDate < b.data().docDate){
+                return +1
+            }else{
+                return -1
+            }
+        })    
+        const result:any = []
+        const total = Math.ceil(orderResult.length / 10);
+        const page = pageInt;
+        setTotal(total);
+        const count = (page * 10) - 10;
+        let delimiter = count + 10;
+        if(searchParams.has('page')){
+            setPageInt(Number(searchParams.get('page')))
+        }else{
+            setPageInt(1)
+        }
+        
+        if(page <= total){
+            for(let i=count; i<delimiter; i++){
+                if(doc.docs[i] != null){
+                    result.push(orderResult[i]);
+                }
+            }
+        }
+        setProducts(result)
+}
+
+
+
 
     useEffect(()=> {
         const CollectionProduct = collection(db, "products");
@@ -30,42 +68,8 @@ export default function ListProducts(){
         const colorAndcategory = query(CollectionProduct, where("category", "==", searchParams.get('category')), where("color", "==", searchParams.get('color')));
         const colorAndsearch = query(CollectionProduct, where("color", "==", searchParams.get('color')), where("keywords", "array-contains", searchParams.get('search')));
         const categoryAndsearch = query(CollectionProduct, where("category", "==", searchParams.get('category')), where("keywords", "array-contains", searchParams.get('search')));
-        
-        
-     
-        function pagination(doc:any){
-                setProducts([])
-                setLoading(false)
-                const orderResult:any = doc.docs.sort((a:any,b:any)=>{
-                    if(a.data().docDate < b.data().docDate){
-                        return +1
-                    }else{
-                        return -1
-                    }
-                })    
-                const result:any = []
-                const total = Math.ceil(orderResult.length / 10);
-                const page = pageInt;
-                setTotal(total);
-                const count = (page * 10) - 10;
-                let delimiter = count + 10;
-                if(searchParams.has('page')){
-                    setPageInt(Number(searchParams.get('page')))
-                }else{
-                    setPageInt(1)
-                }
-                
-                if(page <= total){
-                    for(let i=count; i<delimiter; i++){
-                        if(doc.docs[i] != null){
-                            result.push(orderResult[i]);
-                        }
-                    }
-                }
-                setProducts(result)
-        }
 
-        setProducts([])
+        setProducts(null)
         setLoading(true);    
         getDocs(CollectionProduct).then((doc)=>{
             pagination(doc)
@@ -134,15 +138,15 @@ export default function ListProducts(){
         <div className={styles.ListProducts}>
             <div className={styles.products}>
 
-                {loading && products.length <= 0 ? [...Array.from(Array(10).keys())].map((num, i) => <div className={styles.skeleton} key={i}></div>) : ""}
+                {loading && products ? [...Array.from(Array(10).keys())].map((num, i) => <div className={styles.skeleton} key={i}></div>) : ""}
 
-            {products.length > 0 && products.map((val:any, index:number)=>(
+            {products && products.map((val:Products, index:number)=>(
                 <ProductFieldFunction product={val} key={index}/>
             ))}
 
             
 
-            {products.length === 0 && loading == false ?  "Nada encontrado" : ""}
+            {products && loading == false ?  "Nada encontrado" : ""}
 
 
             <div className={styles.pages}>

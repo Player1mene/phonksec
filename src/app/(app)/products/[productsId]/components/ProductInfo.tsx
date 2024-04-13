@@ -7,7 +7,7 @@ import { db } from '@/app/db/firebase';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Sync } from '@egjs/flicking-plugins';
 import { Inter } from 'next/font/google';
-import FavoriteProduct from '@/app/components/productFunctions/FavoriteProduct';
+import FavoriteProduct from 'components/ProductFunctions/FavoriteProduct';
 import { AdminContext } from '@/app/adminContext';
 import Spinner from "../../../../../../public/spinnerWhite.svg"
 const inter = Inter({ subsets: ["latin"], weight: ["100","200","300","400","500","600","700"], display: 'swap' });

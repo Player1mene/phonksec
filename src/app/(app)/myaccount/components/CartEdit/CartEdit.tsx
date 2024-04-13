@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import styles from './CartEdit.module.css'
 import { callbackify } from "util";
 import CartSingle from "./CartSingle";
-import Button from "@/app/components/inputs/Button";
+import Button from "@/app/components/ButtonsInput/Button";
 
 export default function CartEdit(){
 

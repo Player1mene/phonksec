@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
-import styles from './Footer/Footer.module.css'
+import styles from './Footer.module.css'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
-import Logo from '../../../public/phonkseclogofooter.png'
+import Logo from '../../../../public/phonkseclogofooter.png'
 
 
 const inter = Inter({ subsets:['latin'] })

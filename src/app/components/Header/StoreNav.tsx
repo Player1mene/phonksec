@@ -1,17 +1,17 @@
 'use client'
 import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Header/StoreNav.module.css'
+import styles from './StoreNav.module.css'
 import { faBars, faCaretDown, faCaretRight, faCartShopping, faMagnifyingGlass, faRightToBracket, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import Logo from '../../../public/logo.png'
+import Logo from '../../../../public/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
-import NavMenu from './Header/NavMenu'
+import NavMenu from './NavMenu'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import UseSearch from './Header/UseSearch'
+import UseSearch from './UseSearch'
 import { Inter } from 'next/font/google'
-import { AdminContext } from '../adminContext'
-import useMedia from '../hooks/useMedia'
+import { AdminContext } from '../../adminContext'
+import useMedia from 'hooks/useMedia'
 
 const inter = Inter({ subsets:['latin'] });
 

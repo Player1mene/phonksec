@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import "./app.css"
-import StoreNav from "../components/StoreNav";
+import StoreNav from "../components/Header/StoreNav";
 import { Suspense } from "react";
 import Loading from "./loading";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400","500", "600", "700"], display: 'swap' });
 

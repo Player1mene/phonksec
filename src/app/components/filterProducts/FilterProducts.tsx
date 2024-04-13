@@ -102,22 +102,19 @@ export default function ExampleClientComponent() {
     const [color, setColor] = useState<string | null>(null)
     const [category, setCategory] = useState<string | null>(null)
 
+    const handlerGetParams = useCallback(()=>{
+      const color:string = searchParams.get('color') || 'All';
+      const category:string = searchParams.get('category') || 'All';
+
+      setColor(color);
+      setCategory(category)
+
+    },[searchParams])
 
     useEffect(()=>{
-      if(searchParams.get('category') && searchParams.get('color')){
-        setColor(searchParams.get('color'))
-        setCategory(searchParams.get('category'))
-      }else if(searchParams.get('category')){
-        setColor(null)
-        setCategory(searchParams.get('category'))
-      }else if(searchParams.get('color')){
-        setCategory('All')
-        setColor(searchParams.get('color'))
-      }else{
-        setColor('All')
-        setCategory('All')
-      }
-    },[pathname, searchParams])
+      handlerGetParams();
+    },[handlerGetParams])
+
    
 
     const createQueryString = useCallback(

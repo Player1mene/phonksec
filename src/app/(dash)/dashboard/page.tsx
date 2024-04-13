@@ -2,10 +2,10 @@
 import styles from  "./page.module.css"
 import React from 'react'
 import useForm from '../../hooks/useform'
-import Back from "../../components/Back";
+import Back from "@/app/components/ButtonsInput/Back";
 import { Handjet } from 'next/font/google'
-import FormInput from '../../components/inputs/FormInput'
-import Button from "../../components/inputs/Button";
+import FormInput from 'components/Inputs/FormInput'
+import Button from "@/app/components/ButtonsInput/Button";
 import Logo from '../../../../public/logo.png'
 import Image from "next/image";
 import { AdminContext } from "../../adminContext";

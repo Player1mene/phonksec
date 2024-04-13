@@ -1,6 +1,6 @@
 import { Handjet, Inter, League_Spartan } from 'next/font/google';
 import styles from './page.module.css'
-import DropDown from '@/app/components/inputs/DropDown';
+import DropDown from 'components/Inputs/DropDown';
 import Image from 'next/image';
 
 
