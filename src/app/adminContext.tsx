@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { auth, db, provider } from './db/firebase';
 import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect, signOut } from 'firebase/auth';
-import { addDoc, collection, getDocs, onSnapshot, query, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDocs, onSnapshot, query, setDoc, where } from 'firebase/firestore';
 
 interface UserContextType {
     login: boolean,
@@ -91,7 +91,7 @@ React.useEffect(()=>{
 
 
 function createUserGoogle(user:any){
-    addDoc(collection(db, "users"), {
+    setDoc(doc(db, "users", user.uid), {
         name: user.displayName,
         userId: user.uid,
         admin: false,

@@ -11,7 +11,7 @@ import Loading from '@/app/(app)/loading';
 import Link from 'next/link';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '@/app/db/firebase';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import Logo from '../../../../../public/logo.png'
 import Image from 'next/image';
 
@@ -30,7 +30,7 @@ export default function RegisterForm(){
             createUserWithEmailAndPassword(auth, email.value, password.value)
             .then((userCredential) => {
                 const user = userCredential.user;
-                addDoc(collection(db, "users"), {
+                setDoc(doc(db, "users", user.uid), {
                     name: name.value,
                     userId: user.uid,
                     admin: false,
