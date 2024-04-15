@@ -2,7 +2,7 @@
 import { usePathname, useSearchParams, useRouter } from 'next/navigation'
 import styles from './ListProducts.module.css'
 import { useCallback, useEffect, useState } from 'react'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { WhereFilterOp, collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../../db/firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFaceFrown } from '@fortawesome/free-solid-svg-icons'
@@ -60,64 +60,32 @@ export default function ListProducts(){
 
 
     useEffect(()=> {
-        const CollectionProduct = collection(db, "products");
-        const category = query(CollectionProduct, where("category", "==", searchParams.get('category')));
-        const search = query(CollectionProduct, where("keywords", "array-contains", searchParams.get('search')));
-        const color = query(CollectionProduct, where("color", "==", searchParams.get('color')))
-        const colorAndcategoryAndsearch = query(CollectionProduct, where("color", "==", searchParams.get('color')), where("keywords", "array-contains", searchParams.get('search')), where("category", "==", searchParams.get('category'))); 
-        const colorAndcategory = query(CollectionProduct, where("category", "==", searchParams.get('category')), where("color", "==", searchParams.get('color')));
-        const colorAndsearch = query(CollectionProduct, where("color", "==", searchParams.get('color')), where("keywords", "array-contains", searchParams.get('search')));
-        const categoryAndsearch = query(CollectionProduct, where("category", "==", searchParams.get('category')), where("keywords", "array-contains", searchParams.get('search')));
 
+        const CollectionProduct = collection(db, "products");
+
+        //verificações em constantes
+        const categoryAll:string = searchParams.get('category') ? "category" : "globalType";
+        const colorAll:string = searchParams.get('color') ? "color" : "globalType";
+        const searchAll:string = searchParams.get('search') ? "keywords" : "globalType";
+        const searchVerify:WhereFilterOp = searchParams.get('search') ? "array-contains" : "==";
+
+        //constantes
+        const category:string = searchParams.get('category') || 'All'
+        const color:string = searchParams.get('color') || 'All'
+        const search:string = searchParams.get('search') || 'All'
+
+
+        //constante global
+        const All = query(CollectionProduct, 
+        where(categoryAll, "==", category), 
+        where(searchAll, searchVerify , search),
+        where(colorAll, "==" , color),
+    );
         setProducts(null)
         setLoading(true);    
-        getDocs(CollectionProduct).then((doc)=>{
+        getDocs(All).then((doc)=>{
             pagination(doc)
         });
-
-        if(searchParams.has('category') && searchParams.has('color') === false  && searchParams.has('search') === false){
-                
-                getDocs(category).then((doc)=>{
-                    pagination(doc)                
-                });
-            }
-            
-        if(searchParams.has('color') && searchParams.has('category') === false  && searchParams.has('search') === false){
-                getDocs(color).then((doc)=>{
-                   pagination(doc)
-                });
-        }
-        
-        if(searchParams.has('search') && searchParams.has('category') === false  && searchParams.has('color') === false){
-                getDocs(search).then((doc)=>{
-                    pagination(doc)
-                });
-        }
-        
-        if(searchParams.has('category') && searchParams.has('color') && searchParams.has('search') === false){
-                getDocs(colorAndcategory).then((doc)=>{
-                    pagination(doc)
-                });
-        }
-        
-        if(searchParams.has('category') && searchParams.has('color') && searchParams.has('search')){
-                getDocs(colorAndcategoryAndsearch).then((doc)=>{
-                    pagination(doc)
-                });
-        }
-         
-        if(searchParams.has('color') && searchParams.has('search') && searchParams.has('category') === false){
-                getDocs(colorAndsearch).then((doc)=>{
-                    pagination(doc)                 
-                });
-        }
-        
-        if(searchParams.has('category') && searchParams.has('search') && searchParams.has('color') === false){
-                getDocs(categoryAndsearch).then((doc)=>{
-                    pagination(doc)
-                });
-            }   
-
       
     },[pathname, searchParams,pageInt])
 
@@ -146,7 +114,7 @@ export default function ListProducts(){
 
             
 
-            {products && loading == false ?  "Nada encontrado" : ""}
+            {products?.length == 0 && loading == false ?  "Nada encontrado" : ""}
 
 
             <div className={styles.pages}>
